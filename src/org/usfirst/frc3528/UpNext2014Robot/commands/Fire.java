@@ -24,7 +24,7 @@ public class  Fire extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(.05);
+        setTimeout(.125);
         Robot.catapult.push();
     }
     // Called repeatedly when this Command is scheduled to run
