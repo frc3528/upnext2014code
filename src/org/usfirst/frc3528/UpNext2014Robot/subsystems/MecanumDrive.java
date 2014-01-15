@@ -45,8 +45,9 @@ public class MecanumDrive extends Subsystem {
                 
                 
    }
-    
+       
     public void driveWithJoystick(Joystick joystick) {
+        System.out.println("working");
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
    }
     
