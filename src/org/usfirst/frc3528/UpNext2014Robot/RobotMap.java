@@ -36,7 +36,7 @@ public class RobotMap {
     public static DigitalInput pickerUpperLowerLimit;
 
     
-    //XXX: We should abandon our RobotBuilder generated comments. We should also put our constants in a section by themselves.
+   
     public static final double SENSITIVITY = .5;
     
     
