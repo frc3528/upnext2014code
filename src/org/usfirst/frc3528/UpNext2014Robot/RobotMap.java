@@ -83,10 +83,10 @@ public class RobotMap {
         }
 	*/
         
-        frontLeftMotor = new Jaguar(1, 3);
-        backLeftMotor = new Jaguar(1, 4);
-        frontRightMotor = new Jaguar(1, 5);
-        backRightMotor = new Jaguar(1, 6);
+        frontLeftMotor = new Jaguar(3);
+        backLeftMotor = new Jaguar(4);
+        frontRightMotor = new Jaguar(5);
+        backRightMotor = new Jaguar(6);
         
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
