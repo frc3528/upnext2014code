@@ -30,12 +30,10 @@ public class RobotMap {
     public static SpeedController frontRightMotor;
     public static SpeedController backRightMotor;
     
-    //XXX: Drop the '41'. May want to rename the object to 'driveTrain'. We only have one driveTrain and if we decide to change it the name no longer applies.
-    public static RobotDrive mecanumDriveRobotDrive41;
+    public static RobotDrive mecanumDriveRobotDrive;
     public static Gyro mecanumDriveGyro1;
     
-    //XXX: I would rename this to just 'compressor'. We only have one on the robot and it's used for multiple things...typically.
-    public static Compressor catapultCompressor;
+    public static Compressor Compressor;
     public static Solenoid catapultSolenoid1;
     public static Solenoid catapultSolenoid2;
     public static Solenoid catapultSolenoid3;
@@ -90,12 +88,12 @@ public class RobotMap {
         frontRightMotor = new Jaguar(1, 5);
         backRightMotor = new Jaguar(1, 6);
         
-        mecanumDriveRobotDrive41 = new RobotDrive(frontLeftMotor, backLeftMotor,
+        mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
 	
-        mecanumDriveRobotDrive41.setSafetyEnabled(true);
-        mecanumDriveRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-        mecanumDriveRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        mecanumDriveRobotDrive.setSafetyEnabled(true);
+        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         
         /*XXX: This stuff can be problematic. And We don't even have a gyro connected.
         mecanumDriveRobotDrive41.setExpiration(0.1);
@@ -108,7 +106,7 @@ public class RobotMap {
         
         
         //XXX: I prefer the simpler 2 parameter constructor. We only have one cRIO and one module of each type.
-        catapultCompressor = new Compressor(1, 1);
+        Compressor = new Compressor(1, 1);
 	
         
         catapultSolenoid1 = new Solenoid(1);
