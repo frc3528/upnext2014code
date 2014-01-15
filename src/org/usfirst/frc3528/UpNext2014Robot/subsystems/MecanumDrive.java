@@ -12,10 +12,10 @@ import org.usfirst.frc3528.UpNext2014Robot.Utils;
  */
 public class MecanumDrive extends Subsystem {
 
-    SpeedController frontLeftMotor = RobotMap.frontLeftMotor; // front left   
-    SpeedController backLeftMotor = RobotMap.backLeftMotor; // back left
-    SpeedController frontRightMotor = RobotMap.frontRightMotor; // front right
-    SpeedController backRightMotor = RobotMap.backRightMotor; // back right
+    SpeedController frontLeftMotor = RobotMap.frontLeftMotor;   
+    SpeedController backLeftMotor = RobotMap.backLeftMotor; 
+    SpeedController frontRightMotor = RobotMap.frontRightMotor;
+    SpeedController backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
 
