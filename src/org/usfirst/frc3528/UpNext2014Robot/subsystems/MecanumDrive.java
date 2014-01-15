@@ -46,6 +46,10 @@ public class MecanumDrive extends Subsystem {
                 
    }
     
+    public void driveWithJoystick(Joystick joystick) {
+        driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
+   }
+    
     public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
         robotDrive41.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
     
