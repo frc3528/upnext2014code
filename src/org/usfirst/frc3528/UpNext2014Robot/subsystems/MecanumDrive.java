@@ -12,10 +12,10 @@ import org.usfirst.frc3528.UpNext2014Robot.Utils;
  */
 public class MecanumDrive extends Subsystem {
 
-    SpeedController jaguar1 = RobotMap.frontLeftMotor; // front left   
-    SpeedController jaguar2 = RobotMap.backLeftMotor; // back left
-    SpeedController jaguar3 = RobotMap.frontRightMotor; // front right
-    SpeedController jaguar4 = RobotMap.backRightMotor; // back right
+    SpeedController frontLeftMotor = RobotMap.frontLeftMotor; // front left   
+    SpeedController backLeftMotor = RobotMap.backLeftMotor; // back left
+    SpeedController frontRightMotor = RobotMap.frontRightMotor; // front right
+    SpeedController backRightMotor = RobotMap.backRightMotor; // back right
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
 
@@ -25,7 +25,7 @@ public class MecanumDrive extends Subsystem {
         
         //setJagLocations();
         
-        robotDrive = new RobotDrive(jaguar1,jaguar2,jaguar3,jaguar4);
+        robotDrive = new RobotDrive(frontLeftMotor,backLeftMotor,frontRightMotor,backRightMotor);
         robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 

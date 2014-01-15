@@ -82,8 +82,7 @@ public class RobotMap {
               frontRightMotor, backRightMotor);
 	
         mecanumDriveRobotDrive.setSafetyEnabled(true);
-        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+ 
         
         /*XXX: This stuff can be problematic. And We don't even have a gyro connected.
         mecanumDriveRobotDrive41.setExpiration(0.1);
@@ -95,7 +94,6 @@ public class RobotMap {
         */
         
         
-        //XXX: I prefer the simpler 2 parameter constructor. We only have one cRIO and one module of each type.
         Compressor = new Compressor(1, 1);
 	
         
@@ -120,8 +118,7 @@ public class RobotMap {
         pickerUpperSpike1 = new Relay(2);
 	LiveWindow.addActuator("PickerUpper", "Spike 1", pickerUpperSpike1);
         
-        // XXX This is a problem...we already have pwm channel in use
-        pickerUpperTalon = new Talon(1);
+        pickerUpperTalon = new Talon(3);
 	LiveWindow.addActuator("PickerUpper", "Talon", (Talon) pickerUpperTalon);
         
         
