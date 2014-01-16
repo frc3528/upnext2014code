@@ -26,11 +26,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 	RobotMap.init();
         
-        try {
             mecanumDrive = new MecanumDrive();
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
         
         //catapult = new Catapult();
         pickerUpper = new PickerUpper();
