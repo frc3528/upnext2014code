@@ -16,10 +16,10 @@ public class RobotMap {
     //public static CANJaguar mecanumDriveCANJaguar3;
     //public static CANJaguar mecanumDriveCANJaguar4;
     
-    public static SpeedController frontLeftMotor;
-    public static SpeedController backLeftMotor;
-    public static SpeedController frontRightMotor;
-    public static SpeedController backRightMotor;
+    public static CANJaguar frontLeftMotor;
+    public static CANJaguar backLeftMotor;
+    public static CANJaguar frontRightMotor;
+    public static CANJaguar backRightMotor;
     
     public static RobotDrive mecanumDriveRobotDrive;
     public static Gyro mecanumDriveGyro1;
@@ -79,10 +79,10 @@ public class RobotMap {
         }
 	*/
         
-        frontLeftMotor = new Jaguar(3);
-        backLeftMotor = new Jaguar(4);
-        frontRightMotor = new Jaguar(5);
-        backRightMotor = new Jaguar(6);
+        //frontLeftMotor = new Jaguar(3);
+        //backLeftMotor = new Jaguar(4);
+        //frontRightMotor = new Jaguar(5);
+        //backRightMotor = new Jaguar(6);
         
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
