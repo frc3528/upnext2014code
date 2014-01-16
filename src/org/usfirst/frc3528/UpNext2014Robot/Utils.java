@@ -1,18 +1,22 @@
 package org.usfirst.frc3528.UpNext2014Robot;
 
+
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import java.util.Vector;
+
 
 /**
  *
  * @author Up Next!
  */
 public class Utils {
+
     //A method used for smooth driving
     public static double rampSpeed(double input) {
         //auto set sensitivity to .5
         return rampSpeed(input, .5);
     }
+    
     
     public static double rampSpeed(double input, double sensitivity) {
 
@@ -24,11 +28,11 @@ public class Utils {
         return (sensitivity * input * input * input + (1 - sensitivity) * input);
     }
     
+    
     private static boolean IsInDeadband(double input) {
         return input > -.1 && input < .1;
     }
 
-    //Filters the input using a low pass filter
 
     public static void printToDriverStation(String in) {
         v.addElement(in);
@@ -54,6 +58,7 @@ public class Utils {
         dslcd.updateLCD();
     }
 
+
     public static void clearDriverStation() {
         printToDriverStation("");
         printToDriverStation("");
@@ -62,6 +67,8 @@ public class Utils {
         printToDriverStation("");
         printToDriverStation("");
     }
+    
+    
     private static DriverStationLCD dslcd = DriverStationLCD.getInstance();
     private static Vector v = new Vector();
     private static int lcdsize = 6;

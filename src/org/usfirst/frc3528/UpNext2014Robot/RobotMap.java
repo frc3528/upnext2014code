@@ -1,11 +1,9 @@
-
 package org.usfirst.frc3528.UpNext2014Robot;
-    
+
+
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-
 
 
 public class RobotMap {
@@ -155,11 +153,11 @@ public class RobotMap {
         pickerUpperLowerLimit = new DigitalInput(3);
 	LiveWindow.addSensor("PickerUpper", "LowerLimit", pickerUpperLowerLimit);
         
-        System.out.println("DT:" + mecanumDriveRobotDrive.getExpiration());
-        System.out.println("Fl" + frontLeftMotor.getExpiration());
-        System.out.println("bl:" + backLeftMotor.getExpiration());
-        System.out.println("bl:" + frontRightMotor.getExpiration());
-        System.out.println("bl:" + backRightMotor.getExpiration());
+        System.out.println("dt: " + mecanumDriveRobotDrive.getExpiration());
+        System.out.println("fl " + frontLeftMotor.getExpiration());
+        System.out.println("bl: " + backLeftMotor.getExpiration());
+        System.out.println("fr: " + frontRightMotor.getExpiration());
+        System.out.println("br: " + backRightMotor.getExpiration());
 
 
     }
