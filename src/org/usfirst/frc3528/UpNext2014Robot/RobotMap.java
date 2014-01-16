@@ -56,7 +56,20 @@ public class RobotMap {
             System.out.println("--- Error Constructing CAN Bus ---");
             ex.printStackTrace();
         }
-	
+	/*
+        frontLeftMotor.setExpiration(.5);
+        backLeftMotor.setExpiration(.5);
+        frontRightMotor.setExpiration(.5);
+        backRightMotor.setExpiration(.5);
+
+        
+        frontLeftMotor.setSafetyEnabled(false);
+        backLeftMotor.setSafetyEnabled(false);
+        frontRightMotor.setSafetyEnabled(false);
+        backRightMotor.setSafetyEnabled(false);
+        */
+        
+        
         /*
         try { 
             mecanumDriveCANJaguar2 = new CANJaguar(3);
@@ -91,9 +104,11 @@ public class RobotMap {
 	
         mecanumDriveRobotDrive.setSafetyEnabled(true); 
         
+        
+        
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-        mecanumDriveRobotDrive.setExpiration(0.1);
+        mecanumDriveRobotDrive.setExpiration(1);
         mecanumDriveRobotDrive.setSensitivity(0.5);
         mecanumDriveRobotDrive.setMaxOutput(1.0);
         
@@ -140,5 +155,14 @@ public class RobotMap {
         pickerUpperLowerLimit = new DigitalInput(3);
 	LiveWindow.addSensor("PickerUpper", "LowerLimit", pickerUpperLowerLimit);
         
-   }
+        System.out.println("DT:" + mecanumDriveRobotDrive.getExpiration());
+        System.out.println("Fl" + frontLeftMotor.getExpiration());
+        System.out.println("bl:" + backLeftMotor.getExpiration());
+        System.out.println("bl:" + frontRightMotor.getExpiration());
+        System.out.println("bl:" + backRightMotor.getExpiration());
+
+
+    }
 }
+
+
