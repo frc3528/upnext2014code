@@ -1,7 +1,8 @@
-package org.usfirst.frc3528.UpNext2014Robot;
+    package org.usfirst.frc3528.UpNext2014Robot;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -24,8 +25,13 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 	RobotMap.init();
- 
-        mecanumDrive = new MecanumDrive();
+        
+        try {
+            mecanumDrive = new MecanumDrive();
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        
         //catapult = new Catapult();
         pickerUpper = new PickerUpper();
    

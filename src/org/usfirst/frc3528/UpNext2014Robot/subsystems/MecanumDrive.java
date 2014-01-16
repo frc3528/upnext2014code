@@ -19,13 +19,12 @@ public class MecanumDrive extends Subsystem {
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
 
-    //XXX: Hmmmmm. Why are we doing this?
-    public MecanumDrive() throws CANTimeoutException {
+/*      public MecanumDrive() throws CANTimeoutException {
 
         //super();
         //setJagLocations();
         
-        //XXX: And especially this...double hmmmmmm. This will be a test for you and Nathanael.
+
         robotDrive = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
 
         //initializeJag(cANJaguar1);
@@ -33,7 +32,7 @@ public class MecanumDrive extends Subsystem {
         //initializeJag(cANJaguar3);
         //initializeJag(cANJaguar4);                
     }
-
+*/
     public void driveWithJoystick(Joystick joystick) {
 
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
