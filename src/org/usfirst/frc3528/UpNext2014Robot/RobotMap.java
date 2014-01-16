@@ -2,6 +2,7 @@
 package org.usfirst.frc3528.UpNext2014Robot;
     
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 
@@ -44,14 +45,19 @@ public class RobotMap {
 
         
         
-        /*
+        
         try { 
-            mecanumDriveCANJaguar1 = new CANJaguar(2);
+            System.out.println("In Try block section.");
+            frontLeftMotor = new CANJaguar(2);
+            backLeftMotor = new CANJaguar(3);
+            frontRightMotor = new CANJaguar(4);
+            backRightMotor = new CANJaguar(5);
         } catch (CANTimeoutException ex) {
+            System.out.println("In Catch block section.");
             ex.printStackTrace();
         }
 	
-        
+        /*
         try { 
             mecanumDriveCANJaguar2 = new CANJaguar(3);
         } catch (CANTimeoutException ex) {
