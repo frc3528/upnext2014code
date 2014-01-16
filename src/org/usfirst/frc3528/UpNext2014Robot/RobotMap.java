@@ -47,13 +47,13 @@ public class RobotMap {
         
         
         try { 
-            System.out.println("In Try block section.");
+            System.out.println("+++ Constructing CAN Bus +++");
             frontLeftMotor = new CANJaguar(2);
             backLeftMotor = new CANJaguar(3);
             frontRightMotor = new CANJaguar(4);
             backRightMotor = new CANJaguar(5);
         } catch (CANTimeoutException ex) {
-            System.out.println("In Catch block section.");
+            System.out.println("--- Error Constructing CAN Bus ---");
             ex.printStackTrace();
         }
 	
@@ -84,20 +84,25 @@ public class RobotMap {
         //frontRightMotor = new Jaguar(5);
         //backRightMotor = new Jaguar(6);
         
+        
+        // Constructing Mechanum Drive and setting parameters
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
 	
-        mecanumDriveRobotDrive.setSafetyEnabled(true);
- 
+        mecanumDriveRobotDrive.setSafetyEnabled(true); 
         
-        /*XXX: This stuff can be problematic. And We don't even have a gyro connected.
-        mecanumDriveRobotDrive41.setExpiration(0.1);
-        mecanumDriveRobotDrive41.setSensitivity(0.5);
-        mecanumDriveRobotDrive41.setMaxOutput(1.0);
-        mecanumDriveGyro1 = new Gyro(1, 1);
+        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        mecanumDriveRobotDrive.setExpiration(0.1);
+        mecanumDriveRobotDrive.setSensitivity(0.5);
+        mecanumDriveRobotDrive.setMaxOutput(1.0);
+        
+        /*
+        mecanumDriveGyro1 = new Gyro(1);
 	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         mecanumDriveGyro1.setSensitivity(0.007);
         */
+
         
         
         Compressor = new Compressor(1, 1);

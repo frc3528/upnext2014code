@@ -26,8 +26,7 @@ public class MecanumDrive extends Subsystem {
         //setJagLocations();
         
         robotDrive = new RobotDrive(frontLeftMotor,backLeftMotor,frontRightMotor,backRightMotor);
-        robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-        robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+
 
         //initializeJag(cANJaguar1);
         //initializeJag(cANJaguar2);
@@ -40,7 +39,7 @@ public class MecanumDrive extends Subsystem {
     public void driveWithJoystick(Joystick joystick) {
         
         //DEBUG: debugging drivetrain
-        System.out.println("working");
+        //System.out.println("working");
         
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
    }
