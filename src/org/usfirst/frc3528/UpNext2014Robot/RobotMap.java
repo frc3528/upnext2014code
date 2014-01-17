@@ -106,7 +106,7 @@ public class RobotMap {
         
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-        mecanumDriveRobotDrive.setExpiration(1);
+        mecanumDriveRobotDrive.setExpiration(0.1);
         mecanumDriveRobotDrive.setSensitivity(0.5);
         mecanumDriveRobotDrive.setMaxOutput(1.0);
         
