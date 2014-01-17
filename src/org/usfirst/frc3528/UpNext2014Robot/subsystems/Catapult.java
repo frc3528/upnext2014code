@@ -21,11 +21,7 @@ public class Catapult extends Subsystem {
     
     public void push(){
         solenoid1.set(true);
-        solenoid2.set(true);
-        solenoid3.set(true);
-        solenoid4.set (false);
-        solenoid5.set (false);
-        solenoid6.set (false);
+        solenoid2.set(false);
 
     
     } 
@@ -33,11 +29,7 @@ public class Catapult extends Subsystem {
     public void pull(){
     
         solenoid1.set(false);
-        solenoid2.set(false);
-        solenoid3.set(false);
-        solenoid4.set (true);
-        solenoid5.set (true);
-        solenoid6.set (true);
+        solenoid2.set(true);
 
     
     
