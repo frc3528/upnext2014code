@@ -17,6 +17,8 @@ public class retract extends Command {
     public retract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(Robot.catapult);
+        
     }
 
     // Called just before this Command runs the first time

@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
         
             mecanumDrive = new MecanumDrive();
         
-        //catapult = new Catapult();
+        catapult = new Catapult();
         pickerUpper = new PickerUpper();
    
         oi = new OI();

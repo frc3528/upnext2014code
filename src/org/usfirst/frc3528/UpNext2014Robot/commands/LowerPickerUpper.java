@@ -6,6 +6,7 @@
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc3528.UpNext2014Robot.Robot;
 
 /**
  *
@@ -16,6 +17,8 @@ public class LowerPickerUpper extends Command {
     public LowerPickerUpper() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(Robot.pickerUpper);
+
     }
 
     // Called just before this Command runs the first time
