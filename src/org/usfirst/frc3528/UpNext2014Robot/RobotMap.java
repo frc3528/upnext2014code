@@ -119,7 +119,8 @@ public class RobotMap {
         
         
         Compressor = new Compressor(1, 1);
-	
+	Compressor.start();
+        
         
         catapultSolenoid1 = new Solenoid(1);
 	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultSolenoid1);
