@@ -106,8 +106,7 @@ public class RobotMap {
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
 	
-        mecanumDriveRobotDrive.setSafetyEnabled(true); 
-        
+        mecanumDriveRobotDrive.setSafetyEnabled(true);  
         
         
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
@@ -126,6 +125,9 @@ public class RobotMap {
         
         Compressor = new Compressor(1, 1);
 	Compressor.start();
+        
+        
+        catapultTalon = new Talon(1);
         
         
         catapultPush = new Solenoid(1);

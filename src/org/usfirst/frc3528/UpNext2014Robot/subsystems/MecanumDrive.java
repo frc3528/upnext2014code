@@ -18,7 +18,7 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
-
+    Encoder backRightEncoder = RobotMap.BackRightEncoder;
 /*      public MecanumDrive() throws CANTimeoutException {
 
         //super();
@@ -51,12 +51,16 @@ public class MecanumDrive extends Subsystem {
 
     
     private void initializeJag(CANJaguar jag){
+        //backRightEncoder.start();
         try {
+            jag.enableControl();
             jag.configEncoderCodesPerRev(360);
             jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
-       } catch(Exception e){
+     } catch(Exception e){
           System.out.println("Error enabling closed control on Jag " + e.getMessage());
-           
+          
+          
+          
        }
     }
 }

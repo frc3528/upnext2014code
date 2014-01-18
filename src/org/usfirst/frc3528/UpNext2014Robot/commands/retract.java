@@ -23,13 +23,15 @@ public class retract extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(0.01);
+
+    //    setTimeout(0.01);
     //    Robot.catapult.pull();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    
+        double rightpower = Robot.oi.driveStick.getRawAxis(5);
+        Robot.catapult.runWinch(rightpower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
