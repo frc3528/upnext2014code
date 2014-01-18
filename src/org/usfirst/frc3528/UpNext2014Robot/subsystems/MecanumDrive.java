@@ -12,10 +12,10 @@ import org.usfirst.frc3528.UpNext2014Robot.Utils;
  */
 public class MecanumDrive extends Subsystem {
 
-    SpeedController frontLeftMotor = RobotMap.frontLeftMotor;
-    SpeedController backLeftMotor = RobotMap.backLeftMotor;
-    SpeedController frontRightMotor = RobotMap.frontRightMotor;
-    SpeedController backRightMotor = RobotMap.backRightMotor;
+    CANJaguar frontLeftMotor = RobotMap.frontLeftMotor;
+    CANJaguar backLeftMotor = RobotMap.backLeftMotor;
+    CANJaguar frontRightMotor = RobotMap.frontRightMotor;
+    CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
 
@@ -49,4 +49,14 @@ public class MecanumDrive extends Subsystem {
         setDefaultCommand(new DriveWithJoystick());
     }
 
+    
+    private void initializeJag(CANJaguar jag){
+        try {
+            jag.configEncoderCodesPerRev(360);
+            jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
+       } catch(Exception e){
+          System.out.println("Error enabling closed control on Jag " + e.getMessage());
+           
+       }
+    }
 }

@@ -18,17 +18,23 @@ public class RobotMap {
     public static CANJaguar backLeftMotor;
     public static CANJaguar frontRightMotor;
     public static CANJaguar backRightMotor;
-    
     public static RobotDrive mecanumDriveRobotDrive;
     public static Gyro mecanumDriveGyro1;
+    public static Encoder BackRightEncoder;
     
-    public static Compressor Compressor;
+    
+    public static SpeedController catapultTalon;
     public static Solenoid catapultPush;
     public static Solenoid catapultPull;
+    
+    
+    public static Compressor Compressor;
     public static Solenoid catapultSolenoid3;
     public static Solenoid catapultSolenoid4;
     public static Solenoid catapultSolenoid5;
     public static Solenoid catapultSolenoid6;
+    
+    
     public static Relay pickerUpperSpike1;
     public static SpeedController pickerUpperTalon;
     public static DigitalInput pickerUpperUpperLimit;
@@ -110,11 +116,11 @@ public class RobotMap {
         mecanumDriveRobotDrive.setSensitivity(0.5);
         mecanumDriveRobotDrive.setMaxOutput(1.0);
         
-        /*
+        
         mecanumDriveGyro1 = new Gyro(1);
 	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         mecanumDriveGyro1.setSensitivity(0.007);
-        */
+        
 
         
         

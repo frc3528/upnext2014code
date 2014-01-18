@@ -11,7 +11,9 @@ public class Catapult extends Subsystem {
     Compressor compressor = RobotMap.Compressor;
     Solenoid Push = RobotMap.catapultPush;
     Solenoid Pull = RobotMap.catapultPull;
-    //Solenoid solenoid3 = RobotMap.catapultSolenoid3;
+    
+
+//Solenoid solenoid3 = RobotMap.catapultSolenoid3;
     //Solenoid solenoid4 = RobotMap.catapultSolenoid4;
     //Solenoid solenoid5 = RobotMap.catapultSolenoid5;
     //Solenoid solenoid6 = RobotMap.catapultSolenoid6;
@@ -19,6 +21,8 @@ public class Catapult extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
+    
+    /*
     public void push(){
         
         Push.set(true);
@@ -48,7 +52,8 @@ public class Catapult extends Subsystem {
         Push.set(false);
         Pull.set(false);
     }
-        
+    */    
+    
     public void initDefaultCommand() {
 
         //setDefaultCommand(new Fire());
