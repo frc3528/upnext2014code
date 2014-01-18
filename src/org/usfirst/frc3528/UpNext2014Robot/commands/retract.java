@@ -23,7 +23,7 @@ public class retract extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(.05);
+        setTimeout(0.01);
         Robot.catapult.pull();
     }
 
@@ -39,6 +39,9 @@ public class retract extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.catapult.setSolenoidsFalse();
+    
+    
     }
 
     // Called when another command which requires one or more of the same

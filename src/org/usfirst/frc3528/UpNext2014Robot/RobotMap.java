@@ -23,8 +23,8 @@ public class RobotMap {
     public static Gyro mecanumDriveGyro1;
     
     public static Compressor Compressor;
-    public static Solenoid catapultSolenoid1;
-    public static Solenoid catapultSolenoid2;
+    public static Solenoid catapultPush;
+    public static Solenoid catapultPull;
     public static Solenoid catapultSolenoid3;
     public static Solenoid catapultSolenoid4;
     public static Solenoid catapultSolenoid5;
@@ -122,11 +122,11 @@ public class RobotMap {
 	Compressor.start();
         
         
-        catapultSolenoid1 = new Solenoid(1);
-	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultSolenoid1);
+        catapultPush = new Solenoid(1);
+	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultPush);
         
-        catapultSolenoid2 = new Solenoid(2);
-	LiveWindow.addActuator("Catapult", "Solenoid 2", catapultSolenoid2);
+        catapultPull = new Solenoid(2);
+	LiveWindow.addActuator("Catapult", "Solenoid 2", catapultPull);
         
         catapultSolenoid3 = new Solenoid(3);
 	LiveWindow.addActuator("Catapult", "Solenoid 3", catapultSolenoid3);

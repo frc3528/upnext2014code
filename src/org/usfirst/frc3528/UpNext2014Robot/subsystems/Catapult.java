@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Catapult extends Subsystem {
 
     Compressor compressor = RobotMap.Compressor;
-    Solenoid solenoid1 = RobotMap.catapultSolenoid1;//push
-    Solenoid solenoid2 = RobotMap.catapultSolenoid2;//pull
+    Solenoid Push = RobotMap.catapultPush;
+    Solenoid Pull = RobotMap.catapultPull;
     //Solenoid solenoid3 = RobotMap.catapultSolenoid3;
     //Solenoid solenoid4 = RobotMap.catapultSolenoid4;
     //Solenoid solenoid5 = RobotMap.catapultSolenoid5;
@@ -21,27 +21,34 @@ public class Catapult extends Subsystem {
     
     public void push(){
         
-        solenoid1.set(true);
-        Timer.delay(0.01);
-        solenoid1.set(false);
+        Push.set(true);
+        //Timer.delay(0.01);
+        //solenoid1.set(false);
+        
+        Pull.set(false);
 
     
     } 
     
     public void pull(){
     
-        solenoid2.set(true);
-        Timer.delay(0.01);
-        solenoid2.set(false);
+        Pull.set(true);
+        //Timer.delay(0.01);
+        //solenoid1.set(false);
+        
+        Push.set(false);
         
 
     
     
     }
     
-    
-    
-    
+    public void setSolenoidsFalse(){
+        
+        Push.set(false);
+        Pull.set(false);
+    }
+        
     public void initDefaultCommand() {
 
         //setDefaultCommand(new Fire());
