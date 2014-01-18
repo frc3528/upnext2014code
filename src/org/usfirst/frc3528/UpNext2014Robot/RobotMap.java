@@ -50,10 +50,7 @@ public class RobotMap {
     public static final double SENSITIVITY = .5;
     
     
-    public static void init() {
-
-        
-        
+    public static void init() {        
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");
@@ -64,55 +61,13 @@ public class RobotMap {
         } catch (CANTimeoutException ex) {
             System.out.println("--- Error Constructing CAN Bus ---");
             ex.printStackTrace();
-        }
-	/*
-        frontLeftMotor.setExpiration(.5);
-        backLeftMotor.setExpiration(.5);
-        frontRightMotor.setExpiration(.5);
-        backRightMotor.setExpiration(.5);
-
-        
-        frontLeftMotor.setSafetyEnabled(false);
-        backLeftMotor.setSafetyEnabled(false);
-        frontRightMotor.setSafetyEnabled(false);
-        backRightMotor.setSafetyEnabled(false);
-        */
-        
-        
-        /*
-        try { 
-            mecanumDriveCANJaguar2 = new CANJaguar(3);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-	
-        
-        try { 
-            mecanumDriveCANJaguar3 = new CANJaguar(4);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-	
-        
-        try { 
-            mecanumDriveCANJaguar4 = new CANJaguar(5);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-	*/
-        
-        //frontLeftMotor = new Jaguar(3);
-        //backLeftMotor = new Jaguar(4);
-        //frontRightMotor = new Jaguar(5);
-        //backRightMotor = new Jaguar(6);
-        
-        
+        }        
+               
         // Constructing Mechanum Drive and setting parameters
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
 	
-        mecanumDriveRobotDrive.setSafetyEnabled(true);  
-        
+        mecanumDriveRobotDrive.setSafetyEnabled(true);        
         
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
@@ -121,12 +76,10 @@ public class RobotMap {
         mecanumDriveRobotDrive.setMaxOutput(1.0);
         
         
+        /*
         mecanumDriveGyro1 = new Gyro(1);
 	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
-        mecanumDriveGyro1.setSensitivity(0.007);
-        
-
-        
+        mecanumDriveGyro1.setSensitivity(0.007);        
         
         Compressor = new Compressor(1, 1);
 	Compressor.start();
@@ -158,14 +111,19 @@ public class RobotMap {
         
         pickerUpperTalon = new Talon(3);
 	LiveWindow.addActuator("PickerUpper", "Talon", (Talon) pickerUpperTalon);
+        */
+        
         
         
         // XXX Make sure these are unique inputs...I believe they are
+        /*
         pickerUpperUpperLimit = new DigitalInput(2);
 	LiveWindow.addSensor("PickerUpper", "UpperLimit", pickerUpperUpperLimit);
         
         pickerUpperLowerLimit = new DigitalInput(3);
 	LiveWindow.addSensor("PickerUpper", "LowerLimit", pickerUpperLowerLimit);
+        */
+        
         
         System.out.println("dt: " + mecanumDriveRobotDrive.getExpiration());
         System.out.println("fl " + frontLeftMotor.getExpiration());

@@ -49,7 +49,7 @@ public class MecanumDrive extends Subsystem {
         setDefaultCommand(new DriveWithJoystick());
     }
 
-    
+   /* 
     private void initializeJag(CANJaguar jag){
         //backRightEncoder.start();
         try {
@@ -62,5 +62,5 @@ public class MecanumDrive extends Subsystem {
           
           
        }
-    }
+    }*/
 }
