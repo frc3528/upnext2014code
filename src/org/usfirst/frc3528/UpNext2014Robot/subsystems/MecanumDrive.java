@@ -18,27 +18,25 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
-  
-/*      public MecanumDrive() throws CANTimeoutException {
+            
+  /*    
+  public MecanumDrive() throws CANTimeoutException {
 
-        //super();
-        //setJagLocations();
+        super();
+        setJagLocations();
         
 
         robotDrive = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
-
-        //initializeJag(cANJaguar1);
-        //initializeJag(cANJaguar2);
-        //initializeJag(cANJaguar3);
-        //initializeJag(cANJaguar4);                
-    }
-*/
+    */
+                 
+    
+    
     public void driveWithJoystick(Joystick joystick) {
 
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
         
     }
-
+    
     public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
         robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
         //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
@@ -48,19 +46,77 @@ public class MecanumDrive extends Subsystem {
     public void initDefaultCommand() {
         setDefaultCommand(new DriveWithJoystick());
     }
-
-   
-    private void initializeJag(CANJaguar jag){
-        //RobotMap.BackRightEncoder.start();
+    
+        
+    
+    public void setPositionFrontLeft(double distance) {
         try {
-            jag.enableControl();
-            jag.configEncoderCodesPerRev(360);
-            jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
-     } catch(Exception e){
-          System.out.println("Error enabling closed control on Jag " + e.getMessage());
-          
-          
-          
-       }
+            frontLeftMotor.setX(distance);
+        } catch (Exception e) {
+            System.out.println("Error setting FrontRight Position: " + e.getMessage());
+        }
+    }    
+    
+    public void setPositionBackLeft(double distance) {
+        try {
+            backLeftMotor.setX(distance);
+        } catch (Exception e) {
+            System.out.println("Error setting FrontRight Position: " + e.getMessage());
+        }
     }
+    
+    public void setPositionFrontRight(double distance) {
+        try {
+            frontRightMotor.setX(distance);
+        } catch (Exception e) {
+            System.out.println("Error setting FrontRight Position: " + e.getMessage());
+        }
+    }  
+    
+    public void setPositionBackRight(double distance) {
+        try {
+            backRightMotor.setX(distance);
+        } catch (Exception e) {
+            System.out.println("Error setting FrontRight Position: " + e.getMessage());
+        }
+    }
+        
+        
+    
+    
+    
+    public void zeroEncoders() {
+        try {
+            frontRightMotor.disableControl();
+            frontLeftMotor.disableControl();
+            backRightMotor.disableControl();
+            backLeftMotor.disableControl();
+            frontRightMotor.enableControl(0);
+            frontLeftMotor.enableControl(0);
+            backRightMotor.enableControl(0);
+            backLeftMotor.enableControl(0);
+        } catch (Exception e) {
+            System.out.println("Error zeroing encoders: " + e.getMessage());
+        }
+    }
+    
+    
+    
+    
+    public void SetPositionMode() {
+        try {
+            backLeftMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
+            backRightMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
+            frontLeftMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
+            frontRightMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
+
+        } catch (Exception e) {
+            System.out.println("Error setting jag into position mode: " + e.getMessage());
+        }
+    }
+    
+    
+    
+    
+   
 }

@@ -85,12 +85,10 @@ public class RobotMap {
         mecanumDriveRobotDrive.setExpiration(0.1);
         mecanumDriveRobotDrive.setSensitivity(0.5);
         mecanumDriveRobotDrive.setMaxOutput(1.0);
-        
-        
-        
+           
         
        
-        /*
+         /*
         mecanumDriveGyro1 = new Gyro(1);
 	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         mecanumDriveGyro1.setSensitivity(0.007);        
@@ -154,6 +152,25 @@ public class RobotMap {
 
 
     }
-}
 
+  private void initializeJag(CANJaguar jag){
+        //RobotMap.BackRightEncoder.start();
+        try {
+            jag.enableControl();
+            jag.configEncoderCodesPerRev(360);
+            jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
+     } catch(Exception e){
+          System.out.println("Error enabling closed control on Jag " + e.getMessage());
+          
+          
+          
+       }
+    
+        initializeJag(frontLeftMotor);
+        initializeJag(backLeftMotor);
+        initializeJag(frontRightMotor);
+        initializeJag(backRightMotor);      
+        
+    }
+}
 
