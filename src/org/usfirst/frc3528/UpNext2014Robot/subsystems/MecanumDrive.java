@@ -114,9 +114,4 @@ public class MecanumDrive extends Subsystem {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
         }
     }
-    
-    
-    
-    
-   
 }

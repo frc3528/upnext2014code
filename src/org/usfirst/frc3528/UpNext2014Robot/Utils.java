@@ -7,7 +7,7 @@ import java.util.Vector;
 
 /**
  *
- * @author Up Next!
+ * 
  */
 public class Utils {
 
