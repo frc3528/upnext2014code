@@ -25,14 +25,15 @@ public class  DriveWithJoystick extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         //RobotMap.BackRightEncoder.start();
-    
+        Robot.mecanumDrive.SetPositionMode();
     }
     
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {    
         Robot.mecanumDrive.driveWithJoystick(Robot.oi.driveStick);
-       
+        
+        
         try {
         System.out.println("BR Encoder = " + RobotMap.backRightMotor.getPosition());
        } catch(CANTimeoutException e) {

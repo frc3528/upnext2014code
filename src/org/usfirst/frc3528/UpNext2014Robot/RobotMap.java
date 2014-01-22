@@ -157,6 +157,7 @@ public class RobotMap {
         //RobotMap.BackRightEncoder.start();
         try {
             jag.enableControl();
+            
             jag.configEncoderCodesPerRev(360);
             jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
      } catch(Exception e){
