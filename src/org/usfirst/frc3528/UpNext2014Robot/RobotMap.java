@@ -20,25 +20,31 @@ public class RobotMap {
     public static CANJaguar backRightMotor;
     public static RobotDrive mecanumDriveRobotDrive;
     public static Gyro mecanumDriveGyro1;
+    public static Encoder FrontLeftEncoder;
+    public static Encoder BackLeftEncoder;
+    public static Encoder FrontRightEncoder;
     public static Encoder BackRightEncoder;
-    
+
     
     public static SpeedController catapultTalon;
+    
+    
+    /*
     public static Solenoid catapultPush;
     public static Solenoid catapultPull;
-    
-    
     public static Compressor Compressor;
     public static Solenoid catapultSolenoid3;
     public static Solenoid catapultSolenoid4;
     public static Solenoid catapultSolenoid5;
     public static Solenoid catapultSolenoid6;
-    
+    */
     
     public static Relay pickerUpperSpike1;
-    public static SpeedController pickerUpperTalon;
-    public static DigitalInput pickerUpperUpperLimit;
-    public static DigitalInput pickerUpperLowerLimit;
+    public static SpeedController pickerUpperTalon1;
+    public static SpeedController pickerUpperTalon2;
+    
+    //public static DigitalInput pickerUpperUpperLimit;
+    //public static DigitalInput pickerUpperLowerLimit;
     
     
     public static final String cameraAddress = "10.35.28.11";
@@ -50,7 +56,10 @@ public class RobotMap {
     public static final double SENSITIVITY = .5;
     
     
+    
     public static void init() {        
+        
+    
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");
@@ -63,6 +72,8 @@ public class RobotMap {
             ex.printStackTrace();
         }        
                
+        
+        
         // Constructing Mechanum Drive and setting parameters
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
               frontRightMotor, backRightMotor);
@@ -76,18 +87,23 @@ public class RobotMap {
         mecanumDriveRobotDrive.setMaxOutput(1.0);
         
         
+        
+        
+       
         /*
         mecanumDriveGyro1 = new Gyro(1);
 	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         mecanumDriveGyro1.setSensitivity(0.007);        
         
         Compressor = new Compressor(1, 1);
-	Compressor.start();
+        Compressor.start();
+        */
+        
         
         
         catapultTalon = new Talon(1);
         
-        
+        /*
         catapultPush = new Solenoid(1);
 	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultPush);
         
@@ -105,13 +121,18 @@ public class RobotMap {
         
         catapultSolenoid6 = new Solenoid(6);
 	LiveWindow.addActuator("Catapult", "Solenoid 6", catapultSolenoid6);
+        */
+        
+        
+        
         
         pickerUpperSpike1 = new Relay(2);
 	LiveWindow.addActuator("PickerUpper", "Spike 1", pickerUpperSpike1);
         
-        pickerUpperTalon = new Talon(3);
-	LiveWindow.addActuator("PickerUpper", "Talon", (Talon) pickerUpperTalon);
-        */
+        pickerUpperTalon1 = new Talon(3);
+        pickerUpperTalon2 = new Talon(4);
+        LiveWindow.addActuator("PickerUpper", "Talon", (Talon) pickerUpperTalon1);
+        
         
         
         

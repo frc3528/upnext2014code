@@ -12,18 +12,16 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class RaisePickerUpper extends Command {
+public class startPickerUpper extends Command {
     
-    public RaisePickerUpper() {
+    public startPickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(Robot.pickerUpper);
-    
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.pickerUpper.Raise();
+        Robot.pickerUpper.Start();
     }
 
     // Called repeatedly when this Command is scheduled to run

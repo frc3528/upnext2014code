@@ -32,12 +32,12 @@ public class  DriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {    
         Robot.mecanumDrive.driveWithJoystick(Robot.oi.driveStick);
-       /*
+       
         try {
         System.out.println("BR Encoder = " + RobotMap.backRightMotor.getPosition());
        } catch(CANTimeoutException e) {
            e.printStackTrace();
-       }*/
+       }
   }
        
     

@@ -18,7 +18,7 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
-    Encoder backRightEncoder = RobotMap.BackRightEncoder;
+  
 /*      public MecanumDrive() throws CANTimeoutException {
 
         //super();
@@ -49,9 +49,9 @@ public class MecanumDrive extends Subsystem {
         setDefaultCommand(new DriveWithJoystick());
     }
 
-   /* 
+   
     private void initializeJag(CANJaguar jag){
-        //backRightEncoder.start();
+        //RobotMap.BackRightEncoder.start();
         try {
             jag.enableControl();
             jag.configEncoderCodesPerRev(360);
@@ -62,5 +62,5 @@ public class MecanumDrive extends Subsystem {
           
           
        }
-    }*/
+    }
 }
