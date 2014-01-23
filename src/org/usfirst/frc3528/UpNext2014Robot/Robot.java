@@ -27,7 +27,8 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         
             mecanumDrive = new MecanumDrive();
-        
+                    
+
         //catapult = new Catapult();
         //pickerUpper = new PickerUpper();
    
@@ -59,7 +60,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-    }
+    
+        
+        }
     
     
     /**

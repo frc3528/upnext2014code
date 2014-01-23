@@ -26,14 +26,14 @@ public class OI {
         driveStick = new Joystick(1);
         controlStick = new Joystick(2);
         
-        /*
+        
         aButton = new JoystickButton(driveStick, 1);
-        aButton.whenPressed(new Fire());
+        aButton.whenPressed(new zeroEncoders());
 
-
+        
         bButton = new JoystickButton(driveStick, 2);
-        bButton.whenPressed(new retract());
-        */
+        bButton.whenPressed(new printEncoderCount());
+        
         
         
 // SmartDashboard Buttons

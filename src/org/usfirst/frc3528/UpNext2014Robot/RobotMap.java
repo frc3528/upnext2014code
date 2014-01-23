@@ -72,6 +72,11 @@ public class RobotMap {
             ex.printStackTrace();
         }        
                
+        initializeJag(frontLeftMotor);
+        initializeJag(backLeftMotor);
+        initializeJag(frontRightMotor);
+        initializeJag(backRightMotor);  
+        
         
         
         // Constructing Mechanum Drive and setting parameters
@@ -153,25 +158,15 @@ public class RobotMap {
 
     }
 
-  private void initializeJag(CANJaguar jag){
-        //RobotMap.BackRightEncoder.start();
+  private static void initializeJag(CANJaguar jag){
+        //BackRightEncoder.start();
         try {
-            jag.enableControl();
-            
+            jag.enableControl(0);
             jag.configEncoderCodesPerRev(360);
             jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
      } catch(Exception e){
           System.out.println("Error enabling closed control on Jag " + e.getMessage());
-          
-          
-          
        }
-    
-        initializeJag(frontLeftMotor);
-        initializeJag(backLeftMotor);
-        initializeJag(frontRightMotor);
-        initializeJag(backRightMotor);      
-        
     }
 }
 

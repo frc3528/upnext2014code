@@ -22,14 +22,11 @@ public class MecanumDrive extends Subsystem {
   /*    
   public MecanumDrive() throws CANTimeoutException {
 
-        super();
-        setJagLocations();
-        
 
         robotDrive = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
     */
                  
-    
+   
     
     public void driveWithJoystick(Joystick joystick) {
 
@@ -41,6 +38,15 @@ public class MecanumDrive extends Subsystem {
         robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
         //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
 
+    
+     /*
+     try {
+       System.out.println("BR = " + frontRightMotor.getPosition());
+         } catch (CANTimeoutException ex) {
+             System.out.println("--- Error Printing Encoder ---");
+                ex.printStackTrace();
+             }
+    */
     }
 
     public void initDefaultCommand() {
@@ -48,6 +54,11 @@ public class MecanumDrive extends Subsystem {
     }
     
         
+    
+    
+    
+    
+    
     
     public void setPositionFrontLeft(double distance) {
         try {
@@ -80,13 +91,19 @@ public class MecanumDrive extends Subsystem {
             System.out.println("Error setting FrontRight Position: " + e.getMessage());
         }
     }
-        
-        
+    
+   
     
     
     
+    
+    
+    
+    
+     
     public void zeroEncoders() {
         try {
+            System.out.println("--- Working ---");
             frontRightMotor.disableControl();
             frontLeftMotor.disableControl();
             backRightMotor.disableControl();
@@ -98,6 +115,7 @@ public class MecanumDrive extends Subsystem {
         } catch (Exception e) {
             System.out.println("Error zeroing encoders: " + e.getMessage());
         }
+   
     }
     
     
