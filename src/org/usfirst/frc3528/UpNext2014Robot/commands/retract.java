@@ -24,8 +24,6 @@ public class retract extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 
-    //    setTimeout(0.01);
-    //    Robot.catapult.pull();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -36,12 +34,11 @@ public class retract extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return Robot.catapult.winchLimit();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    //    Robot.catapult.setSolenoidsFalse();
     
     
     }

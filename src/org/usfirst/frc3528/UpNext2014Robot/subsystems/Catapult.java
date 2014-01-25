@@ -20,9 +20,7 @@ public class Catapult extends Subsystem {
     
     public void runWinch(double righty){
         talon.set(righty);
-    
-    
-    
+        
     }
     
     
@@ -31,29 +29,18 @@ public class Catapult extends Subsystem {
     
     }
     
-    /*
-    public void push(){
-        
-        Push.set(true);
-        //Timer.delay(0.01);
-        //solenoid1.set(false);
-        
-        Pull.set(false);
-    } 
-     public void pull(){
     
-        Pull.set(true);
-        //Timer.delay(0.01);
-        //solenoid1.set(false);
+    public void solenoidOff(){
+        clutchspike.set(Relay.Value.kOff);
         
-        Push.set(false);
-     }
-      public void setSolenoidsFalse(){
-        
-        Push.set(false);
-        Pull.set(false);
+    }    
+    
+    
+    public boolean winchLimit(){
+           return winchLimit.get();
+    
     }
-    */    
+
     
     public void initDefaultCommand() {
 
