@@ -27,20 +27,20 @@ public class OI {
         controlStick = new Joystick(2);
         
         
-        aButton = new JoystickButton(driveStick, 1);
-        aButton.whenPressed(new Fire());
+        //aButton = new JoystickButton(driveStick, 1);
+        //aButton.whenPressed(new DriveWinchWithJoystick());
 
         
         //bButton = new JoystickButton(driveStick, 2);
-        //bButton.whenPressed(new printEncoderCount());
+        //bButton.whenPressed(new solenoidOff());
         
         
         
 // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous", new Autonomous());
         SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
-        SmartDashboard.putData("Fire", new Fire());
-        SmartDashboard.putData("Retract", new retract());
+        //SmartDashboard.putData("Fire", new solenoidOn());
+        //SmartDashboard.putData("Retract", new DriveWinchWithJoystick());
         //SmartDashboard.putData("Fire", new Fire());
     
     }

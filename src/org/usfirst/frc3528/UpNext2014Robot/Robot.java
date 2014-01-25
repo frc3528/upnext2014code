@@ -30,9 +30,7 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         
             mecanumDrive = new MecanumDrive();
-            
-
-        //catapult = new Catapult();
+            //catapult = new Catapult();
         //pickerUpper = new PickerUpper();
    
         oi = new OI();

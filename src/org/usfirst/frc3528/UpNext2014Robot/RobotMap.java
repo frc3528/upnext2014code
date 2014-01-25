@@ -118,7 +118,7 @@ public class RobotMap {
         
         
         catapultTalon = new Talon(1);
-        clutchSpike = new Relay(1);
+        clutchSpike = new Relay(2);
         winchLimit = new DigitalInput(2);
                 
         /*
@@ -144,7 +144,7 @@ public class RobotMap {
         
         
         
-        pickerUpperSpike1 = new Relay(2);
+        pickerUpperSpike1 = new Relay(3);
 	LiveWindow.addActuator("PickerUpper", "Spike 1", pickerUpperSpike1);
         
         pickerUpperTalon1 = new Talon(3);

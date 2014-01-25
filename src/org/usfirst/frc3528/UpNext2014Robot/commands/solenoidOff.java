@@ -12,35 +12,29 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class retract extends Command {
+public class solenoidOff extends Command {
     
-    public retract() {
+    public solenoidOff() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(Robot.catapult);
-        
+        //requires(Robot.catapult);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-
+       Robot.catapult.solenoidOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double rightpower = Robot.oi.driveStick.getRawAxis(5);
-        Robot.catapult.runWinch(rightpower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.catapult.winchLimit();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    
-    
     }
 
     // Called when another command which requires one or more of the same

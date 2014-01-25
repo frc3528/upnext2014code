@@ -4,13 +4,13 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
 /**
  *
  */
-public class  Fire extends Command {
-    public Fire() {
+public class  solenoidOn extends Command {
+    public solenoidOn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
 
-        requires(Robot.catapult);
+        //requires(Robot.catapult);
 
     }
     // Called just before this Command runs the first time
