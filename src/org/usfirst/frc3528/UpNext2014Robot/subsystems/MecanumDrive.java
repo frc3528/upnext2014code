@@ -18,118 +18,91 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.mecanumDriveGyro1;
-            
-  /*    
-  public MecanumDrive() throws CANTimeoutException {
 
-
-        robotDrive = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
-    */
                  
-   
-    
-    public void driveWithJoystick(Joystick joystick) {
+   public void driveWithJoystick(Joystick joystick) {
 
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
         
     }
     
-    public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
+   //main driving method 
+   public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
         robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
         //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
-
-    
-     /*
-     try {
-       System.out.println("BR = " + frontRightMotor.getPosition());
-         } catch (CANTimeoutException ex) {
-             System.out.println("--- Error Printing Encoder ---");
+         
+         try{
+            System.out.println("FR = " + frontLeftMotor.getPosition());
+         }catch (CANTimeoutException ex) {
+            System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-    */
+    
     }
 
+    
     public void initDefaultCommand() {
         setDefaultCommand(new DriveWithJoystick());
     }
     
-        
     
-    
-    
-    
-    
-    
-    public void setPositionFrontLeft(double distance) {
-        try {
-            frontLeftMotor.setX(distance);
-        } catch (Exception e) {
-            System.out.println("Error setting FrontRight Position: " + e.getMessage());
-        }
-    }    
-    
-    public void setPositionBackLeft(double distance) {
-        try {
-            backLeftMotor.setX(distance);
-        } catch (Exception e) {
-            System.out.println("Error setting FrontRight Position: " + e.getMessage());
-        }
-    }
-    
-    public void setPositionFrontRight(double distance) {
-        try {
-            frontRightMotor.setX(distance);
-        } catch (Exception e) {
-            System.out.println("Error setting FrontRight Position: " + e.getMessage());
-        }
-    }  
-    
-    public void setPositionBackRight(double distance) {
-        try {
-            backRightMotor.setX(distance);
-        } catch (Exception e) {
-            System.out.println("Error setting FrontRight Position: " + e.getMessage());
-        }
-    }
-    
-   
-    
-    
-    
-    
-    
-    
-    
-     
-    public void zeroEncoders() {
-        try {
-            System.out.println("--- Working ---");
-            frontRightMotor.disableControl();
-            frontLeftMotor.disableControl();
-            backRightMotor.disableControl();
-            backLeftMotor.disableControl();
-            frontRightMotor.enableControl(0);
-            frontLeftMotor.enableControl(0);
-            backRightMotor.enableControl(0);
-            backLeftMotor.enableControl(0);
-        } catch (Exception e) {
-            System.out.println("Error zeroing encoders: " + e.getMessage());
-        }
-   
-    }
-    
-    
-    
-    
-    public void SetPositionMode() {
-        try {
-            backLeftMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
-            backRightMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
-            frontLeftMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
-            frontRightMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
-
-        } catch (Exception e) {
+    //readies jags for autonomous
+    public void SetPositionMode(CANJaguar jag) {
+        try{
+            jag.changeControlMode(CANJaguar.ControlMode.kPosition);
+            jag.setPID(RobotMap.p, RobotMap.i, RobotMap.d);
+            jag.enableControl(0);
+        }catch (Exception e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
         }
     }
+
+    
+    //zeros the encoders for teleop 
+    public void zeroEncoders(CANJaguar jag) {
+        try{
+            jag.changeControlMode(CANJaguar.ControlMode.kPosition);
+            jag.enableControl(0);
+        }catch (Exception e) {
+            System.out.println("Error zeroing encoders: " + e.getMessage());
+        
+        }
+    }
+
+    
+    //readies jags for teleop
+    public void SetPercentMode(CANJaguar jag) {
+        try{
+            jag.changeControlMode(CANJaguar.ControlMode.kPercentVbus);
+            jag.setPID(0, 0, 0);
+            jag.disableControl();
+        }catch (Exception e) {
+            System.out.println("Error setting jag into position mode: " + e.getMessage());
+        }
+    }
+
+
+
+   //tells a single jag to drive X inches  
+    public void driveByInches(CANJaguar jag, double distance) {
+        
+        try{
+            double fr = jag.getPosition();
+            double newpos = fr + (distance / RobotMap.INCHES_PER_REV);
+            jag.setX(newpos);
+        }catch (CANTimeoutException ex) {
+            System.out.println("--- Error running autonomous ---");
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    //tells a single jag to drive X feet
+    public void driveByFeet(CANJaguar jag, double distance) {
+        distance = (distance * 12);
+        driveByInches(jag, distance);
+
+    }
 }
+

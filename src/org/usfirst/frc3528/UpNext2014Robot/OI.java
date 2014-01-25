@@ -27,12 +27,12 @@ public class OI {
         controlStick = new Joystick(2);
         
         
-        aButton = new JoystickButton(driveStick, 1);
-        aButton.whenPressed(new zeroEncoders());
+        //aButton = new JoystickButton(driveStick, 1);
+        //aButton.whenPressed(new ());
 
         
-        bButton = new JoystickButton(driveStick, 2);
-        bButton.whenPressed(new printEncoderCount());
+        //bButton = new JoystickButton(driveStick, 2);
+        //bButton.whenPressed(new printEncoderCount());
         
         
         

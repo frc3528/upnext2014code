@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -16,14 +17,17 @@ public class zeroEncoders extends Command {
     
     public zeroEncoders() {
         // Use requires() here to declare subsystem dependencies
-       requires(Robot.mecanumDrive);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    
-        Robot.mecanumDrive.zeroEncoders();
-    
+        System.out.println("--- zeroing jags ---");
+        Robot.mecanumDrive.zeroEncoders(RobotMap.frontLeftMotor);
+        Robot.mecanumDrive.zeroEncoders(RobotMap.backLeftMotor);
+        Robot.mecanumDrive.zeroEncoders(RobotMap.frontRightMotor);
+        Robot.mecanumDrive.zeroEncoders(RobotMap.backRightMotor);
+
     }
 
     // Called repeatedly when this Command is scheduled to run

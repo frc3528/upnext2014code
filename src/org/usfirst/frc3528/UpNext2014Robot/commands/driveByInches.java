@@ -14,25 +14,28 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  *
  * @author TeamUpNext
  */
-public class printEncoderCount extends Command {
+public class driveByInches extends Command {
     
-    public printEncoderCount() {
+    public driveByInches() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.mecanumDrive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        Robot.mecanumDrive.driveByInches(RobotMap.frontLeftMotor, 18.84);
+        Robot.mecanumDrive.driveByInches(RobotMap.frontRightMotor, 18.84);
+        Robot.mecanumDrive.driveByInches(RobotMap.backLeftMotor, 18.84);
+        Robot.mecanumDrive.driveByInches(RobotMap.backRightMotor, 18.84);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-         
-        
-        try {
-       System.out.println("BR = " + RobotMap.frontRightMotor.getPosition());
-         } catch (CANTimeoutException ex) {
-             System.out.println("--- Error Printing Encoder ---");
+
+        try{
+            System.out.println("FR = " + RobotMap.frontLeftMotor.getPosition());
+         }catch (CANTimeoutException ex) {
+            System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
     }

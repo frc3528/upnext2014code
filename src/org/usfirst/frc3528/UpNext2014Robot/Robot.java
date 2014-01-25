@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         
             mecanumDrive = new MecanumDrive();
-                    
+            
 
         //catapult = new Catapult();
         //pickerUpper = new PickerUpper();
@@ -35,15 +35,19 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 	
         // instantiate the command used for the autonomous period
-           autonomousCommand = new Autonomous();
+           autonomousCommand = new driveByInches();
    
     }
     
     
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
-    }
+        //if (autonomousCommand != null) 
+        RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
+        new zeroEncoders().start();
+        new setPositionMode().start();
+        autonomousCommand.start();
+          }
     
     
     /**
@@ -60,10 +64,11 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        new zeroEncoders().start();
+        new setPercentMode().start();
     
-        
-        }
-    
+    }
+   
     
     /**
      * This function is called periodically during operator control

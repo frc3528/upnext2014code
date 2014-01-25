@@ -55,8 +55,15 @@ public class RobotMap {
     
     public static final double SENSITIVITY = .5;
     
+    public static final double p = 10.0;
+    public static final double i = 0.01;
+    public static final double d = 0.01;
     
+    public static final double PI = 3.141592653;
+    public static final double WHEEL_DIAMETER = 6;
+    public static final double INCHES_PER_REV = (PI * WHEEL_DIAMETER);
     
+  
     public static void init() {        
         
     
@@ -159,12 +166,11 @@ public class RobotMap {
     }
 
   private static void initializeJag(CANJaguar jag){
-        //BackRightEncoder.start();
-        try {
-            jag.enableControl(0);
-            jag.configEncoderCodesPerRev(360);
-            jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
-     } catch(Exception e){
+      try{
+          jag.enableControl(0);
+          jag.configEncoderCodesPerRev(360);
+          jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
+      }catch(Exception e){
           System.out.println("Error enabling closed control on Jag " + e.getMessage());
        }
     }
