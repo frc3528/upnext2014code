@@ -39,6 +39,8 @@ public class OI {
 // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous", new Autonomous());
         SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
+        SmartDashboard.putData("Fire", new Fire());
+        SmartDashboard.putData("Retract", new retract());
         //SmartDashboard.putData("Fire", new Fire());
     
     }

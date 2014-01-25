@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3528.UpNext2014Robot.commands.*;
 import org.usfirst.frc3528.UpNext2014Robot.subsystems.*;
 
@@ -13,6 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.subsystems.*;
 public class Robot extends IterativeRobot {
     
     Command autonomousCommand;
+    SendableChooser autoChooser;
     public static OI oi;
  
     public static MecanumDrive mecanumDrive;
@@ -36,13 +39,18 @@ public class Robot extends IterativeRobot {
 	
         // instantiate the command used for the autonomous period
            autonomousCommand = new driveByInches();
-   
+           
+           autoChooser = new SendableChooser();
+           autoChooser.addDefault("Default program", new Autonomous());
+           autoChooser.addObject("Experimental auto", new Autonomous());
+           SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
     
     
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
+        autonomousCommand = (Command) autoChooser.getSelected();
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
         new setPositionMode().start();
