@@ -2,6 +2,7 @@ package org.usfirst.frc3528.UpNext2014Robot;
 
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.camera.AxisCamera;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -13,6 +14,8 @@ public class RobotMap {
     //public static CANJaguar mecanumDriveCANJaguar2;
     //public static CANJaguar mecanumDriveCANJaguar3;
     //public static CANJaguar mecanumDriveCANJaguar4;
+    
+    public static AxisCamera targetingCamera;
     
     public static CANJaguar frontLeftMotor;
     public static CANJaguar backLeftMotor;
@@ -47,7 +50,7 @@ public class RobotMap {
     //public static DigitalInput pickerUpperLowerLimit;
     
     
-    public static final String cameraAddress = "10.35.28.11";
+    public static final String cameraAddress = "10.35.28.12";
     public static final int cameraBrightness = 25;
     public static final int cameraCompression = 0;
     public static final int cameraColorLevel = 0;
@@ -67,6 +70,8 @@ public class RobotMap {
     public static void init() {        
         
     
+        
+        targetingCamera = AxisCamera.getInstance(cameraAddress);
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");

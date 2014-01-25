@@ -18,8 +18,7 @@ import edu.wpi.first.wpilibj.image.NIVisionException;
  * @author Holden
  */
 public class Targeter {
-    
-    private AxisCamera targetCam;
+    AxisCamera targetCam = RobotMap.targetingCamera;
     
     public ColorImage getTargetingImage() throws AxisCameraException, NIVisionException {  
         return targetCam.getImage();
