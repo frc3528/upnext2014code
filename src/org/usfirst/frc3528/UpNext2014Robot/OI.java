@@ -27,8 +27,8 @@ public class OI {
         controlStick = new Joystick(2);
         
         
-        //aButton = new JoystickButton(driveStick, 1);
-        //aButton.whenPressed(new ());
+        aButton = new JoystickButton(driveStick, 1);
+        aButton.whenPressed(new Fire());
 
         
         //bButton = new JoystickButton(driveStick, 2);

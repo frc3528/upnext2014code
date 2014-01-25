@@ -12,41 +12,35 @@ public class Catapult extends Subsystem {
     //Solenoid Push = RobotMap.catapultPush;
     //Solenoid Pull = RobotMap.catapultPull;
     SpeedController talon = RobotMap.catapultTalon;
-
-  
+    Relay clutchspike = RobotMap.clutchSpike;
+    DigitalInput winchLimit = RobotMap.winchLimit;
+        
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
     public void runWinch(double righty){
         talon.set(righty);
+        
+    }
     
     
+    public void solenoidOn(){
+        clutchspike.set(Relay.Value.kForward);
     
     }
     
- /*
-    public void push(){
-        
-        Push.set(true);
-        //Timer.delay(0.01);
-        //solenoid1.set(false);
-        
-        Pull.set(false);
-    } 
-     public void pull(){
     
-        Pull.set(true);
-        //Timer.delay(0.01);
-        //solenoid1.set(false);
+    public void solenoidOff(){
+        clutchspike.set(Relay.Value.kOff);
         
-        Push.set(false);
-     }
-      public void setSolenoidsFalse(){
-        
-        Push.set(false);
-        Pull.set(false);
+    }    
+    
+    
+    public boolean winchLimit(){
+           return winchLimit.get();
+    
     }
-    */    
+
     
     public void initDefaultCommand() {
 

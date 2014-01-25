@@ -30,7 +30,8 @@ public class RobotMap {
 
     
     public static SpeedController catapultTalon;
-    
+    public static Relay clutchSpike;
+    public static DigitalInput winchLimit;
     
     /*
     public static Solenoid catapultPush;
@@ -117,7 +118,9 @@ public class RobotMap {
         
         
         catapultTalon = new Talon(1);
-        
+        clutchSpike = new Relay(1);
+        winchLimit = new DigitalInput(2);
+                
         /*
         catapultPush = new Solenoid(1);
 	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultPush);
