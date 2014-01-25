@@ -18,11 +18,17 @@ public class Catapult extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    public void runWinch(double righty){
+    public void drive(double righty){
         talon.set(righty);
         
     }
     
+    
+    public void stop(){
+        talon.set(0);
+    
+    }
+
     
     public void solenoidOn(){
         clutchspike.set(Relay.Value.kForward);
@@ -44,9 +50,7 @@ public class Catapult extends Subsystem {
     
     public void initDefaultCommand() {
 
-        setDefaultCommand(new retract());
+        //setDefaultCommand(new DriveWinchWithJoystick());
 
-	// Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
 }
