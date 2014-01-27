@@ -57,7 +57,7 @@ public class RobotMap {
     //public static DigitalInput pickerUpperLowerLimit;
     
     
-    public static final String cameraAddress = "10.35.28.12";
+    public static final String cameraAddress = "10.35.28.11";
     public static final int cameraBrightness = 25;
     public static final int cameraCompression = 0;
     public static final int cameraColorLevel = 0;
