@@ -21,8 +21,11 @@ public class RobotMap {
     public static CANJaguar backLeftMotor;
     public static CANJaguar frontRightMotor;
     public static CANJaguar backRightMotor;
+    
     public static RobotDrive mecanumDriveRobotDrive;
-    public static Gyro mecanumDriveGyro1;
+    
+    public static Gyro driveTrainGyro;
+    
     public static Encoder FrontLeftEncoder;
     public static Encoder BackLeftEncoder;
     public static Encoder FrontRightEncoder;
@@ -33,15 +36,18 @@ public class RobotMap {
     public static Relay clutchSpike;
     public static DigitalInput winchLimit;
     
-    /*
-    public static Solenoid catapultPush;
-    public static Solenoid catapultPull;
+  
+    public static Solenoid engageWinch;
+    public static Solenoid disengagedWinch;
+    
+    
     public static Compressor Compressor;
-    public static Solenoid catapultSolenoid3;
-    public static Solenoid catapultSolenoid4;
-    public static Solenoid catapultSolenoid5;
-    public static Solenoid catapultSolenoid6;
-    */
+    
+
+    //public static Solenoid catapultSolenoid4;
+    //public static Solenoid catapultSolenoid5;
+    //public static Solenoid catapultSolenoid6;
+    
     
     public static Relay pickerUpperSpike1;
     public static SpeedController pickerUpperTalon1;
@@ -106,14 +112,15 @@ public class RobotMap {
            
         
        
-         /*
-        mecanumDriveGyro1 = new Gyro(1);
-	LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
-        mecanumDriveGyro1.setSensitivity(0.007);        
+         
+        driveTrainGyro = new Gyro(1);
+	//LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
+        driveTrainGyro.setSensitivity(0.007);        
+        
         
         Compressor = new Compressor(1, 1);
         Compressor.start();
-        */
+        
         
         
         
@@ -121,13 +128,13 @@ public class RobotMap {
         clutchSpike = new Relay(2);
         winchLimit = new DigitalInput(2);
                 
+        
+        engageWinch = new Solenoid(1);
+        disengagedWinch = new Solenoid(2);
+
+	
+        
         /*
-        catapultPush = new Solenoid(1);
-	LiveWindow.addActuator("Catapult", "Solenoid 1", catapultPush);
-        
-        catapultPull = new Solenoid(2);
-	LiveWindow.addActuator("Catapult", "Solenoid 2", catapultPull);
-        
         catapultSolenoid3 = new Solenoid(3);
 	LiveWindow.addActuator("Catapult", "Solenoid 3", catapultSolenoid3);
         

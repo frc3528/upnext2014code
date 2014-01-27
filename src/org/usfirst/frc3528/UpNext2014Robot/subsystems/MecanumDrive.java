@@ -17,7 +17,7 @@ public class MecanumDrive extends Subsystem {
     CANJaguar frontRightMotor = RobotMap.frontRightMotor;
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
-    Gyro gyro1 = RobotMap.mecanumDriveGyro1;
+    Gyro gyro1 = RobotMap.driveTrainGyro;
 
                  
    public void driveWithJoystick(Joystick joystick) {
