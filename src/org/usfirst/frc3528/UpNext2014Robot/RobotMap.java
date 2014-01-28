@@ -36,21 +36,18 @@ public class RobotMap {
     public static Relay clutchSpike;
     public static DigitalInput winchLimit;
     
-  
     public static Solenoid engageWinch;
     public static Solenoid disengageWinch;
-    
     public static Solenoid latch;
     public static Solenoid unlatch;
     
-    public static Compressor Compressor;
-   
-    //public static Solenoid catapultSolenoid6;
     
+    public static Compressor Compressor;
+  
     
     public static Relay pickerUpperSpike1;
-    public static SpeedController pickerUpperTalon1;
-    public static SpeedController pickerUpperTalon2;
+    public static Solenoid Armup;
+    public static Solenoid Armdown;
     
     //public static DigitalInput pickerUpperUpperLimit;
     //public static DigitalInput pickerUpperLowerLimit;
@@ -144,11 +141,8 @@ public class RobotMap {
         
         
         pickerUpperSpike1 = new Relay(3);
-	LiveWindow.addActuator("PickerUpper", "Spike 1", pickerUpperSpike1);
-        
-        pickerUpperTalon1 = new Talon(3);
-        pickerUpperTalon2 = new Talon(4);
-        LiveWindow.addActuator("PickerUpper", "Talon", (Talon) pickerUpperTalon1);
+	Armup = new Solenoid(5);
+        Armdown = new Solenoid(6);
         
         
         

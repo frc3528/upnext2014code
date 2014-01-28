@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class PickerUpper extends Subsystem {
 
     Relay spike1 = RobotMap.pickerUpperSpike1;
-    SpeedController talon1 = RobotMap.pickerUpperTalon1;
-    SpeedController talon2 = RobotMap.pickerUpperTalon2;
+    Solenoid Armup = RobotMap.Armup;
+    Solenoid Armdown = RobotMap.Armdown;
     //DigitalInput upperLimit = RobotMap.pickerUpperUpperLimit;
     //DigitalInput lowerLimit = RobotMap.pickerUpperLowerLimit;
     
@@ -19,18 +19,23 @@ public class PickerUpper extends Subsystem {
     // here. Call these from Commands.
     
     public void Lower(){
-        
-    
+        Armdown.set(true);
+        Armup.set(false);
     
     }
     
     public void Raise(){
-    
-    
-    
-    
+        Armup.set(true);
+        Armdown.set(false);
+
     }
         
+    public void DisableArm(){
+        Armup.set(false);
+        Armdown.set(false);
+
+    }
+    
     public void Start(){
         spike1.set(Relay.Value.kOn);
     }
