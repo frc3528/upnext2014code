@@ -21,6 +21,7 @@ public class Robot extends IterativeRobot {
     public static MecanumDrive mecanumDrive;
     public static Catapult catapult;
     public static PickerUpper pickerUpper;
+    public static Targeter targeter;
  
     /**
      * This function is run when the robot is first started up and should be
@@ -32,6 +33,7 @@ public class Robot extends IterativeRobot {
             mecanumDrive = new MecanumDrive();
             catapult = new Catapult();
             //pickerUpper = new PickerUpper();
+            targeter = new Targeter();
    
         oi = new OI();
 	
