@@ -5,47 +5,38 @@
  */
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
-import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
  * @author TeamUpNext
  */
-public class driveByFeet extends Command {
+public class Unlatch extends Command {
     
-    public driveByFeet() {
+    public Unlatch() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.mecanumDrive);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, 10);
+        setTimeout(.075);
+        Robot.catapult.latch();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        try{
-            System.out.println("FR = " + RobotMap.frontLeftMotor.getPosition());
-         }catch (CANTimeoutException ex) {
-            System.out.println("--- Error Printing Encoder ---");
-                ex.printStackTrace();
-             }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.catapult.disablelatch();
     }
 
     // Called when another command which requires one or more of the same

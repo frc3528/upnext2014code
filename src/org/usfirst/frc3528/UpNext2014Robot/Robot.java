@@ -30,13 +30,13 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         
             mecanumDrive = new MecanumDrive();
-            //catapult = new Catapult();
-        //pickerUpper = new PickerUpper();
+            catapult = new Catapult();
+            //pickerUpper = new PickerUpper();
    
         oi = new OI();
 	
         // instantiate the command used for the autonomous period
-           autonomousCommand = new driveByInches();
+           autonomousCommand = new DriveByInches();
            
            autoChooser = new SendableChooser();
            autoChooser.addDefault("Default program", new Autonomous());

@@ -38,14 +38,13 @@ public class RobotMap {
     
   
     public static Solenoid engageWinch;
-    public static Solenoid disengagedWinch;
+    public static Solenoid disengageWinch;
     
+    public static Solenoid latch;
+    public static Solenoid unlatch;
     
     public static Compressor Compressor;
-    
-
-    //public static Solenoid catapultSolenoid4;
-    //public static Solenoid catapultSolenoid5;
+   
     //public static Solenoid catapultSolenoid6;
     
     
@@ -73,7 +72,6 @@ public class RobotMap {
     public static final double WHEEL_DIAMETER = 6;
     public static final double INCHES_PER_REV = (PI * WHEEL_DIAMETER);
     
-  
     public static void init() {        
         
     
@@ -130,17 +128,11 @@ public class RobotMap {
                 
         
         engageWinch = new Solenoid(1);
-        disengagedWinch = new Solenoid(2);
-
-	
-        
+        disengageWinch = new Solenoid(2);
+        latch = new Solenoid(3);   
+        unlatch = new Solenoid(4);
+	       
         /*
-        catapultSolenoid3 = new Solenoid(3);
-	LiveWindow.addActuator("Catapult", "Solenoid 3", catapultSolenoid3);
-        
-        catapultSolenoid4 = new Solenoid(4);
-	LiveWindow.addActuator("Catapult", "Solenoid 4", catapultSolenoid4);
-        
         catapultSolenoid5 = new Solenoid(5);
 	LiveWindow.addActuator("Catapult", "Solenoid 5", catapultSolenoid5);
         

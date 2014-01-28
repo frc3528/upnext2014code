@@ -18,25 +18,25 @@ public class OI {
     public Joystick driveStick;
     public Joystick controlStick;
     public JoystickButton aButton;
-    public JoystickButton bButton;
-
+    public JoystickButton yButton;
+    public JoystickButton xButton;
     public OI() {
     
         // create joysticks
         driveStick = new Joystick(1);
         controlStick = new Joystick(2);
         
-        
-        //aButton = new JoystickButton(driveStick, 1);
-        //aButton.whenPressed(new DriveWinchWithJoystick());
+        aButton = new JoystickButton(driveStick, 1);
+        aButton.whenPressed(new DriveWinchWithJoystick());
 
+        yButton = new JoystickButton(driveStick, 4);
+        yButton.whenPressed(new EngageWinch());
         
-        //bButton = new JoystickButton(driveStick, 2);
-        //bButton.whenPressed(new solenoidOff());
+        xButton = new JoystickButton(driveStick, 3);
+        xButton.whenPressed(new DisengageWinch());
         
         
-        
-// SmartDashboard Buttons
+        //SmartDashboard Buttons
         SmartDashboard.putData("Autonomous", new Autonomous());
         SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
         //SmartDashboard.putData("Fire", new solenoidOn());
