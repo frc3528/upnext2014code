@@ -12,9 +12,9 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class stopPickerUpper extends Command {
+public class StopPickerUpper extends Command {
     
-    public stopPickerUpper() {
+    public StopPickerUpper() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

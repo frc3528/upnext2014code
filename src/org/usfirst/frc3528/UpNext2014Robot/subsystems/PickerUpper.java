@@ -37,7 +37,7 @@ public class PickerUpper extends Subsystem {
     }
     
     public void Start(){
-        spike1.set(Relay.Value.kOn);
+        spike1.set(Relay.Value.kForward);
     }
     
     public void Stop(){

@@ -17,12 +17,13 @@ public class LowerPickerUpper extends Command {
     public LowerPickerUpper() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.pickerUpper);
+      
 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        setTimeout(.075);
         Robot.pickerUpper.Lower();
     }
 
@@ -32,11 +33,12 @@ public class LowerPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.pickerUpper.DisableArm();
     }
 
     // Called when another command which requires one or more of the same
