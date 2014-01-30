@@ -5,6 +5,7 @@ import org.usfirst.frc3528.UpNext2014Robot.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3528.UpNext2014Robot.Utils;
 
 /**
@@ -19,7 +20,13 @@ public class MecanumDrive extends Subsystem {
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.driveTrainGyro;
 
-                 
+    public MecanumDrive() {
+        //gyro1 = new Gyro(RobotMap.GYRO_CHANNEL);
+        gyro1.setSensitivity(RobotMap.GYRO_SENSITIVITY);
+        gyro1.reset();
+    }
+    
+    
    public void driveWithJoystick(Joystick joystick) {
 
         driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
@@ -37,7 +44,8 @@ public class MecanumDrive extends Subsystem {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-    
+         System.out.println("Gyro angle: " + gyro1.getAngle());
+         SmartDashboard.putNumber("Gyro", gyro1.getAngle());
     }
 
     

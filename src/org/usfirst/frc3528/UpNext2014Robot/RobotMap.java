@@ -15,6 +15,9 @@ public class RobotMap {
     //public static CANJaguar mecanumDriveCANJaguar3;
     //public static CANJaguar mecanumDriveCANJaguar4;
     
+    public static final int GYRO_CHANNEL = 1;
+    public static final double GYRO_SENSITIVITY = .007;
+    
     public static AxisCamera targetingCamera;
     
     public static CANJaguar frontLeftMotor;
