@@ -1,0 +1,19 @@
+A button = 1
+B button = 2
+X button = 3
+Y button = 4
+L bumper = 5
+R bumper = 6
+Back button = 7
+Start button = 8
+Left thumbstick click = 9
+Right thumbstick click = 10
+left stick x = 1
+left stick y = 2
+Left trigger = - on the Z axis (3)
+Right trigger = + on the Z axis (3)
+Right stick x = 4
+Right stick y = 5
+D pad left/right = 6
+
+
