@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Catapult extends Subsystem {
     SpeedController winchTalon = RobotMap.catapultTalon;
-    Relay clutchspike = RobotMap.clutchSpike;
     DigitalInput winchLimit = RobotMap.winchLimit;
     Solenoid engageWinch = RobotMap.engageWinch;
     Solenoid disengageWinch = RobotMap.disengageWinch;

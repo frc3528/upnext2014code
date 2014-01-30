@@ -12,9 +12,9 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class Unlatch extends Command {
+public class Fire extends Command {
     
-    public Unlatch() {
+    public Fire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,7 +22,7 @@ public class Unlatch extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         setTimeout(.075);
-        Robot.catapult.latch();
+        Robot.catapult.unlatch();
     }
 
     // Called repeatedly when this Command is scheduled to run

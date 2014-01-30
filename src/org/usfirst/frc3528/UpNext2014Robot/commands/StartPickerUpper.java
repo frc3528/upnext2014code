@@ -15,7 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
 public class StartPickerUpper extends Command {
     
     public StartPickerUpper() {
-        // Use requires() here to declare subsystem dependencies
+        requires(Robot.pickerUpper); 
     }
 
     // Called just before this Command runs the first time
@@ -29,7 +29,7 @@ public class StartPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
