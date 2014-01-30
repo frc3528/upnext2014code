@@ -7,8 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Catapult extends Subsystem {
-    SpeedController talon = RobotMap.catapultTalon;
-    Relay clutchspike = RobotMap.clutchSpike;
+    SpeedController winchTalon = RobotMap.catapultTalon;
     DigitalInput winchLimit = RobotMap.winchLimit;
     Solenoid engageWinch = RobotMap.engageWinch;
     Solenoid disengageWinch = RobotMap.disengageWinch;
@@ -19,7 +18,7 @@ public class Catapult extends Subsystem {
     // here. Call these from Commands.
     
     public void drive(double righty){
-        talon.set(righty);
+        winchTalon.set(righty);
         
     }
      
@@ -29,7 +28,7 @@ public class Catapult extends Subsystem {
     }
     
     public void stop(){
-        talon.set(0);
+        winchTalon.set(0);
     
     }
 
@@ -39,12 +38,10 @@ public class Catapult extends Subsystem {
         disengageWinch.set(false);
     }
     
-    
     public void disengageWinch(){
         disengageWinch.set(true);
         engageWinch.set(false);
     }    
-    
     
     public void freeWinch(){
         engageWinch.set(false);
@@ -58,18 +55,15 @@ public class Catapult extends Subsystem {
       unlatch.set(false);
     }
     
-   
-    public void unlatch(){
+   public void unlatch(){
       unlatch.set(true);
       latch.set(false);  
     }
 
-    
     public void disablelatch(){
         latch.set(false);
         unlatch.set(false);
     }
-    
     
     
     public void initDefaultCommand() {

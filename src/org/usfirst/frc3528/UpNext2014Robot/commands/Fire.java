@@ -12,16 +12,17 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class stopPickerUpper extends Command {
+public class Fire extends Command {
     
-    public stopPickerUpper() {
+    public Fire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.pickerUpper.Stop();
+        setTimeout(.075);
+        Robot.catapult.unlatch();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,11 +31,12 @@ public class stopPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.catapult.disablelatch();
     }
 
     // Called when another command which requires one or more of the same
