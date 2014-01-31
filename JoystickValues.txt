@@ -1,0 +1,96 @@
+A button = 1
+B button = 2
+X button = 3
+Y button = 4
+L bumper = 5
+R bumper = 6
+Back button = 7
+Start button = 8
+Left thumbstick click = 9
+Right thumbstick click = 10
+left stick x = 1
+left stick y = 2
+Left trigger = - on the Z axis (3)
+Right trigger = + on the Z axis (3)
+Right stick x = 4
+Right stick y = 5
+D pad left/right = 6
+
+
+============================================================================================
+
+drivestick
+
+A button = 
+
+B button = 
+
+X button = 
+
+Y button = 
+
+L bumper = 
+
+R bumper = 
+
+Back button = 
+
+Start button = 
+
+Left thumbstick click = 
+
+Right thumbstick click = 
+
+left stick x = 
+
+left stick y = 
+
+Left trigger = - on the Z axis
+ 
+Right trigger = + on the Z axis 
+
+Right stick x = 
+
+Right stick y = 
+
+D pad left/right = 
+
+
+============================================================================================
+
+controlstick
+
+
+A button = 
+
+B button = 
+
+X button = 
+
+Y button = 
+
+L bumper = 
+
+R bumper = 
+
+Back button = 
+
+Start button = 
+
+Left thumbstick click = 
+
+Right thumbstick click = 
+
+left stick x = 
+
+left stick y = 
+
+Left trigger = - on the Z axis
+ 
+Right trigger = + on the Z axis 
+
+Right stick x = 
+
+Right stick y = 
+
+D pad left/right = 

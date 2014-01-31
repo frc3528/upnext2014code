@@ -71,11 +71,12 @@ public class RobotMap {
     public static Relay pickerUpperSpike1;
     public static Solenoid Armup;
     public static Solenoid Armdown;
-    
-    //public static DigitalInput pickerUpperUpperLimit;
-    //public static DigitalInput pickerUpperLowerLimit;
-    
-    
+
+    public static final int A_BUTTON = 1;
+    public static final int B_BUTTON = 2;
+    public static final int X_BUTTON = 3;
+    public static final int Y_BUTTON = 4;
+ 
     public static final String cameraAddress = "10.35.28.11";
     public static final int cameraBrightness = 25;
     public static final int cameraCompression = 0;
