@@ -73,8 +73,7 @@ public class Catapult extends Subsystem {
     
     
     public void initDefaultCommand() {
-
-        //setDefaultCommand(new DriveWinchWithJoystick());
+        //setDefaultCommand(new RaisePickerUpper());
 
     }
 }

@@ -16,7 +16,7 @@ public class StopPickerUpper extends Command {
     
     public StopPickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.pickerUpper);
     }
 
     // Called just before this Command runs the first time

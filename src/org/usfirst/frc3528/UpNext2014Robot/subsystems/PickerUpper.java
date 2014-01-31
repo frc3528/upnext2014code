@@ -51,7 +51,7 @@ public class PickerUpper extends Subsystem {
     
     
     public void initDefaultCommand() {
-        //setDefaultCommand(new LowerPickerUpper());
+        setDefaultCommand(new RaisePickerUpper());
 
 	
         // Set the default command for a subsystem here.

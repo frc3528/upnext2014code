@@ -34,6 +34,7 @@ public class RobotMap {
     public static Encoder FrontRightEncoder;
     public static Encoder BackRightEncoder;
     
+    
     // Control stick constants
     public static final int CTRL_A_BUTTON = 1; // Fire button
     public static final int CTRL_B_BUTTON = 2; // Load button
@@ -46,14 +47,15 @@ public class RobotMap {
     public static final int CTRL_Z_AXIS = 3; // Raise/Lower arm
     public static final int CTRL_DPAD = 6; // Open/Close latch
     public static final int CTRL_LEFT_STICK_Y = 2; // Drive Winch
-    
+    public static final int CTRL_LEFT_STICK_CLICK = 9; // Latch
+
     
     // Drive stick constants
     public static final int DRIVE_BACK_BUTTON = 7; // Decrease sensitivity
     public static final int DRIVE_START_BUTTON = 8; // Increase sensitivity
     public static final int DRIVE_LEFT_STICK_X = 1; // Drive X
     public static final int DRIVE_LEFT_STICK_Y = 2; // Drive Y
-    public static final int DRIVE_Z_AXIS = 6; // Drive (Rotation)
+    public static final int DRIVE_Z_AXIS = 3; // Drive (Rotation)
     
     
     public static SpeedController catapultTalon;
@@ -72,14 +74,6 @@ public class RobotMap {
     public static Solenoid Armup;
     public static Solenoid Armdown;
 
-    public static final int A_BUTTON = 1;
-    public static final int B_BUTTON = 2;
-    public static final int X_BUTTON = 3;
-    public static final int Y_BUTTON = 4;
-    public static final int L_BUMPER = 5;
-    public static final int R_BUMPER = 6;
-
-    
     
     public static final String cameraAddress = "10.35.28.11";
     public static final int cameraBrightness = 25;
@@ -87,7 +81,7 @@ public class RobotMap {
     public static final int cameraColorLevel = 0;
     
     
-    public static final double SENSITIVITY = .5;
+    public static double SENSITIVITY = .5;
     
     public static final double p = 10.0;
     public static final double i = 0.01;

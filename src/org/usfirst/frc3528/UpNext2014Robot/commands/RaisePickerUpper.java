@@ -13,31 +13,39 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  * @author TeamUpNext
  */
 public class RaisePickerUpper extends Command {
+ 
     
     public RaisePickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.pickerUpper);
         
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(.075);
-        Robot.pickerUpper.Raise();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+         double Arm = Robot.oi.controlStick.getRawAxis(3);
+            if(Arm > 0.5){
+                Robot.pickerUpper.Lower();
+        }
+            if(Arm < -0.5){
+                Robot.pickerUpper.Raise();
+        }
+            if(Arm == 0){
+                Robot.pickerUpper.DisableArm();
+        }
+    
+            
     }
-
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
-    }
+        return false;    }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.pickerUpper.DisableArm();
     }
 
     // Called when another command which requires one or more of the same

@@ -17,43 +17,51 @@ public class OI {
     
     public Joystick driveStick;
     public Joystick controlStick;
-    public JoystickButton aButton;
-    public JoystickButton bButton;
-    public JoystickButton yButton;
-    public JoystickButton xButton;
-    public JoystickButton lBumper;
-    public JoystickButton rBumper;
+    public JoystickButton Fire;
+    public JoystickButton PrimeCatapult;
+    public JoystickButton DisengageWinch;
+    public JoystickButton EngageWinch;
+    public JoystickButton StartPickerUpperWheels;
+    public JoystickButton StopPickerUpperWheels;
+    public JoystickButton Latch;
+    public JoystickButton IncreaseSensitivity;
+    public JoystickButton DecreaseSensitivity;
+
+
     public OI() {       
     
         // create joysticks
         driveStick = new Joystick(1);
 
+        IncreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_START_BUTTON);
+        IncreaseSensitivity.whenPressed(new IncreaseSensitivity());
         
         
         
         controlStick = new Joystick(2);
 
-        aButton = new JoystickButton(controlStick, RobotMap.A_BUTTON);
-        aButton.whenPressed(new Fire());
+        Fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
+        Fire.whenPressed(new Fire());
 
-        bButton = new JoystickButton(controlStick, RobotMap.B_BUTTON);
-        bButton.whenPressed(new PrimeCatapult());
+        PrimeCatapult = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        PrimeCatapult.whenPressed(new PrimeCatapult());
         
-        yButton = new JoystickButton(controlStick, RobotMap.Y_BUTTON);
-        yButton.whenPressed(new DisengageWinch());
+        DisengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
+        DisengageWinch.whenPressed(new DisengageWinch());
         
-        xButton = new JoystickButton(controlStick, RobotMap.X_BUTTON);
-        xButton.whenPressed(new EngageWinch());
+        EngageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
+        EngageWinch.whenPressed(new EngageWinch());
 
-        lBumper = new JoystickButton(controlStick, RobotMap.L_BUMPER);
-        lBumper.whenPressed(new StartPickerUpper());
+        StartPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
+        StartPickerUpperWheels.whenPressed(new StartPickerUpper());
 
+        StopPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
+        StopPickerUpperWheels.whenPressed(new StopPickerUpper());
+        
+        Latch = new JoystickButton(controlStick, RobotMap.CTRL_LEFT_STICK_CLICK);
+        Latch.whenPressed(new Latch());
 
-
-
-
-
-
+           
 
         //SmartDashboard Buttons
         SmartDashboard.putData("Autonomous", new Autonomous());
