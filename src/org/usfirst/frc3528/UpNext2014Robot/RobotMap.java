@@ -33,7 +33,28 @@ public class RobotMap {
     public static Encoder BackLeftEncoder;
     public static Encoder FrontRightEncoder;
     public static Encoder BackRightEncoder;
-
+    
+    // Control stick constants
+    public static final int CTRL_A_BUTTON = 1; // Fire button
+    public static final int CTRL_B_BUTTON = 2; // Load button
+    public static final int CTRL_X_BUTTON = 3; // Close clutch button
+    public static final int CTRL_Y_BUTTON = 4; // Open clutch button
+    public static final int CTRL_L_BUMPER = 5; // Start arm wheels
+    public static final int CTRL_R_BUMPER = 6; // Stop arm wheels
+    public static final int CTRL_BACK_BUTTON = 7; // End Advanced Mode
+    public static final int CTRL_START_BUTTON = 8; // Start Advanced Mode
+    public static final int CTRL_Z_AXIS = 3; // Raise/Lower arm
+    public static final int CTRL_DPAD = 6; // Open/Close latch
+    public static final int CTRL_LEFT_STICK_Y = 2; // Drive Winch
+    
+    
+    // Drive stick constants
+    public static final int DRIVE_BACK_BUTTON = 7; // Decrease sensitivity
+    public static final int DRIVE_START_BUTTON = 8; // Increase sensitivity
+    public static final int DRIVE_LEFT_STICK_X = 1; // Drive X
+    public static final int DRIVE_LEFT_STICK_Y = 2; // Drive Y
+    public static final int DRIVE_Z_AXIS = 6; // Drive (Rotation)
+    
     
     public static SpeedController catapultTalon;
     public static DigitalInput winchLimit;
