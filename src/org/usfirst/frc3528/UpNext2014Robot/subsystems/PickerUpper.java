@@ -18,28 +18,33 @@ public class PickerUpper extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
+    //lowerpickerupper command
     public void Lower(){
         Armdown.set(true);
         Armup.set(false);
     
     }
     
+    //raisepickerupper command
     public void Raise(){
         Armup.set(true);
         Armdown.set(false);
 
     }
-        
+    
+    //used by raise and lower pickerupper commands
     public void DisableArm(){
         Armup.set(false);
         Armdown.set(false);
 
     }
     
+    //startpickerupper command
     public void Start(){
         spike1.set(Relay.Value.kForward);
     }
     
+    //stoppickerupper command
     public void Stop(){
         spike1.set(Relay.Value.kOff);
     }
