@@ -55,7 +55,11 @@ public class RobotMap {
     public static final int B_BUTTON = 2;
     public static final int X_BUTTON = 3;
     public static final int Y_BUTTON = 4;
- 
+    public static final int L_BUMPER = 5;
+    public static final int R_BUMPER = 6;
+
+    
+    
     public static final String cameraAddress = "10.35.28.11";
     public static final int cameraBrightness = 25;
     public static final int cameraCompression = 0;
