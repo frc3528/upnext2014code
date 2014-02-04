@@ -61,12 +61,13 @@ public class OI {
         StopPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
         StopPickerUpperWheels.whenPressed(new StopPickerUpper());
         
+        //testing v
         Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
         Latch.whenPressed(new Latch());
         
         EnableTalon = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         EnableTalon.whenPressed(new DriveWinchWithJoystick());
-        
+        //testing ^
         
 
            
