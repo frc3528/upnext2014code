@@ -44,13 +44,14 @@ public class MecanumDrive extends Subsystem {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-                 
+         */        
          System.out.println("Gyro angle: " + gyro1.getAngle());
          SmartDashboard.putNumber("Gyro", gyro1.getAngle());
          SmartDashboard.putNumber("Drivestick X", x);
          SmartDashboard.putNumber("Drivestick Y", -y);
          SmartDashboard.putNumber("Drivestick Rotation", -rotation);
-    */
+         SmartDashboard.putNumber("Drive Sensitivity", RobotMap.SENSITIVITY);
+    
     }
 
     
