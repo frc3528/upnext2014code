@@ -47,7 +47,7 @@ public class RobotMap {
     public static final int CTRL_Z_AXIS = 3; // Raise/Lower arm
     public static final int CTRL_DPAD = 6; // Open/Close latch
     public static final int CTRL_LEFT_STICK_Y = 2; // Drive Winch
-    public static final int CTRL_LEFT_STICK_CLICK = 9; // Latch
+    public static final int CTRL_RIGHT_STICK_CLICK = 10; // Latch
 
     
     // Drive stick constants
@@ -140,15 +140,14 @@ public class RobotMap {
         
         
         
-        
-        catapultTalon = new Talon(1);
+        catapultTalon = new Talon(1);      
         winchLimit = new DigitalInput(2);
                 
         
         engageWinch = new Solenoid(1);
         disengageWinch = new Solenoid(2);
-        latch = new Solenoid(3);   
-        unlatch = new Solenoid(4);
+        latch = new Solenoid(3); //Solenoid A  
+        unlatch = new Solenoid(4); // Solenoid B
 	       
         /*
         catapultSolenoid5 = new Solenoid(5);
@@ -162,7 +161,7 @@ public class RobotMap {
         
         
         pickerUpperSpike1 = new Relay(3);
-	Armup = new Solenoid(5);
+        Armup = new Solenoid(5);
         Armdown = new Solenoid(6);
         
         

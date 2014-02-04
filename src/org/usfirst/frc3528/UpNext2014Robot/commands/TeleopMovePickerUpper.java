@@ -12,27 +12,37 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class StopPickerUpper extends Command {
+public class TeleopMovePickerUpper extends Command {
+ 
     
-    public StopPickerUpper() {
+    public TeleopMovePickerUpper() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.pickerUpper);
+        
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-        Robot.pickerUpper.Stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+         double Arm = Robot.oi.controlStick.getRawAxis(3);
+            if(Arm > 0.5){
+                Robot.pickerUpper.Lower();
+        }
+            if(Arm < -0.5){
+                Robot.pickerUpper.Raise();
+        }
+            if(Arm == 0){
+                Robot.pickerUpper.DisableArm();
+        }
+    
+            
     }
-
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
-    }
+        return false;    }
 
     // Called once after isFinished returns true
     protected void end() {

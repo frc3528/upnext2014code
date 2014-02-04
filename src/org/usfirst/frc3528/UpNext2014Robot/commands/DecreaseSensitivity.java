@@ -12,26 +12,26 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class StopPickerUpper extends Command {
+public class DecreaseSensitivity extends Command {
     
-    public StopPickerUpper() {
+    public DecreaseSensitivity() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.pickerUpper);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-        Robot.pickerUpper.Stop();
+        Robot.mecanumDrive.decreaseSensitivity();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
