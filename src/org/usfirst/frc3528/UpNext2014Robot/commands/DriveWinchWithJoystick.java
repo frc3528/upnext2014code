@@ -30,7 +30,7 @@ public class DriveWinchWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double rightY = Robot.oi.controlStick.getRawAxis(5);
-        Robot.catapult.drive(rightY);
+        Robot.catapult.drive(-rightY);
 
     }
 

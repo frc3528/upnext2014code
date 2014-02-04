@@ -119,8 +119,15 @@ public class MecanumDrive extends Subsystem {
     }
 
     public void increaseSensitivity(){
-        if(RobotMap.SENSITIVITY < 1){
+        if(RobotMap.SENSITIVITY < 10){
             RobotMap.SENSITIVITY += .1;
         }
     }
+
+    public void decreaseSensitivity() {
+        if(RobotMap.SENSITIVITY > 0) {
+            RobotMap.SENSITIVITY -= .1;
+        }
+    }
+    
 }

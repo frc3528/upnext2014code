@@ -7,16 +7,14 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
-import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
  * @author TeamUpNext
  */
-public class IncreaseSensitivity extends Command {
-   
+public class DecreaseSensitivity extends Command {
     
-    public IncreaseSensitivity() {
+    public DecreaseSensitivity() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -27,7 +25,7 @@ public class IncreaseSensitivity extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-            Robot.mecanumDrive.increaseSensitivity();
+        Robot.mecanumDrive.decreaseSensitivity();
     }
 
     // Make this return true when this Command no longer needs to run execute()

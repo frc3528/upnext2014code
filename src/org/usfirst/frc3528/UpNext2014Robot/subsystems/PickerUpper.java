@@ -51,7 +51,7 @@ public class PickerUpper extends Subsystem {
     
     
     public void initDefaultCommand() {
-        setDefaultCommand(new RaisePickerUpper());
+        setDefaultCommand(new TeleopMovePickerUpper());
 
 	
         // Set the default command for a subsystem here.

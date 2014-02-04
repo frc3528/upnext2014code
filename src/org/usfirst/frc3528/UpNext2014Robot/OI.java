@@ -26,6 +26,7 @@ public class OI {
     public JoystickButton Latch;
     public JoystickButton IncreaseSensitivity;
     public JoystickButton DecreaseSensitivity;
+    public JoystickButton EnableTalon;
 
 
     public OI() {       
@@ -36,6 +37,8 @@ public class OI {
         IncreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_START_BUTTON);
         IncreaseSensitivity.whenPressed(new IncreaseSensitivity());
         
+        DecreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_BACK_BUTTON);
+        DecreaseSensitivity.whenPressed(new DecreaseSensitivity());
         
         
         controlStick = new Joystick(2);
@@ -43,8 +46,8 @@ public class OI {
         Fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
         Fire.whenPressed(new Fire());
 
-        PrimeCatapult = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        PrimeCatapult.whenPressed(new PrimeCatapult());
+        //PrimeCatapult = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        //PrimeCatapult.whenPressed(new PrimeCatapult());
         
         DisengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
         DisengageWinch.whenPressed(new DisengageWinch());
@@ -58,8 +61,13 @@ public class OI {
         StopPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
         StopPickerUpperWheels.whenPressed(new StopPickerUpper());
         
-        Latch = new JoystickButton(controlStick, RobotMap.CTRL_LEFT_STICK_CLICK);
+        Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
         Latch.whenPressed(new Latch());
+        
+        EnableTalon = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
+        EnableTalon.whenPressed(new DriveWinchWithJoystick());
+        
+        
 
            
 
