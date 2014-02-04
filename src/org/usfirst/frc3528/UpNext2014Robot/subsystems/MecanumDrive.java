@@ -110,7 +110,6 @@ public class MecanumDrive extends Subsystem {
         }
     }
     
-    
     //tells a single jag to drive X feet
     public void driveByFeet(CANJaguar jag, double distance) {
         distance = (distance * 12);
@@ -118,16 +117,15 @@ public class MecanumDrive extends Subsystem {
 
     }
 
-    public void increaseSensitivity(){
-        if(RobotMap.SENSITIVITY < 10){
+    public void increaseSensitivity() {
+        if(RobotMap.SENSITIVITY < .9) {
             RobotMap.SENSITIVITY += .1;
         }
     }
 
     public void decreaseSensitivity() {
-        if(RobotMap.SENSITIVITY > 0) {
+        if(RobotMap.SENSITIVITY > .2) {
             RobotMap.SENSITIVITY -= .1;
         }
     }
-    
 }
