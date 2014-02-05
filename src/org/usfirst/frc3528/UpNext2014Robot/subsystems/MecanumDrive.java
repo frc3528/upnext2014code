@@ -8,9 +8,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3528.UpNext2014Robot.Utils;
 
-/**
- *
- */
+
+
 public class MecanumDrive extends Subsystem {
 
     CANJaguar frontLeftMotor = RobotMap.frontLeftMotor;
@@ -66,7 +65,7 @@ public class MecanumDrive extends Subsystem {
             jag.changeControlMode(CANJaguar.ControlMode.kPosition);
             jag.setPID(RobotMap.P, RobotMap.I, RobotMap.D);
             jag.enableControl(0);
-        }catch (Exception e) {
+        }catch (CANTimeoutException e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
         }
     }
@@ -77,7 +76,7 @@ public class MecanumDrive extends Subsystem {
         try{
             jag.changeControlMode(CANJaguar.ControlMode.kPosition);
             jag.enableControl(0);
-        }catch (Exception e) {
+        }catch (CANTimeoutException e) {
             System.out.println("Error zeroing encoders: " + e.getMessage());
         
         }
@@ -90,7 +89,7 @@ public class MecanumDrive extends Subsystem {
             jag.changeControlMode(CANJaguar.ControlMode.kPercentVbus);
             jag.setPID(0, 0, 0);
             jag.disableControl();
-        }catch (Exception e) {
+        }catch (CANTimeoutException e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
         }
     }

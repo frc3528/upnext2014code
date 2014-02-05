@@ -1,9 +1,6 @@
 
 package org.usfirst.frc3528.UpNext2014Robot.commands;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc3528.UpNext2014Robot.Robot;
-import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 /**
  *
  */

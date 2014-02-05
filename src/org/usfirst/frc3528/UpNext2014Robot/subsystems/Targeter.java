@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.usfirst.frc3528.UpNext2014Robot.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
@@ -20,7 +15,7 @@ import edu.wpi.first.wpilibj.image.ParticleAnalysisReport;
 
 /**
  *
- * @author HolDen
+ * @author holden
  */
 public class Targeter extends Subsystem {
 
@@ -86,24 +81,15 @@ public class Targeter extends Subsystem {
         int verticalTargetCount, horizontalTargetCount;
 
         try {
-            /**
-             * Do the image capture with the camera and apply the algorithm
-             * described above. This sample will either get images from the
-             * camera or from an image file stored in the top level directory in
-             * the flash memory on the cRIO. The file name in this case is
-             * "testImage.jpg"
-             *
-             */
+            //Do the image capture with the camera and apply the algorithm described above.
+            ColorImage image = camera.getImage();
 
-            ColorImage image = camera.getImage(); // comment if using stored images
 
-                // next 2 lines read image from flash on cRIO
-            //image = new RGBImage("/testImage.jpg");		// get the sample image from the cRIO flash
             BinaryImage thresholdImage = image.thresholdHSV(100, 140, 100, 255, 40, 110); // For Blue LED
             //BinaryImage thresholdImage = image.thresholdHSV(105, 137, 230, 255, 133, 183); // For Green LED
-            //thresholdImage.write("/threshold.bmp");
-            BinaryImage filteredImage = thresholdImage.particleFilter(cc);           // filter out small particles
-            //filteredImage.write("/filteredImage.bmp");
+
+            // filter out small particles
+            BinaryImage filteredImage = thresholdImage.particleFilter(cc);
 
             //iterate through each particle and score to see if it is a target
             Scores scores[] = new Scores[filteredImage.getNumberParticles()];
@@ -129,7 +115,7 @@ public class Targeter extends Subsystem {
                     } else {
                         //System.out.println("particle: " + I + "is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                     }
-                        //System.out.println("rect: " + scores[I].rectangularity + "ARHoriz: " + scores[I].aspectRatioHorizontal);
+                    //System.out.println("rect: " + scores[I].rectangularity + "ARHoriz: " + scores[I].aspectRatioHorizontal);
                     //System.out.println("ARVert: " + scores[I].aspectRatioVertical);
                 }
 
@@ -198,7 +184,7 @@ public class Targeter extends Subsystem {
             thresholdImage.free();
             image.free();
 
-        } catch (AxisCameraException ex) {        // this is needed if the camera.getImage() is called
+        } catch (AxisCameraException ex) {
             ex.printStackTrace();
         } catch (NIVisionException ex) {
             ex.printStackTrace();
@@ -209,17 +195,17 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * ComPutes the estImateD DIstance to a target usIng the heIght of the
- PartIcle In the Image. For more InformatIon anD graPhIcs showIng the math
- behInD thIs aPProach see the VIsIon ProcessIng sectIon of the
- ScreenStePsLIve DocumentatIon.
+     * Computes the estimated distance to a target using the height of the
+     * particle in the image. For more information and graphics showing the math
+     * behind this approach see the Vision Processing section of the
+     * ScreenStepsLive Documentation.
      *
-     * @param image The Image to use for measurIng the PartIcle estImateD
- rectangle
-     * @param report The PartIcle AnalysIs RePort for the PartIcle
-     * @param outer True If the PartIcle shoulD be treateD as an outer target,
- false to treat It as a center target
-     * @return The estImateD DIstance to the target In Inches.
+     * @param image The image to use for measuring the particle estimated
+     * rectangle
+     * @param report The Particle Analysis Report for the Particle
+     * @param outer True if the Particle should be treated as an outer target,
+     * false to treat it as a center target
+     * @return The estimated distance to the target in inches.
      */
     double computeDistance(BinaryImage image, ParticleAnalysisReport report, int particleNumber) throws NIVisionException {
         double rectLong, height;
@@ -235,19 +221,21 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * ComPutes a score (0-100) comParIng the asPect ratIo to the IDeal asPect
- ratIo for the target. ThIs methoD uses the equIvalent rectangle sIDes to
- DetermIne asPect ratIo as It Performs better as the target gets skeweD by
- movIng to the left or rIght. The equIvalent rectangle Is the rectangle
- wIth sIDes x anD y where PartIcle area= x*y anD PartIcle PerImeter= 2x+2y
+     * Computes a score (0-100) comparing the aspect ratio to the ideal aspect
+     * ratio for the target. This method uses the equivalent rectangle sides to
+     * determIne aspect ratio as it performs better as the target gets skewed by
+     * moving to the left or rIght. The equivalent rectangle is the rectangle
+     * with sIdes x and y where particle area= x*y and partIcle perImeter= 2x+2y
      *
-     * @param image The Image contaInIng the PartIcle to score, neeDeD to
- Perform aDDItIonal measurements
-     * @param report The PartIcle AnalysIs RePort for the PartIcle, useD for the
- wIDth, heIght, anD PartIcle number
-     * @param outer	InDIcates whether the PartIcle asPect ratIo shoulD be
- comPareD to the ratIo for the Inner target or the outer
-     * @return The asPect ratIo score (0-100)
+     * @param image The image containing the particle to score, needed to
+     * perform additional measurements
+     * @param report The Particle Analysis Report for the particle, used for the
+     * width, height, and particle number
+     * @param particleNumber
+     * @param vertical	Indicates whether the particle aspect ratio should be
+     * compared to the ratio for the inner target or the outer
+     * @return The aspect ratio score (0-100)
+     * @throws edu.wpi.first.wpilibj.image.NIVisionException
      */
     public double scoreAspectRatio(BinaryImage image, ParticleAnalysisReport report, int particleNumber, boolean vertical) throws NIVisionException {
         double rectLong, rectShort, aspectRatio, idealAspectRatio;
@@ -268,14 +256,14 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * ComPares scores to DefIneD lImIts anD returns true If the PartIcle
- aPPears to be a target
+     * Compares scores to defined limits and returns true if the particle
+     * appears to be a target
      *
-     * @param scores The structure contaInIng the scores to comPare
-     * @param outer True If the PartIcle shoulD be treateD as an outer target,
- false to treat It as a center target
+     * @param scores The structure containing the scores to compare
+     * @param outer True if the particle should be treated as an outer target,
+     * false to treat It as a center target
      *
-     * @return True If the PartIcle meets all lImIts, false otherwIse
+     * @return True if the Particle meets all limits, false otherwise
      */
     boolean scoreCompare(Scores scores, boolean vertical) {
         boolean isTarget = true;
@@ -291,11 +279,11 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * ComPutes a score (0-100) estImatIng how rectangular the PartIcle Is by
- comParIng the area of the PartIcle to the area of the bounDIng box
- surrounDIng It. A Perfect rectangle woulD cover the entIre bounDIng box.
+     * Computes a score (0-100) estimating how rectangular the Particle is by
+     * comparing the area of the particle to the area of the bounding box
+     * surrounding it. A perfect rectangle would cover the entIre bounding box.
      *
-     * @param report The PartIcle AnalysIs RePort for the PartIcle to score
+     * @param report The Particle Analysis Report for the Particle to score
      * @return The rectangularIty score (0-100)
      */
     double scoreRectangularity(ParticleAnalysisReport report) {
@@ -307,19 +295,19 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * Converts a ratIo wIth IDeal value of 1 to a score. The resultIng functIon
- Is PIecewIse lInear goIng from (0,0) to (1,100) to (2,0) anD Is 0 for all
- InPuts outsIDe the range 0-2
+     * Converts a ratio with ideal value of 1 to a score. The resulting function
+     * is piecewise linear going from (0,0) to (1,100) to (2,0) and is 0 for all
+     * inputs outside the range 0-2
      */
     double ratioToScore(double ratio) {
         return (Math.max(0, Math.min(100 * (1 - Math.abs(1 - ratio)), 100)));
     }
 
     /**
-     * Takes In a rePort on a target anD comPares the scores to the DefIneD
- score lImIts to evaluate If the target Is a hot target or not.
+     * Takes in a report on a target and compares the scores to the defined
+     * score limits to evaluate if the target is a hot target or not.
      *
-     * Returns True If the target Is hot. False If It Is not.
+     * Returns True if the target is hot. False if it is not.
      */
     boolean hotOrNot(TargetReport target) {
         boolean isHot = true;

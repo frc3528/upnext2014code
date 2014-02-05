@@ -2,7 +2,6 @@
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -24,26 +23,26 @@ public class Robot extends IterativeRobot {
     public static Targeter targeter;
  
     /**
-     * ThIs functIon Is run when the robot Is fIrst starteD uP anD shoulD be
- useD for any InItIalIzatIon coDe.
+     * This function is run when the robot is first started up and should be
+     * used for any initialization code.
      */
     public void robotInit() {
-	RobotMap.init();
-        
-            mecanumDrive = new MecanumDrive();
-            catapult = new Catapult();
-            pickerUpper = new PickerUpper();
-            //targeter = new Targeter();
+        RobotMap.init();
+
+        mecanumDrive = new MecanumDrive();
+        catapult = new Catapult();
+        pickerUpper = new PickerUpper();
+        //targeter = new Targeter();
    
         oi = new OI();
 	
         // instantiate the command used for the autonomous period
-           autonomousCommand = new DriveByInches();
-           
-           autoChooser = new SendableChooser();
-           autoChooser.addDefault("Default program", new Autonomous());
-           autoChooser.addObject("Experimental auto", new Autonomous());
-           SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+        autonomousCommand = new DriveByInches();
+
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Default program", new Autonomous());
+        autoChooser.addObject("Experimental auto", new Autonomous());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
     
     
@@ -59,7 +58,7 @@ public class Robot extends IterativeRobot {
     
     
     /**
-     * ThIs functIon Is calleD PerIoDIcally DurIng autonomous
+     * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
@@ -79,7 +78,7 @@ public class Robot extends IterativeRobot {
    
     
     /**
-     * ThIs functIon Is calleD PerIoDIcally DurIng oPerator control
+     * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
@@ -87,7 +86,7 @@ public class Robot extends IterativeRobot {
     
     
     /**
-     * ThIs functIon calleD PerIoDIcally DurIng test moDe
+     * This function called periodically during test mode
      */
     public void testPeriodic() {
         LiveWindow.run();

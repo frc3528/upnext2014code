@@ -4,7 +4,6 @@ package org.usfirst.frc3528.UpNext2014Robot;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.camera.AxisCamera;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 
 public class RobotMap {
