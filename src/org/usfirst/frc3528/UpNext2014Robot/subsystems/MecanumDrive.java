@@ -64,7 +64,7 @@ public class MecanumDrive extends Subsystem {
     public void SetPositionMode(CANJaguar jag) {
         try{
             jag.changeControlMode(CANJaguar.ControlMode.kPosition);
-            jag.setPID(RobotMap.p, RobotMap.i, RobotMap.d);
+            jag.setPID(RobotMap.P, RobotMap.I, RobotMap.D);
             jag.enableControl(0);
         }catch (Exception e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());

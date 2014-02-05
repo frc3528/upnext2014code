@@ -14,29 +14,19 @@ import edu.wpi.first.wpilibj.image.BinaryImage;
 import edu.wpi.first.wpilibj.image.ColorImage;
 import edu.wpi.first.wpilibj.image.CriteriaCollection;
 import edu.wpi.first.wpilibj.image.NIVision;
+import edu.wpi.first.wpilibj.image.NIVision.MeasurementType;
 import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.image.ParticleAnalysisReport;
 
 /**
  *
- * @author Holden
+ * @author HolDen
  */
 public class Targeter extends Subsystem {
 
     // grab the camera from RobotMap
     AxisCamera camera = RobotMap.targetingCamera;
     
-    // define target and camera characteristics
-    final int Y_IMAGE_RES = 480;
-    final double VIEW_ANGLE = 37.4;
-    final double PI = 3.141592653;
-    final int RECTANGULARITY_LIMIT = 40;
-    final int ASPECT_RATIO_LIMIT = 55;
-    final int TAPE_WIDTH_LIMIT = 50;
-    final int VERTICAL_SCORE_LIMIT = 50;
-    final int LR_SCORE_LIMIT = 50;
-    final int AREA_MINIMUM = 150;
-    final int MAX_PARTICLES = 8;
 
     CriteriaCollection cc;
     
@@ -45,7 +35,18 @@ public class Targeter extends Subsystem {
 
     // constructor
     public Targeter() {
-        targetRingLight = new Relay(2);
+        
+        // 
+        targetRingLight = RobotMap.targetRingLight;
+        
+        // try to set our camera parameters        
+        camera.writeBrightness(RobotMap.CAMERA_BRIGHTNESS);
+        camera.writeColorLevel(RobotMap.CAMERA_COLOR_LEVEL);
+        camera.writeCompression(RobotMap.CAMERA_COMPRESSION);
+        
+        // grab our criteria
+        cc = new CriteriaCollection();      // create the criteria for the particle filter
+        cc.addCriteria(MeasurementType.IMAQ_MT_AREA, RobotMap.AREA_MINIMUM, 65535, false);
     }
 
     protected void initDefaultCommand() {
@@ -80,8 +81,8 @@ public class Targeter extends Subsystem {
         lightOn();
 
         TargetReport target = new TargetReport();
-        int verticalTargets[] = new int[MAX_PARTICLES];
-        int horizontalTargets[] = new int[MAX_PARTICLES];
+        int verticalTargets[] = new int[RobotMap.MAX_PARTICLES];
+        int horizontalTargets[] = new int[RobotMap.MAX_PARTICLES];
         int verticalTargetCount, horizontalTargetCount;
 
         try {
@@ -109,7 +110,7 @@ public class Targeter extends Subsystem {
             horizontalTargetCount = verticalTargetCount = 0;
 
             if (filteredImage.getNumberParticles() > 0) {
-                for (int i = 0; i < MAX_PARTICLES && i < filteredImage.getNumberParticles(); i++) {
+                for (int i = 0; i < RobotMap.MAX_PARTICLES && i < filteredImage.getNumberParticles(); i++) {
                     ParticleAnalysisReport report = filteredImage.getParticleAnalysisReport(i);
                     scores[i] = new Scores();
 
@@ -120,16 +121,16 @@ public class Targeter extends Subsystem {
 
                     //Check if the particle is a horizontal target, if not, check if it's a vertical target
                     if (scoreCompare(scores[i], false)) {
-                        //System.out.println("particle: " + i + "is a Horizontal Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
+                        //System.out.println("particle: " + I + "is a Horizontal Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                         horizontalTargets[horizontalTargetCount++] = i; //Add particle to target array and increment count
                     } else if (scoreCompare(scores[i], true)) {
-                        //System.out.println("particle: " + i + "is a Vertical Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
+                        //System.out.println("particle: " + I + "is a Vertical Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                         verticalTargets[verticalTargetCount++] = i;  //Add particle to target array and increment count
                     } else {
-                        //System.out.println("particle: " + i + "is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
+                        //System.out.println("particle: " + I + "is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                     }
-                        //System.out.println("rect: " + scores[i].rectangularity + "ARHoriz: " + scores[i].aspectRatioHorizontal);
-                    //System.out.println("ARVert: " + scores[i].aspectRatioVertical);
+                        //System.out.println("rect: " + scores[I].rectangularity + "ARHoriz: " + scores[I].aspectRatioHorizontal);
+                    //System.out.println("ARVert: " + scores[I].aspectRatioVertical);
                 }
 
                 //Zero out scores and set verticalIndex to first target in case there are no horizontal targets
@@ -208,17 +209,17 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * Computes the estimated distance to a target using the height of the
-     * particle in the image. For more information and graphics showing the math
-     * behind this approach see the Vision Processing section of the
-     * ScreenStepsLive documentation.
+     * ComPutes the estImateD DIstance to a target usIng the heIght of the
+ PartIcle In the Image. For more InformatIon anD graPhIcs showIng the math
+ behInD thIs aPProach see the VIsIon ProcessIng sectIon of the
+ ScreenStePsLIve DocumentatIon.
      *
-     * @param image The image to use for measuring the particle estimated
-     * rectangle
-     * @param report The Particle Analysis Report for the particle
-     * @param outer True if the particle should be treated as an outer target,
-     * false to treat it as a center target
-     * @return The estimated distance to the target in Inches.
+     * @param image The Image to use for measurIng the PartIcle estImateD
+ rectangle
+     * @param report The PartIcle AnalysIs RePort for the PartIcle
+     * @param outer True If the PartIcle shoulD be treateD as an outer target,
+ false to treat It as a center target
+     * @return The estImateD DIstance to the target In Inches.
      */
     double computeDistance(BinaryImage image, ParticleAnalysisReport report, int particleNumber) throws NIVisionException {
         double rectLong, height;
@@ -230,23 +231,23 @@ public class Targeter extends Subsystem {
         height = Math.min(report.boundingRectHeight, rectLong);
         targetHeight = 32;
 
-        return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * Math.tan(VIEW_ANGLE * Math.PI / (180 * 2)));
+        return RobotMap.Y_IMAGE_RES * targetHeight / (height * 12 * 2 * Math.tan(RobotMap.VIEW_ANGLE * Math.PI / (180 * 2)));
     }
 
     /**
-     * Computes a score (0-100) comparing the aspect ratio to the ideal aspect
-     * ratio for the target. This method uses the equivalent rectangle sides to
-     * determine aspect ratio as it performs better as the target gets skewed by
-     * moving to the left or right. The equivalent rectangle is the rectangle
-     * with sides x and y where particle area= x*y and particle perimeter= 2x+2y
+     * ComPutes a score (0-100) comParIng the asPect ratIo to the IDeal asPect
+ ratIo for the target. ThIs methoD uses the equIvalent rectangle sIDes to
+ DetermIne asPect ratIo as It Performs better as the target gets skeweD by
+ movIng to the left or rIght. The equIvalent rectangle Is the rectangle
+ wIth sIDes x anD y where PartIcle area= x*y anD PartIcle PerImeter= 2x+2y
      *
-     * @param image The image containing the particle to score, needed to
-     * perform additional measurements
-     * @param report The Particle Analysis Report for the particle, used for the
-     * width, height, and particle number
-     * @param outer	Indicates whether the particle aspect ratio should be
-     * compared to the ratio for the inner target or the outer
-     * @return The aspect ratio score (0-100)
+     * @param image The Image contaInIng the PartIcle to score, neeDeD to
+ Perform aDDItIonal measurements
+     * @param report The PartIcle AnalysIs RePort for the PartIcle, useD for the
+ wIDth, heIght, anD PartIcle number
+     * @param outer	InDIcates whether the PartIcle asPect ratIo shoulD be
+ comPareD to the ratIo for the Inner target or the outer
+     * @return The asPect ratIo score (0-100)
      */
     public double scoreAspectRatio(BinaryImage image, ParticleAnalysisReport report, int particleNumber, boolean vertical) throws NIVisionException {
         double rectLong, rectShort, aspectRatio, idealAspectRatio;
@@ -267,35 +268,35 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * Compares scores to defined limits and returns true if the particle
-     * appears to be a target
+     * ComPares scores to DefIneD lImIts anD returns true If the PartIcle
+ aPPears to be a target
      *
-     * @param scores The structure containing the scores to compare
-     * @param outer True if the particle should be treated as an outer target,
-     * false to treat it as a center target
+     * @param scores The structure contaInIng the scores to comPare
+     * @param outer True If the PartIcle shoulD be treateD as an outer target,
+ false to treat It as a center target
      *
-     * @return True if the particle meets all limits, false otherwise
+     * @return True If the PartIcle meets all lImIts, false otherwIse
      */
     boolean scoreCompare(Scores scores, boolean vertical) {
         boolean isTarget = true;
 
-        isTarget &= scores.rectangularity > RECTANGULARITY_LIMIT;
+        isTarget &= scores.rectangularity > RobotMap.RECTANGULARITY_LIMIT;
         if (vertical) {
-            isTarget &= scores.aspectRatioVertical > ASPECT_RATIO_LIMIT;
+            isTarget &= scores.aspectRatioVertical > RobotMap.ASPECT_RATIO_LIMIT;
         } else {
-            isTarget &= scores.aspectRatioHorizontal > ASPECT_RATIO_LIMIT;
+            isTarget &= scores.aspectRatioHorizontal > RobotMap.ASPECT_RATIO_LIMIT;
         }
 
         return isTarget;
     }
 
     /**
-     * Computes a score (0-100) estimating how rectangular the particle is by
-     * comparing the area of the particle to the area of the bounding box
-     * surrounding it. A perfect rectangle would cover the entire bounding box.
+     * ComPutes a score (0-100) estImatIng how rectangular the PartIcle Is by
+ comParIng the area of the PartIcle to the area of the bounDIng box
+ surrounDIng It. A Perfect rectangle woulD cover the entIre bounDIng box.
      *
-     * @param report The Particle Analysis Report for the particle to score
-     * @return The rectangularity score (0-100)
+     * @param report The PartIcle AnalysIs RePort for the PartIcle to score
+     * @return The rectangularIty score (0-100)
      */
     double scoreRectangularity(ParticleAnalysisReport report) {
         if (report.boundingRectWidth * report.boundingRectHeight != 0) {
@@ -306,26 +307,26 @@ public class Targeter extends Subsystem {
     }
 
     /**
-     * Converts a ratio with ideal value of 1 to a score. The resulting function
-     * is piecewise linear going from (0,0) to (1,100) to (2,0) and is 0 for all
-     * inputs outside the range 0-2
+     * Converts a ratIo wIth IDeal value of 1 to a score. The resultIng functIon
+ Is PIecewIse lInear goIng from (0,0) to (1,100) to (2,0) anD Is 0 for all
+ InPuts outsIDe the range 0-2
      */
     double ratioToScore(double ratio) {
         return (Math.max(0, Math.min(100 * (1 - Math.abs(1 - ratio)), 100)));
     }
 
     /**
-     * Takes in a report on a target and compares the scores to the defined
-     * score limits to evaluate if the target is a hot target or not.
+     * Takes In a rePort on a target anD comPares the scores to the DefIneD
+ score lImIts to evaluate If the target Is a hot target or not.
      *
-     * Returns True if the target is hot. False if it is not.
+     * Returns True If the target Is hot. False If It Is not.
      */
     boolean hotOrNot(TargetReport target) {
         boolean isHot = true;
 
-        isHot &= target.tapeWidthScore >= TAPE_WIDTH_LIMIT;
-        isHot &= target.verticalScore >= VERTICAL_SCORE_LIMIT;
-        isHot &= (target.leftScore > LR_SCORE_LIMIT) | (target.rightScore > LR_SCORE_LIMIT);
+        isHot &= target.tapeWidthScore >= RobotMap.TAPE_WIDTH_LIMIT;
+        isHot &= target.verticalScore >= RobotMap.VERTICAL_SCORE_LIMIT;
+        isHot &= (target.leftScore > RobotMap.LR_SCORE_LIMIT) | (target.rightScore > RobotMap.LR_SCORE_LIMIT);
 
         return isHot;
     }

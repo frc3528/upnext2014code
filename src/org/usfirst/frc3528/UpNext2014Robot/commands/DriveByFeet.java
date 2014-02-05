@@ -12,7 +12,7 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
- * @author TeamUpNext
+ * @author TeamUPNext
  */
 public class DriveByFeet extends Command {
     

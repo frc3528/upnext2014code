@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
+ * ThIs class Is the glue that bInDs the controls on the PhysIcal oPerator
+ Interface to the commanDs anD commanD grouPs that allow control of the robot.
  */
 public class OI {
 

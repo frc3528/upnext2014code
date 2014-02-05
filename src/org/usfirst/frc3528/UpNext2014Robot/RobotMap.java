@@ -10,10 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
 
     
-    //public static CANJaguar mecanumDriveCANJaguar1;
-    //public static CANJaguar mecanumDriveCANJaguar2;
-    //public static CANJaguar mecanumDriveCANJaguar3;
-    //public static CANJaguar mecanumDriveCANJaguar4;
+    // ********** OBJECTS **********
     
     public static final int GYRO_CHANNEL = 1;
     public static final double GYRO_SENSITIVITY = .007;
@@ -35,6 +32,30 @@ public class RobotMap {
     public static Encoder BackRightEncoder;
     
     
+    public static SpeedController catapultTalon;
+    public static DigitalInput winchLimit;
+    
+    public static Solenoid engageWinch;
+    public static Solenoid disengageWinch;
+    public static Solenoid latch;
+    public static Solenoid unlatch;
+    
+    
+    public static Compressor Compressor;
+  
+    
+    public static Relay pickerUpperSpike1;
+    public static Solenoid Armup;
+    public static Solenoid Armdown;
+    
+    
+    public static Relay targetRingLight;
+
+    
+    
+    
+    // ********** CONSTANTS **********
+    
     // Control stick constants
     public static final int CTRL_A_BUTTON = 1; // Fire button
     public static final int CTRL_B_BUTTON = 2; // Load button
@@ -55,47 +76,55 @@ public class RobotMap {
     public static final int DRIVE_START_BUTTON = 8; // Increase sensitivity
     public static final int DRIVE_LEFT_STICK_X = 1; // Drive X
     public static final int DRIVE_LEFT_STICK_Y = 2; // Drive Y
-    public static final int DRIVE_Z_AXIS = 3; // Drive (Rotation)
+    public static final int DRIVE_Z_AXIS = 3; // Drive (Rotation)    
     
     
-    public static SpeedController catapultTalon;
-    public static DigitalInput winchLimit;
-    
-    public static Solenoid engageWinch;
-    public static Solenoid disengageWinch;
-    public static Solenoid latch;
-    public static Solenoid unlatch;
+    // Camera Stuff
+    public static final String CAMERA_ADDRESS = "10.35.28.11";
+    public static final int CAMERA_BRIGHTNESS = 25;
+    public static final int CAMERA_COMPRESSION = 0;
+    public static final int CAMERA_COLOR_LEVEL = 100;
     
     
-    public static Compressor Compressor;
-  
+    // Targeting and Camera Thingamajigs
+    public static final int Y_IMAGE_RES = 480;
+    public static final double VIEW_ANGLE = 37.4;
+    public static final double PI = 3.141592653;
+    public static final int RECTANGULARITY_LIMIT = 40;
+    public static final int ASPECT_RATIO_LIMIT = 55;
+    public static final int TAPE_WIDTH_LIMIT = 50;
+    public static final int VERTICAL_SCORE_LIMIT = 50;
+    public static final int LR_SCORE_LIMIT = 50;
+    public static final int AREA_MINIMUM = 150;
+    public static final int MAX_PARTICLES = 8;    
     
-    public static Relay pickerUpperSpike1;
-    public static Solenoid Armup;
-    public static Solenoid Armdown;
-
-    
-    public static final String cameraAddress = "10.35.28.11";
-    public static final int cameraBrightness = 25;
-    public static final int cameraCompression = 0;
-    public static final int cameraColorLevel = 0;
     
     
     public static double SENSITIVITY = .5;
     
-    public static final double p = 10.0;
-    public static final double i = 0.01;
-    public static final double d = 0.01;
     
-    public static final double PI = 3.141592653;
+    // PID
+    public static final double P = 10.0;
+    public static final double I = 0.01;
+    public static final double D = 0.01;
+    
+    
+    //public static final double PI = 3.141592653;
     public static final double WHEEL_DIAMETER = 6;
     public static final double INCHES_PER_REV = (PI * WHEEL_DIAMETER);
     
-    public static void init() {        
-        
     
+    
+    
+    
+    // ********** CLASS METHODS **********
+    
+    public static void init() {    
         
-        targetingCamera = AxisCamera.getInstance(cameraAddress);
+        // Targeting
+        targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
+        targetRingLight = new Relay(2);
+        
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");
@@ -117,10 +146,10 @@ public class RobotMap {
         
         // Constructing Mechanum Drive and setting parameters
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
-              frontRightMotor, backRightMotor);
-	
-        mecanumDriveRobotDrive.setSafetyEnabled(true);        
-        
+                frontRightMotor, backRightMotor);
+
+        mecanumDriveRobotDrive.setSafetyEnabled(true);
+
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         mecanumDriveRobotDrive.setExpiration(0.1);
@@ -177,6 +206,7 @@ public class RobotMap {
         */
         
         
+        // DEBUG
         System.out.println("dt: " + mecanumDriveRobotDrive.getExpiration());
         System.out.println("fl " + frontLeftMotor.getExpiration());
         System.out.println("bl: " + backLeftMotor.getExpiration());
@@ -185,15 +215,19 @@ public class RobotMap {
 
 
     }
+    
+    
 
-  private static void initializeJag(CANJaguar jag){
-      try{
-          jag.enableControl(0);
-          jag.configEncoderCodesPerRev(360);
-          jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
-      }catch(Exception e){
-          System.out.println("Error enabling closed control on Jag " + e.getMessage());
-       }
+    private static void initializeJag(CANJaguar jag) {
+        try {
+            jag.enableControl(0);
+            jag.configEncoderCodesPerRev(360);
+            jag.setPositionReference(CANJaguar.PositionReference.kQuadEncoder);
+        } catch (CANTimeoutException e) {
+            System.out.println("Error enabling closed control on Jag " + e.getMessage());
+        }
     }
+    
+    
 }
 

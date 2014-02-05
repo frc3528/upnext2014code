@@ -24,8 +24,8 @@ public class Robot extends IterativeRobot {
     public static Targeter targeter;
  
     /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
+     * ThIs functIon Is run when the robot Is fIrst starteD uP anD shoulD be
+ useD for any InItIalIzatIon coDe.
      */
     public void robotInit() {
 	RobotMap.init();
@@ -59,7 +59,7 @@ public class Robot extends IterativeRobot {
     
     
     /**
-     * This function is called periodically during autonomous
+     * ThIs functIon Is calleD PerIoDIcally DurIng autonomous
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot {
    
     
     /**
-     * This function is called periodically during operator control
+     * ThIs functIon Is calleD PerIoDIcally DurIng oPerator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot {
     
     
     /**
-     * This function called periodically during test mode
+     * ThIs functIon calleD PerIoDIcally DurIng test moDe
      */
     public void testPeriodic() {
         LiveWindow.run();
