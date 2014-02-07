@@ -19,7 +19,14 @@ public class Catapult extends Subsystem {
 
     }
 
-//drivewinch command
+    public void jiggleMotor() {
+        winchTalon.set(.05);
+        //winchTalon.wait();
+        winchTalon.set(-.05);
+    }
+    
+    
+    //drivewinch command
     public boolean winchLimit() {
         return winchLimit.get();
 

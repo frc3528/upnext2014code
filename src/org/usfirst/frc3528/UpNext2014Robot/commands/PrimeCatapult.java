@@ -14,10 +14,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PrimeCatapult extends CommandGroup {
     
     public PrimeCatapult() {
-        addSequential(new EngageWinch());
+        //addSequential(new EngageWinch());
+        addParallel(new EngageWinch());
         addSequential(new DriveWinchWithJoystick());
         addSequential(new Latch());
-        addSequential(new DisengageWinch());
+        //addSequential(new DisengageWinch());
 
     }
 }

@@ -5,42 +5,34 @@
  */
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  * @author TeamUpNext
  */
-public class Fire extends Command {
+public class Fire extends CommandGroup {
     
     public Fire() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    }
+        addSequential(new UnLatch());
+        addParallel(new Jiggle());
+        addSequential(new DisengageWinch());
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-        setTimeout(.075);
-        Robot.catapult.unlatch();
-    }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    }
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return isTimedOut();
-    }
-
-    // Called once after isFinished returns true
-    protected void end() {
-        Robot.catapult.disablelatch();
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
     }
 }

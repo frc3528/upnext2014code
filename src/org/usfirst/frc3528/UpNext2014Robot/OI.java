@@ -44,7 +44,7 @@ public class OI {
         controlStick = new Joystick(2);
 
         Fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
-        Fire.whenPressed(new Fire());
+        //Fire.whenPressed(new Fire());
 
         //PrimeCatapult = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
         //PrimeCatapult.whenPressed(new PrimeCatapult());
