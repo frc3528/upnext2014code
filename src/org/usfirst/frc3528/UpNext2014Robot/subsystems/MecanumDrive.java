@@ -46,11 +46,16 @@ public class MecanumDrive extends Subsystem {
          */        
          //System.out.println("Gyro angle: " + gyro1.getAngle());
          SmartDashboard.putNumber("Gyro", gyro1.getAngle());
+         SmartDashboard.putString("Gyro Position", "Gyro Position");
          SmartDashboard.putNumber("Drivestick X", x);
+         SmartDashboard.putString("Drivestick X value", "Drivestick X value");
          SmartDashboard.putNumber("Drivestick Y", -y);
+         SmartDashboard.putString("Drivestick Y value", "Drivestick Y value");
          SmartDashboard.putNumber("Drivestick Rotation", -rotation);
+         SmartDashboard.putString("Robot Rotation", "Robot Rotation");
          SmartDashboard.putNumber("Drive Sensitivity", RobotMap.SENSITIVITY);
-    
+         SmartDashboard.putString("Drivestick Sensitivity", "Drivestick Sensitivity");
+         SmartDashboard.putString("Live Camera Feed", "Live Camera Feed");
     }
 
     

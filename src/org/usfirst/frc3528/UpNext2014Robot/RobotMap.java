@@ -77,6 +77,13 @@ public class RobotMap {
     public static final int DRIVE_LEFT_STICK_Y = 2; // Drive Y
     public static final int DRIVE_Z_AXIS = 3; // Drive (Rotation)    
     
+    public static final int WINCH_PUSH = 1;
+    public static final int WINCH_PULL = 2;
+    public static final int LATCH_PUSH = 3;
+    public static final int LATCH_PULL = 4;
+    public static final int ARM_PUSH = 5;
+    public static final int ARM_PULL = 6;
+    
     
     // Camera Stuff
     public static final String CAMERA_ADDRESS = "10.35.28.11";
