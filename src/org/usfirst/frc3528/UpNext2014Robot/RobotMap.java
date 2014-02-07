@@ -11,7 +11,7 @@ public class RobotMap {
     
     // ********** OBJECTS **********
     
-    public static final int GYRO_CHANNEL = 1;
+    public static final int GYRO_CHANNEL = 2;
     public static final double GYRO_SENSITIVITY = .007;
     
     public static AxisCamera targetingCamera;
@@ -123,7 +123,7 @@ public class RobotMap {
         
         // Targeting
         targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
-        targetRingLight = new Relay(2);
+        targetRingLight = new Relay(5);
         
         
         try { 
@@ -159,7 +159,7 @@ public class RobotMap {
         
        
          
-        driveTrainGyro = new Gyro(1);
+        driveTrainGyro = new Gyro(GYRO_CHANNEL);
 	//LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         driveTrainGyro.setSensitivity(0.007);        
         
