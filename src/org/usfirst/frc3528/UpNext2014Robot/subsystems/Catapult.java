@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Catapult extends Subsystem {
 
-    SpeedController winchTalon = RobotMap.catapultTalon;
+    Talon winchTalon = RobotMap.catapultTalon;
     DigitalInput winchLimit = RobotMap.winchLimit;
     Solenoid engageWinch = RobotMap.engageWinch;
     Solenoid disengageWinch = RobotMap.disengageWinch;
@@ -19,12 +19,24 @@ public class Catapult extends Subsystem {
 
     }
 
-    public void jiggleMotor() {
-        winchTalon.set(.05);
-        //winchTalon.wait();
-        winchTalon.set(-.05);
+    
+    public void setPower(double power){
+        winchTalon.set(power);
     }
     
+    /*
+    public void jiggleMotor() {
+        System.out.println("jiggling");
+        winchTalon.setSafetyEnabled(false);
+        for (int i = 0; i <= RobotMap.JIGGLE_COUNT; i++ ){
+            winchTalon.set(RobotMap.JIGGLE_POWER);
+            Timer.delay(RobotMap.JIGGLE_DELAY);
+            winchTalon.set(-RobotMap.JIGGLE_POWER);
+            Timer.delay(RobotMap.JIGGLE_DELAY);
+         }
+            winchTalon.set(0);
+    }
+    */
     
     //drivewinch command
     public boolean winchLimit() {

@@ -31,7 +31,7 @@ public class RobotMap {
     public static Encoder BackRightEncoder;
     
     
-    public static SpeedController catapultTalon;
+    public static Talon catapultTalon;
     public static DigitalInput winchLimit;
     
     public static Solenoid engageWinch;
@@ -116,6 +116,12 @@ public class RobotMap {
     public static double DISTANCE_INCHES = 18.84;
     
     
+    public static final double JIGGLE_POWER = 0.25;
+    public static final double JIGGLE_DELAY = 0.005;
+    public static final int JIGGLE_COUNT = 5;
+
+    
+    
     
     // ********** CLASS METHODS **********
     
@@ -169,7 +175,7 @@ public class RobotMap {
         
         
         
-        catapultTalon = new Talon(1);      
+        catapultTalon = new Talon(1);     
         winchLimit = new DigitalInput(2);
                 
         
