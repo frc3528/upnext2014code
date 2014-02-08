@@ -17,16 +17,16 @@ public class OI {
     
     public Joystick driveStick;
     public Joystick controlStick;
-    public JoystickButton Fire;
+    public JoystickButton fire;
     public JoystickButton cock;
-    public JoystickButton DisengageWinch;
-    public JoystickButton EngageWinch;
-    public JoystickButton PickerUpperWheelsForward;
-    public JoystickButton PickerUpperWheelsReverse;
-    public JoystickButton Latch;
-    public JoystickButton IncreaseSensitivity;
-    public JoystickButton DecreaseSensitivity;
-    public JoystickButton DriveWinch;
+    public JoystickButton disengageWinch;
+    public JoystickButton engageWinch;
+    public JoystickButton pickerUpperWheelsForward;
+    public JoystickButton pickerUpperWheelsReverse;
+    public JoystickButton latch;
+    public JoystickButton increaseSensitivity;
+    public JoystickButton decreaseSensitivity;
+    public JoystickButton driveWinch;
 
 
     public OI() {       
@@ -34,40 +34,41 @@ public class OI {
         // create joysticks
         driveStick = new Joystick(1);
 
-        IncreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_START_BUTTON);
-        IncreaseSensitivity.whenPressed(new IncreaseSensitivity());
+        increaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_START_BUTTON);
+        increaseSensitivity.whenPressed(new IncreaseSensitivity());
         
-        DecreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_BACK_BUTTON);
-        DecreaseSensitivity.whenPressed(new DecreaseSensitivity());
+        decreaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_BACK_BUTTON);
+        decreaseSensitivity.whenPressed(new DecreaseSensitivity());
         
         
         controlStick = new Joystick(2);
 
-        Fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
-        Fire.whenPressed(new Fire());
+        fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
+        fire.whenPressed(new Fire());
 
         cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
         cock.whenPressed(new Cock());
         
-        DisengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
-        DisengageWinch.whenPressed(new DisengageWinch());
+        disengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
+        disengageWinch.whenPressed(new DisengageWinch());
         
-        EngageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
-        EngageWinch.whenPressed(new EngageWinch());
+        engageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
+        engageWinch.whenPressed(new EngageWinch());
         
-        PickerUpperWheelsForward = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
-        PickerUpperWheelsForward.whenPressed(new StartPickerUpperWithButton());
+        pickerUpperWheelsForward = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
+        pickerUpperWheelsForward.whenPressed(new StartPickerUpperWithButton());
         
-        PickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
-        PickerUpperWheelsReverse.whenPressed(new ReversePickerUpperWithButton());
+        pickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
+        pickerUpperWheelsReverse.whenPressed(new ReversePickerUpperWithButton());
         
         
         //testing v
-        //Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        //Latch.whenPressed(new Latch());
+        //latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        //latch.w
+        //latch = new JhenPressed(new Latch());
         
-        DriveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
-        DriveWinch.whenPressed(new DriveWinchWithJoystick());
+        driveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
+        driveWinch.whenPressed(new DriveWinchWithJoystick());
         //testing ^
         
 

@@ -26,13 +26,12 @@ public class StartPickerUpperWithButton extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.pickerUpper.buttonForward(Robot.oi.PickerUpperWheelsForward.get());
+        Robot.pickerUpper.buttonForward(Robot.oi.pickerUpperWheelsForward.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //System.out.println(!Robot.oi.PickerUpperWheelsForward.get());
-        return false; //!Robot.oi.PickerUpperWheelsForward.get();
+        return false; 
     }
 
     // Called once after isFinished returns true

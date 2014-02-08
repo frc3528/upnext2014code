@@ -26,7 +26,7 @@ public class ReversePickerUpperWithButton extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.pickerUpper.buttonReverse(Robot.oi.PickerUpperWheelsReverse.get());
+        Robot.pickerUpper.buttonReverse(Robot.oi.pickerUpperWheelsReverse.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
