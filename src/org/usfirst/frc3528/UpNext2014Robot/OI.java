@@ -46,8 +46,8 @@ public class OI {
         Fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
         Fire.whenPressed(new Fire());
 
-        //cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        //cock.whenPressed(new Cock());
+        cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        cock.whenPressed(new Cock());
         
         DisengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
         DisengageWinch.whenPressed(new DisengageWinch());
@@ -61,9 +61,10 @@ public class OI {
         PickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
         PickerUpperWheelsReverse.whenPressed(new ReversePickerUpperWithButton());
         
+        
         //testing v
-        Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        Latch.whenPressed(new Latch());
+        //Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        //Latch.whenPressed(new Latch());
         
         DriveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         DriveWinch.whenPressed(new DriveWinchWithJoystick());
