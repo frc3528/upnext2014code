@@ -46,13 +46,29 @@ public class PickerUpper extends Subsystem {
     public void reverse(){
         spike1.set(Relay.Value.kReverse);
     }
-
-
+    
     //stoppickerupper command
     public void stop(){
         spike1.set(Relay.Value.kOff);
     }
     
+    public void buttonForward(boolean button){
+        if(button){
+            this.start();
+        } else{
+            this.stop();
+        }
+            
+    }
+    
+    public void buttonReverse(boolean button){
+        if(button){
+            this.reverse();
+        } else{
+            this.stop();
+        }
+            
+    }
     
     public void initDefaultCommand() {
         setDefaultCommand(new TeleopMovePickerUpper());

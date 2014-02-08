@@ -12,11 +12,11 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class StartPickerUpper extends Command {
+public class ForwardPickerUpper extends Command {
     
-    public StartPickerUpper() {
+    public ForwardPickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.pickerUpper);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -30,13 +30,11 @@ public class StartPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        System.out.println(!Robot.oi.PickerUpperWheelsForward.get());
-        return !Robot.oi.PickerUpperWheelsForward.get();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.pickerUpper.stop();
     }
 
     // Called when another command which requires one or more of the same

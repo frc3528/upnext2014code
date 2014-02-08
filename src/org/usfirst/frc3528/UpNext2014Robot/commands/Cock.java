@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author TeamUpNext
  */
-public class PrimeCatapult extends CommandGroup {
+public class Cock extends CommandGroup {
     
-    public PrimeCatapult() {
+    public Cock() {
         //addSequential(new EngageWinch());
         addParallel(new EngageWinch());
         addSequential(new DriveWinchWithJoystick());

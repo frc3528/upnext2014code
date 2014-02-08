@@ -12,29 +12,32 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class ReversePickerUpper extends Command {
+public class ReversePickerUpperWithButton extends Command {
     
-    public ReversePickerUpper() {
+    public ReversePickerUpperWithButton() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        //requires(Robot.pickerUpper);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.pickerUpper.reverse();
+        //Robot.pickerUpper.reverse();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.pickerUpper.buttonReverse(Robot.oi.PickerUpperWheelsReverse.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        //System.out.println(!Robot.oi.PickerUpperWheelsReverse.get());
+        return false; //!Robot.oi.PickerUpperWheelsReverse.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        //Robot.pickerUpper.stop();
     }
 
     // Called when another command which requires one or more of the same
