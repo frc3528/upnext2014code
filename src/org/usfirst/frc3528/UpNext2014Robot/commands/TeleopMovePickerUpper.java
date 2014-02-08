@@ -27,15 +27,15 @@ public class TeleopMovePickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-         double Arm = Robot.oi.controlStick.getRawAxis(3);
-            if(Arm > 0.5){
-                Robot.pickerUpper.Lower();
+         double arm = Robot.oi.controlStick.getRawAxis(3);
+            if(arm > 0.5){
+                Robot.pickerUpper.lower();
         }
-            if(Arm < -0.5){
-                Robot.pickerUpper.Raise();
+            if(arm < -0.5){
+                Robot.pickerUpper.raise();
         }
-            if(Arm == 0){
-                Robot.pickerUpper.DisableArm();
+            if(arm == 0){
+                Robot.pickerUpper.disableArm();
         }
     
             

@@ -11,9 +11,6 @@ public class RobotMap {
     
     // ********** OBJECTS **********
     
-    public static final int GYRO_CHANNEL = 2;
-    public static final double GYRO_SENSITIVITY = .007;
-    
     public static AxisCamera targetingCamera;
     
     public static CANJaguar frontLeftMotor;
@@ -38,14 +35,14 @@ public class RobotMap {
     public static Solenoid disengageWinch;
     public static Solenoid latch;
     public static Solenoid unlatch;
+    public static Solenoid armDown;
+    public static Solenoid armUp;
     
     
     public static Compressor Compressor;
   
     
     public static Relay pickerUpperSpike1;
-    public static Solenoid Armup;
-    public static Solenoid Armdown;
     
     
     public static Relay targetRingLight;
@@ -53,7 +50,26 @@ public class RobotMap {
     
     
     
+    
     // ********** CONSTANTS **********
+    
+    //Drive Train Constants
+    public static final int DRIVE_LEFT_FRONT_CAN = 2;
+    public static final int DRIVE_LEFT_BACK_CAN = 3;
+    public static final int DRIVE_RIGHT_FRONT_CAN = 4;
+    public static final int DRIVE_RIGHT_BACK_CAN = 5;
+    
+    
+    // PID
+    public static final double DRIVETRAIN_KP = 10.0;
+    public static final double DRIVETRAIN_KI = 0.01;
+    public static final double DRIVETRAIN_KD = 0.01;
+    
+    
+    // gyro
+    public static final int DRIVEBASE_GYRO_CHANNEL = 2;
+    public static final double DRIVEBASE_GYRO_SENSITIVITY = .007;    
+    
     
     // Control stick constants
     public static final int CTRL_A_BUTTON = 1; // Fire button
@@ -76,13 +92,16 @@ public class RobotMap {
     public static final int DRIVE_LEFT_STICK_X = 1; // Drive X
     public static final int DRIVE_LEFT_STICK_Y = 2; // Drive Y
     public static final int DRIVE_Z_AXIS = 3; // Drive (Rotation)    
+    public static double SENSITIVITY = .5; // Starting joystick sensitivity    
     
-    public static final int WINCH_PUSH = 1;
-    public static final int WINCH_PULL = 2;
-    public static final int LATCH_PUSH = 3;
-    public static final int LATCH_PULL = 4;
-    public static final int ARM_PUSH = 5;
-    public static final int ARM_PULL = 6;
+    
+    // Solenoid channels
+    public static final int WINCH_PUSH_SOLENOID_CHANNEL = 1;
+    public static final int WINCH_PULL_SOLENOID_CHANNEL = 2;
+    public static final int LATCH_PUSH_SOLENOID_CHANNEL = 3;
+    public static final int LATCH_PULL_SOLENOID_CHANNEL = 4;
+    public static final int ARM_PUSH_SOLENOID_CHANNEL = 5;
+    public static final int ARM_PULL_SOLENOID_CHANNEL = 6;
     
     
     // Camera Stuff
@@ -90,6 +109,7 @@ public class RobotMap {
     public static final int CAMERA_BRIGHTNESS = 25;
     public static final int CAMERA_COMPRESSION = 0;
     public static final int CAMERA_COLOR_LEVEL = 100;
+    public static final int TARGETING_LIGHT_RELAY_CHANNEL = 5;
     
     
     // Targeting and Camera Thingamajigs
@@ -102,17 +122,7 @@ public class RobotMap {
     public static final int VERTICAL_SCORE_LIMIT = 50;
     public static final int LR_SCORE_LIMIT = 50;
     public static final int AREA_MINIMUM = 150;
-    public static final int MAX_PARTICLES = 8;    
-    
-    
-    
-    public static double SENSITIVITY = .5;
-    
-    
-    // PID
-    public static final double P = 10.0;
-    public static final double I = 0.01;
-    public static final double D = 0.01;
+    public static final int MAX_PARTICLES = 8;
     
     
     //public static final double PI = 3.141592653;
@@ -123,9 +133,21 @@ public class RobotMap {
     public static double DISTANCE_INCHES = 18.84;
     
     
+    // Jiggle!
     public static final double JIGGLE_POWER = 0.25;
     public static final double JIGGLE_DELAY = 0.005;
     public static final int JIGGLE_COUNT = 5;
+    
+    
+    // Compressor
+    public static final int COMPRESSOR_RELAY_CHANNEL = 1;
+    public static final int PRESSURE_SWITCH_DIO_CHANNEL = 1;
+    
+    
+    // Catapult
+    public static final int WINCH_PWM_CHANNEL = 1;
+    public static final int WINCH_LOW_LIMIT_CHANNEL = 2;
+    
 
     
     
@@ -136,15 +158,15 @@ public class RobotMap {
         
         // Targeting
         targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
-        targetRingLight = new Relay(5);
+        targetRingLight = new Relay(TARGETING_LIGHT_RELAY_CHANNEL);
         
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");
-            frontLeftMotor = new CANJaguar(2);
-            backLeftMotor = new CANJaguar(3);
-            frontRightMotor = new CANJaguar(4);
-            backRightMotor = new CANJaguar(5);
+            frontLeftMotor = new CANJaguar(DRIVE_LEFT_FRONT_CAN);
+            backLeftMotor = new CANJaguar(DRIVE_LEFT_BACK_CAN);
+            frontRightMotor = new CANJaguar(DRIVE_RIGHT_FRONT_CAN);
+            backRightMotor = new CANJaguar(DRIVE_RIGHT_BACK_CAN);
         } catch (CANTimeoutException ex) {
             System.out.println("--- Error Constructing CAN Bus ---");
             ex.printStackTrace();
@@ -172,41 +194,31 @@ public class RobotMap {
         
        
          
-        driveTrainGyro = new Gyro(GYRO_CHANNEL);
+        driveTrainGyro = new Gyro(DRIVEBASE_GYRO_CHANNEL);
 	//LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
-        driveTrainGyro.setSensitivity(0.007);        
+        driveTrainGyro.setSensitivity(DRIVEBASE_GYRO_SENSITIVITY);        
         
         
-        Compressor = new Compressor(1, 1);
+        Compressor = new Compressor(PRESSURE_SWITCH_DIO_CHANNEL, COMPRESSOR_RELAY_CHANNEL);
         Compressor.start();
         
         
         
-        catapultTalon = new Talon(1);     
-        winchLimit = new DigitalInput(2);
+        catapultTalon = new Talon(WINCH_PWM_CHANNEL);     
+        winchLimit = new DigitalInput(WINCH_LOW_LIMIT_CHANNEL);
                 
         
-        engageWinch = new Solenoid(1);
-        disengageWinch = new Solenoid(2);
-        latch = new Solenoid(3); //Solenoid A  
-        unlatch = new Solenoid(4); // Solenoid B
-	       
-        /*
-        catapultSolenoid5 = new Solenoid(5);
-	LiveWindow.addActuator("Catapult", "Solenoid 5", catapultSolenoid5);
-        
-        catapultSolenoid6 = new Solenoid(6);
-	LiveWindow.addActuator("Catapult", "Solenoid 6", catapultSolenoid6);
-        */
+        engageWinch = new Solenoid(WINCH_PUSH_SOLENOID_CHANNEL); //Solenoid 1A
+        disengageWinch = new Solenoid(WINCH_PULL_SOLENOID_CHANNEL); //Solenoid 1B
+        latch = new Solenoid(LATCH_PUSH_SOLENOID_CHANNEL); //Solenoid 2A  
+        unlatch = new Solenoid(LATCH_PULL_SOLENOID_CHANNEL); // Solenoid 2B
+        armDown = new Solenoid(ARM_PUSH_SOLENOID_CHANNEL); // Solenoid 3&4A
+        armUp = new Solenoid(ARM_PULL_SOLENOID_CHANNEL); // Solenoid 3&4B
         
         
         
         
         pickerUpperSpike1 = new Relay(3);
-        Armup = new Solenoid(5);
-        Armdown = new Solenoid(6);
-        
-        
         
         
         // XXX Make sure these are unique inputs...I believe they are

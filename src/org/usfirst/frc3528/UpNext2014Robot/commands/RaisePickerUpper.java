@@ -26,7 +26,7 @@ public class RaisePickerUpper extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         setTimeout(.075);
-        Robot.pickerUpper.Raise();
+        Robot.pickerUpper.raise();
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -35,7 +35,7 @@ public class RaisePickerUpper extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.pickerUpper.DisableArm();
+        Robot.pickerUpper.disableArm();
     }
 
     // Called when another command which requires one or more of the same

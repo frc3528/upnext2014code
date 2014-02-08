@@ -20,8 +20,6 @@ public class MecanumDrive extends Subsystem {
     Gyro gyro1 = RobotMap.driveTrainGyro;
 
     public MecanumDrive() {
-        //gyro1 = new Gyro(RobotMap.GYRO_CHANNEL);
-        gyro1.setSensitivity(RobotMap.GYRO_SENSITIVITY);
         gyro1.reset();
     }
     
@@ -68,7 +66,7 @@ public class MecanumDrive extends Subsystem {
     public void SetPositionMode(CANJaguar jag) {
         try{
             jag.changeControlMode(CANJaguar.ControlMode.kPosition);
-            jag.setPID(RobotMap.P, RobotMap.I, RobotMap.D);
+            jag.setPID(RobotMap.DRIVETRAIN_KP, RobotMap.DRIVETRAIN_KI, RobotMap.DRIVETRAIN_KD);
             jag.enableControl(0);
         }catch (CANTimeoutException e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
