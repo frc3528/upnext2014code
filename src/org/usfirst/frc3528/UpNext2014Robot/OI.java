@@ -74,12 +74,16 @@ public class OI {
            
 
         //SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous", new Autonomous());
-        SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
-        //SmartDashboard.putData("Fire", new solenoidOn());
-        //SmartDashboard.putData("Retract", new DriveWinchWithJoystick());
-        //SmartDashboard.putData("Fire", new Fire());
-    
+        //SmartDashboard.putData("Autonomous", new Autonomous());
+        //SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
+        SmartDashboard.putData("Latch", new Latch());
+        SmartDashboard.putData("Lower Arm", new LowerPickerUpper());
+        SmartDashboard.putData("Raise Arm", new RaisePickerUpper());
+        SmartDashboard.putData("Unlatch", new UnLatch());
+        SmartDashboard.putData("Engage Winch", new EngageWinch());
+        SmartDashboard.putData("Disengage Winch", new DisengageWinch());
+        SmartDashboard.putData("Jiggle motor", new Jiggle());
+        
     }
     
     
