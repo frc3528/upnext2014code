@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
         new zeroEncoders().start();
         new setPositionMode().start();
         autonomousCommand.start();
-          }
+        }
     
     
     /**

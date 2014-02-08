@@ -21,12 +21,12 @@ public class OI {
     public JoystickButton PrimeCatapult;
     public JoystickButton DisengageWinch;
     public JoystickButton EngageWinch;
-    public JoystickButton StartPickerUpperWheels;
-    public JoystickButton StopPickerUpperWheels;
+    public JoystickButton PickerUpperWheelsForward;
+    public JoystickButton PickerUpperWheelsReverse;
     public JoystickButton Latch;
     public JoystickButton IncreaseSensitivity;
     public JoystickButton DecreaseSensitivity;
-    public JoystickButton EnableTalon;
+    public JoystickButton DriveWinch;
 
 
     public OI() {       
@@ -55,18 +55,18 @@ public class OI {
         EngageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
         EngageWinch.whenPressed(new EngageWinch());
 
-        StartPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
-        StartPickerUpperWheels.whenPressed(new StartPickerUpper());
+        PickerUpperWheelsForward = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
+        PickerUpperWheelsForward.whileHeld(new StartPickerUpper());
 
-        StopPickerUpperWheels = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
-        StopPickerUpperWheels.whenPressed(new StopPickerUpper());
+        PickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
+        PickerUpperWheelsReverse.whileHeld(new ReversePickerUpper());
         
         //testing v
         Latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
         Latch.whenPressed(new Latch());
         
-        EnableTalon = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
-        EnableTalon.whenPressed(new DriveWinchWithJoystick());
+        DriveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
+        DriveWinch.whenPressed(new DriveWinchWithJoystick());
         //testing ^
         
 

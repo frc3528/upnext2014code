@@ -43,6 +43,11 @@ public class PickerUpper extends Subsystem {
         spike1.set(Relay.Value.kForward);
     }
     
+    public void reverse(){
+        spike1.set(Relay.Value.kReverse);
+    }
+
+
     //stoppickerupper command
     public void stop(){
         spike1.set(Relay.Value.kOff);
