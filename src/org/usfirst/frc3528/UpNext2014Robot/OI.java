@@ -27,13 +27,13 @@ public class OI {
     public JoystickButton increaseSensitivity;
     public JoystickButton decreaseSensitivity;
     public JoystickButton driveWinch;
-
-
+    
+    
     public OI() {       
     
         // create joysticks
         driveStick = new Joystick(1);
-
+    
         increaseSensitivity = new JoystickButton(driveStick, RobotMap.DRIVE_START_BUTTON);
         increaseSensitivity.whenPressed(new IncreaseSensitivity());
         
