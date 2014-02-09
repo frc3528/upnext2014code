@@ -22,10 +22,10 @@ public class RobotMap {
     
     public static Gyro driveTrainGyro;
     
-    public static Encoder FrontLeftEncoder;
-    public static Encoder BackLeftEncoder;
-    public static Encoder FrontRightEncoder;
-    public static Encoder BackRightEncoder;
+    public static Encoder frontLeftEncoder;
+    public static Encoder backLeftEncoder;
+    public static Encoder frontRightEncoder;
+    public static Encoder backRightEncoder;
     
     
     public static Talon catapultTalon;
@@ -39,7 +39,7 @@ public class RobotMap {
     public static Solenoid armUp;
     
     
-    public static Compressor Compressor;
+    public static Compressor compressor;
   
     
     public static Relay pickerUpperSpike1;
@@ -199,8 +199,8 @@ public class RobotMap {
         driveTrainGyro.setSensitivity(DRIVEBASE_GYRO_SENSITIVITY);        
         
         
-        Compressor = new Compressor(PRESSURE_SWITCH_DIO_CHANNEL, COMPRESSOR_RELAY_CHANNEL);
-        Compressor.start();
+        compressor = new Compressor(PRESSURE_SWITCH_DIO_CHANNEL, COMPRESSOR_RELAY_CHANNEL);
+        compressor.start();
         
         
         
