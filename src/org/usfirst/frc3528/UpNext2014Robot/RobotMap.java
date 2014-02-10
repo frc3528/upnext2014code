@@ -192,8 +192,8 @@ public class RobotMap {
         mecanumDriveRobotDrive.setMaxOutput(1.0);
            
         
-       
-         
+        
+        
         driveTrainGyro = new Gyro(DRIVEBASE_GYRO_CHANNEL);
 	//LiveWindow.addSensor("MecanumDrive", "Gyro 1", mecanumDriveGyro1);
         driveTrainGyro.setSensitivity(DRIVEBASE_GYRO_SENSITIVITY);        
