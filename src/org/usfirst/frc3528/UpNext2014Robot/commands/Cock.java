@@ -15,6 +15,7 @@ public class Cock extends CommandGroup {
     
     public Cock() {
         //addSequential(new EngageWinch());
+        addSequential(new LowerPickerUpper());
         addParallel(new EngageWinch());
         addSequential(new DriveWinchWithJoystick());
         addSequential(new Latch());
