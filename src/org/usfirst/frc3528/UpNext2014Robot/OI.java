@@ -56,10 +56,10 @@ public class OI {
         engageWinch.whenPressed(new EngageWinch());
         
         pickerUpperWheelsForward = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
-        pickerUpperWheelsForward.whenPressed(new StartPickerUpperWithButton());
+        pickerUpperWheelsForward.whileHeld(new StartPickerUpperWithButton());
         
         pickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
-        pickerUpperWheelsReverse.whenPressed(new ReversePickerUpperWithButton());
+        pickerUpperWheelsReverse.whileHeld(new ReversePickerUpperWithButton());
         
         
         //testing v

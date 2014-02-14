@@ -16,17 +16,20 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  */
 public class DriveByFeet extends Command {
     
-    public DriveByFeet() {
+    double distance;
+    
+    public DriveByFeet(double distance) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.mecanumDrive);
+        this.distance = distance;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, 10);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, 10);
+        Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, distance);
+        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, distance);
+        Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, distance);
+        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, distance);
     }
 
     // Called repeatedly when this Command is scheduled to run

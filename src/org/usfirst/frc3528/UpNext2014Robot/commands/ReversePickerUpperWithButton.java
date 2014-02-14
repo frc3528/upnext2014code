@@ -26,13 +26,13 @@ public class ReversePickerUpperWithButton extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.pickerUpper.buttonReverse(Robot.oi.pickerUpperWheelsReverse.get());
+        //Robot.pickerUpper.buttonReverse(Robot.oi.pickerUpperWheelsReverse.get());
+        Robot.pickerUpper.reverse();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //System.out.println(!Robot.oi.PickerUpperWheelsReverse.get());
-        return false; //!Robot.oi.PickerUpperWheelsReverse.get();
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -43,5 +43,6 @@ public class ReversePickerUpperWithButton extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        Robot.pickerUpper.stop();
     }
 }
