@@ -43,8 +43,8 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("Default program", new Autonomous());
         autoChooser.addObject("Experimental auto", new Autonomous());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+        //double number = SmartDashboard.getNumber("Drive Distance");
     }
-    
     
     public void autonomousInit() {
         // schedule the autonomous command (example)
