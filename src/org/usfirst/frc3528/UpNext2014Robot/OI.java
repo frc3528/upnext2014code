@@ -87,7 +87,8 @@ public class OI {
         SmartDashboard.putData("Engage Winch", new EngageWinch());
         SmartDashboard.putData("Disengage Winch", new DisengageWinch());
         SmartDashboard.putData("Jiggle motor", new Jiggle());
-        
+        SmartDashboard.putData("Turn on Camera light", new CameraLightOn());
+        SmartDashboard.putData("Turn off Camera light", new CameraLightOff());
     }
     
     

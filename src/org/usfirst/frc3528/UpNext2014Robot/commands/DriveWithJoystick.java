@@ -1,8 +1,10 @@
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
 import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
@@ -32,6 +34,8 @@ public class  DriveWithJoystick extends Command {
     protected void execute() {    
         Robot.mecanumDrive.driveWithJoystick(Robot.oi.driveStick);
         //Robot.mecanumDrive.getPositionBackRight();
+        double testNumber = SmartDashboard.getNumber("TestNumber");
+        System.out.println("TestNumber" + testNumber);
     }
        
     
