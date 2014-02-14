@@ -27,9 +27,9 @@ public class DriveByFeet extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, distance);
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, distance);
+        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, -distance);
         Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, distance);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, distance);
+        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, -distance);
     }
 
     // Called repeatedly when this Command is scheduled to run

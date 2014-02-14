@@ -63,7 +63,7 @@ public class RobotMap {
     // PID
     public static final double DRIVETRAIN_KP = 10.0;
     public static final double DRIVETRAIN_KI = 0.01;
-    public static final double DRIVETRAIN_KD = 0.01;
+    public static final double DRIVETRAIN_KD = 0.00;
     
     
     // gyro
