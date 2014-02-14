@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Fire extends CommandGroup {
     
     public Fire() {
+        addSequential(new LowerPickerUpper());
         addSequential(new UnLatch());
         addParallel(new Jiggle());
         addSequential(new DisengageWinch());
