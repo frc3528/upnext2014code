@@ -12,7 +12,7 @@ public class  Autonomous extends CommandGroup {
 	addParallel(new CameraLightOn());
         addSequential(new Wait(5));
         addSequential(new CameraLightOff());
-        addSequential(new DriveByFeet());
+        addSequential(new DriveByFeet(10));
     }
     // Called just before this Command runs the first time
     protected void initialize() {
