@@ -21,13 +21,14 @@ public class OI {
     public JoystickButton cock;
     public JoystickButton disengageWinch;
     public JoystickButton engageWinch;
-    public JoystickButton pickerUpperWheelsForward;
-    public JoystickButton pickerUpperWheelsReverse;
+    public JoystickButton spitOutBall;
+    public JoystickButton pickUpBall;
     public JoystickButton latch;
+    public JoystickButton unLatch;
     public JoystickButton increaseSensitivity;
     public JoystickButton decreaseSensitivity;
     public JoystickButton driveWinch;
-    
+    public JoystickButton testButton;
     
     public OI() {       
     
@@ -43,11 +44,11 @@ public class OI {
         
         controlStick = new Joystick(2);
 
-        fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
-        fire.whenPressed(new Fire());
+        //fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
+        //fire.whenPressed(new FireWithoutJiggle());
 
-        cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        cock.whenPressed(new Cock());
+        //cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        //cock.whenPressed(new Cock());
         
         disengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
         disengageWinch.whenPressed(new DisengageWinch());
@@ -55,17 +56,19 @@ public class OI {
         engageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
         engageWinch.whenPressed(new EngageWinch());
         
-        pickerUpperWheelsForward = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
-        pickerUpperWheelsForward.whileHeld(new StartPickerUpperWithButton());
+        spitOutBall = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
+        spitOutBall.whileHeld(new StartPickerUpperWithButton());
         
-        pickerUpperWheelsReverse = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
-        pickerUpperWheelsReverse.whileHeld(new ReversePickerUpperWithButton());
+        pickUpBall = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
+        pickUpBall.whileHeld(new ReversePickerUpperWithButton());
         
         
         //testing v
-        //latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        //latch.w
-        //latch = new JhenPressed(new Latch());
+        latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        latch.whenPressed(new Latch());
+        
+        unLatch = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
+        unLatch.whenPressed(new UnLatch());
         
         driveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         driveWinch.whenPressed(new DriveWinchWithJoystick());

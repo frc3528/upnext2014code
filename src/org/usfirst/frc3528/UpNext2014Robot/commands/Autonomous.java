@@ -10,9 +10,12 @@ public class  Autonomous extends CommandGroup {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	addParallel(new CameraLightOn());
-        addSequential(new Wait(5));
+        addSequential(new DriveForwardEncoder(6.00 , .5));
+        //addSequential(new Wait(5));
         addSequential(new CameraLightOff());
-        addSequential(new DriveByFeet(10));
+        //addSequential(new DriveByFeet(10));
+        //addSequential(new DriveForwardEncoder(6.7 , 0.5));
+
     }
     // Called just before this Command runs the first time
     protected void initialize() {

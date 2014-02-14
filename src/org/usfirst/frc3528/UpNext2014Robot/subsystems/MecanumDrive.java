@@ -34,14 +34,14 @@ public class MecanumDrive extends Subsystem {
    public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
         robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
         //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
-         /*
+         
          try{
             System.out.println("FR = " + frontLeftMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-         */        
+                 
          //System.out.println("Gyro angle: " + gyro1.getAngle());
          SmartDashboard.putNumber("Gyro", gyro1.getAngle());
          SmartDashboard.putString("Gyro Position", "Gyro Position");
@@ -72,7 +72,7 @@ public class MecanumDrive extends Subsystem {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
         }
     }
-
+    
     
     //zeros the encoders for teleop 
     public void zeroEncoders(CANJaguar jag) {
@@ -90,7 +90,7 @@ public class MecanumDrive extends Subsystem {
     public void SetPercentMode(CANJaguar jag) {
         try{
             jag.changeControlMode(CANJaguar.ControlMode.kPercentVbus);
-            jag.setPID(0, 0, 0);
+            //jag.setPID(0, 0, 0);
             jag.disableControl();
         }catch (CANTimeoutException e) {
             System.out.println("Error setting jag into position mode: " + e.getMessage());
@@ -120,7 +120,51 @@ public class MecanumDrive extends Subsystem {
 
     }
 
-    public void increaseSensitivity() {
+    public double getPositionFrontRight() {
+        try {
+            return -frontRightMotor.getPosition();
+        } catch (Exception e) {
+            System.out.println("Error getting jag position: " + e.getMessage());
+
+            return 0;
+        }
+    }
+
+    public double getPositionFrontLeft() {
+        try {
+            return frontLeftMotor.getPosition();
+        } catch (Exception e) {
+            System.out.println("Error getting jag position: " + e.getMessage());
+
+            return 0;
+        }
+    }
+
+    public double getPositionBackRight() {
+        try {
+            return -backRightMotor.getPosition();//negative because motors are inverted
+        } catch (Exception e) {
+            System.out.println("Error getting jag position: " + e.getMessage());
+
+            return 0;
+        }
+    }
+
+    public double getPositionBackLeft() {
+        try {
+            return backLeftMotor.getPosition();
+        } catch (Exception e) {
+            System.out.println("Error getting jag position: " + e.getMessage());
+
+            return 0;
+        }
+    }
+    
+       public double getAngle() {
+        return gyro1.getAngle();
+    }
+    
+       public void increaseSensitivity() {
         if(RobotMap.SENSITIVITY < .9) {
             RobotMap.SENSITIVITY += .1;
         }

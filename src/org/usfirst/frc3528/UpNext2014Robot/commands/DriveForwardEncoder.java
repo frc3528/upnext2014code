@@ -1,12 +1,13 @@
-package com.teamupnext.robot.commands;
+package org.usfirst.frc3528.UpNext2014Robot.commands;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
 import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
- * @author Up Next!
+ * 
  */
 public class DriveForwardEncoder extends Command {
 
@@ -18,7 +19,6 @@ public class DriveForwardEncoder extends Command {
     private double initialBackRight = 0;
     private double initialBackLeft = 0;
     private double angle = 0;
-    private boolean setFlag = false;
 
     public DriveForwardEncoder(double distance, double power) {
         // Use requires() here to declare subsystem dependencies
@@ -31,10 +31,10 @@ public class DriveForwardEncoder extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.mecanumDrive.zeroEncoders(RobotMap.frontLeftMotor);
-        Robot.mecanumDrive.zeroEncoders(RobotMap.backLeftMotor);
-        Robot.mecanumDrive.zeroEncoders(RobotMap.frontRightMotor);
-        Robot.mecanumDrive.zeroEncoders(RobotMap.backRightMotor);
+        //Robot.mecanumDrive.zeroEncoders(RobotMap.frontLeftMotor);
+        //Robot.mecanumDrive.zeroEncoders(RobotMap.backLeftMotor);
+        //Robot.mecanumDrive.zeroEncoders(RobotMap.frontRightMotor);
+        //Robot.mecanumDrive.zeroEncoders(RobotMap.backRightMotor);
         initialFrontRight = Robot.mecanumDrive.getPositionFrontRight();
         initialFrontLeft = Robot.mecanumDrive.getPositionFrontLeft();
         initialBackRight = Robot.mecanumDrive.getPositionBackRight();
@@ -62,6 +62,13 @@ public class DriveForwardEncoder extends Command {
         }*/
         //driveTrain.setPositionFrontRight(DISTANCE);
         //System.out.println("Front Right position: " + driveTrain.getPositionFrontRight()); 
+        
+        try{
+            System.out.println("FR = " + RobotMap.frontRightMotor.getPosition());
+         }catch (CANTimeoutException ex) {
+            System.out.println("--- Error Printing Encoder ---");
+                ex.printStackTrace();
+             }
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -52,7 +52,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand = (Command) autoChooser.getSelected();
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
-        new setPositionMode().start();
+        new setPercentMode().start();
         autonomousCommand.start();
         }
     
