@@ -26,7 +26,8 @@ public class StartPickerUpperWithButton extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.pickerUpper.buttonForward(Robot.oi.pickerUpperWheelsForward.get());
+        //Robot.pickerUpper.buttonForward(Robot.oi.pickerUpperWheelsForward.get());
+        Robot.pickerUpper.start();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,5 +43,6 @@ public class StartPickerUpperWithButton extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        Robot.pickerUpper.stop();
     }
 }
