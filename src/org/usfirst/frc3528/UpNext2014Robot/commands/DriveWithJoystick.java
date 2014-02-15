@@ -34,8 +34,9 @@ public class  DriveWithJoystick extends Command {
     protected void execute() {    
         Robot.mecanumDrive.driveWithJoystick(Robot.oi.driveStick);
         //Robot.mecanumDrive.getPositionBackRight();
-        double testNumber = SmartDashboard.getNumber("TestNumber");
-        System.out.println("TestNumber" + testNumber);
+        
+        //double testNumber = SmartDashboard.getNumber("TestNumber");
+        //System.out.println("TestNumber" + testNumber);
     }
        
     

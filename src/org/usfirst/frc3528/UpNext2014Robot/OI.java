@@ -72,6 +72,11 @@ public class OI {
         
         driveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         driveWinch.whenPressed(new DriveWinchWithJoystick());
+        
+
+        //testButton = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
+        //testButton.whenPressed(new FireWithJiggle());
+
         //testing ^
         
 

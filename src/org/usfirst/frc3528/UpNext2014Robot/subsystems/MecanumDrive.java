@@ -120,6 +120,18 @@ public class MecanumDrive extends Subsystem {
 
     }
 
+    public void encoderInchesPerRev(CANJaguar jag, double perRev){
+         
+        try{
+            double distance = jag.getPosition();
+            double inchesPerRev = distance + ( perRev / RobotMap.INCHES_PER_REV);
+        }catch (CANTimeoutException ex) {
+            System.out.println("--- Error doing calculations ---");
+            System.out.println(ex.getMessage());
+        }   
+    }
+    
+    
     public double getPositionFrontRight() {
         try {
             return -frontRightMotor.getPosition();
