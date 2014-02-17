@@ -12,31 +12,24 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class DriveWinchWithJoystick extends Command {
+public class RunWinch extends Command {
     
-    public DriveWinchWithJoystick() {
+    public RunWinch() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.catapult);
-        
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double power = Robot.oi.testingStick.getRawAxis(5);
-        Robot.catapult.drive(power);
-
+        Robot.catapult.drive(1.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return false;
         return Robot.catapult.winchLimit();
     }
 

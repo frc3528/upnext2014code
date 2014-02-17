@@ -14,14 +14,9 @@ public class Catapult extends Subsystem {
     Solenoid unlatch = RobotMap.unlatch;
 
     //drivewinch command
-    public void drive(double righty) {
-        winchTalon.set(righty);
-
-    }
-
-    
-    public void setPower(double power){
+    public void drive(double power) {
         winchTalon.set(power);
+
     }
     
     /*
@@ -86,6 +81,15 @@ public class Catapult extends Subsystem {
         unlatch.set(false);
     }
 
+    public void defaultCatapult(){
+        disengageWinch.set(true);
+        engageWinch.set(false);
+        
+        unlatch.set(true);
+        latch.set(false);
+    
+    }
+    
     public void initDefaultCommand() {
         //setDefaultCommand(new RaisePickerUpper());
     }

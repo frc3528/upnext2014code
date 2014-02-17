@@ -17,25 +17,50 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 public class DriveByFeet extends Command {
     
     double distance;
+    private double encoderCounts = 0;
+    private double inches = 0;
+    private double power = .5;
+    private double initialFrontRight = 0;
+    private double initialFrontLeft = 0;
+    private double initialBackRight = 0;
+    private double initialBackLeft = 0;
+    private double angle = 0;
     
-    public DriveByFeet(double distance) {
+    
+    public DriveByFeet(double distance, double power) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.mecanumDrive);
         this.distance = distance;
+        this.power = power;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        /*
         Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, distance);
         Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, -distance);
         Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, distance);
         Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, -distance);
+        */
+     
+        inches = (distance * 12);
+        encoderCounts = (inches / RobotMap.INCHES_PER_REV);
+    
+        initialFrontRight = Robot.mecanumDrive.getPositionFrontRight();
+        initialFrontLeft = Robot.mecanumDrive.getPositionFrontLeft();
+        initialBackRight = Robot.mecanumDrive.getPositionBackRight();
+        initialBackLeft = Robot.mecanumDrive.getPositionBackLeft();
+    
+        setTimeout(4.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        angle = Robot.mecanumDrive.getAngle();
+        Robot.mecanumDrive.driveWithJoystick(0, -power, 0, Math.abs(angle) > 5 ? angle/360 : 0 );
+        
         try{
-            System.out.println("FR = " + RobotMap.frontLeftMotor.getPosition());
+            System.out.println("FR = " + RobotMap.frontRightMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
@@ -44,11 +69,12 @@ public class DriveByFeet extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= encoderCounts) || isTimedOut());
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.mecanumDrive.driveWithJoystick(0, 0, 0, 0);
     }
 
     // Called when another command which requires one or more of the same

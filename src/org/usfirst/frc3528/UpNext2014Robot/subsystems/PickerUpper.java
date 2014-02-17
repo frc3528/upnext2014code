@@ -70,6 +70,12 @@ public class PickerUpper extends Subsystem {
             
     }
     
+    public void defaultPickerUpper(){
+        armUp.set(true);
+        armDown.set(false);
+        spike1.set(Relay.Value.kOff);
+    }
+    
     public void initDefaultCommand() {
         setDefaultCommand(new TeleopMovePickerUpper());
     }

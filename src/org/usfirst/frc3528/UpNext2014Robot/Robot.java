@@ -44,6 +44,12 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Experimental auto", new Autonomous());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
+    
+        //sets defaults
+        System.out.println("--- Setting defaults ---");
+        //pickerUpper.defaultPickerUpper();
+        //catapult.defaultCatapult();
+        
     }
     
     public void autonomousInit() {
@@ -54,7 +60,7 @@ public class Robot extends IterativeRobot {
         new zeroEncoders().start();
         new setPercentMode().start();
         autonomousCommand.start();
-        }
+    }
     
     
     /**
@@ -91,4 +97,9 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
+
+   public void testInit(){
+       RobotMap.compressor.start();
+       
+    }   
 }

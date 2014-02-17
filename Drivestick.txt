@@ -1,0 +1,39 @@
+
+============================================================================================
+
+drivestick
+
+A button = 
+
+B button = 
+
+X button = 
+
+Y button = 
+
+L bumper = 
+
+R bumper = 
+
+Back button = 
+
+Start button = 
+
+Left thumbstick click = 
+
+Right thumbstick click = 
+
+left stick x = Drive
+
+left stick y = Drive
+
+Left trigger = Drive
+ 
+Right trigger = Drive 
+
+Right stick x = 
+
+Right stick y = 
+
+D pad left/right = 
+

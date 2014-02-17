@@ -24,8 +24,8 @@ public class DriveForwardEncoder extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.mecanumDrive);
-        Robot.mecanumDrive.encoderInchesPerRev(RobotMap.frontRightMotor, distance);
-        //m_distance = distance;
+        //Robot.mecanumDrive.encoderInchesPerRev(RobotMap.frontRightMotor, distance);
+        m_distance = distance;
         m_power = power;
         
         

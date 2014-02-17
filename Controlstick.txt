@@ -1,0 +1,37 @@
+
+controlstick
+
+
+A button = 
+
+B button = 
+
+X button = 
+
+Y button = 
+
+L bumper = 
+
+R bumper = 
+
+Back button = 
+
+Start button = 
+
+Left thumbstick click = 
+
+Right thumbstick click = 
+
+left stick x = 
+
+left stick y = 
+
+Left trigger = - on the Z axis
+ 
+Right trigger = + on the Z axis 
+
+Right stick x = 
+
+Right stick y = 
+
+D pad left/right = 

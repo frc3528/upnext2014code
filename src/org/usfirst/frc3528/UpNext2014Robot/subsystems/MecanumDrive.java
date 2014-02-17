@@ -119,18 +119,11 @@ public class MecanumDrive extends Subsystem {
         driveByInches(jag, distance);
 
     }
-
-    public void encoderInchesPerRev(CANJaguar jag, double perRev){
-         
-        try{
-            double distance = jag.getPosition();
-            double inchesPerRev = distance + ( perRev / RobotMap.INCHES_PER_REV);
-        }catch (CANTimeoutException ex) {
-            System.out.println("--- Error doing calculations ---");
-            System.out.println(ex.getMessage());
-        }   
-    }
     
+    public void encoderInchesPerRev(CANJaguar jag, double distance){
+        double inches = (distance * 12);
+        double inchesPerRev = (inches / RobotMap.INCHES_PER_REV);
+    }
     
     public double getPositionFrontRight() {
         try {
@@ -173,10 +166,13 @@ public class MecanumDrive extends Subsystem {
     }
     
        public double getAngle() {
-        return gyro1.getAngle();
+           return gyro1.getAngle();
     }
     
-       public void increaseSensitivity() {
+       
+       
+       
+    public void increaseSensitivity() {
         if(RobotMap.SENSITIVITY < .9) {
             RobotMap.SENSITIVITY += .1;
         }
@@ -187,4 +183,5 @@ public class MecanumDrive extends Subsystem {
             RobotMap.SENSITIVITY -= .1;
         }
     }
+
 }
