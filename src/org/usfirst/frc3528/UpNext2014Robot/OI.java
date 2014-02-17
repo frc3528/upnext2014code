@@ -67,7 +67,7 @@ public class OI {
         testingStick = new Joystick(3);
         
         latch = new JoystickButton(testingStick, RobotMap.CTRL_A_BUTTON);
-        latch.whenPressed(new Latch());
+        latch.whenPressed(new TwoBallAuto());
         
         unLatch = new JoystickButton(testingStick, RobotMap.CTRL_B_BUTTON);
         unLatch.whenPressed(new UnLatch()); //b pull
@@ -86,7 +86,7 @@ public class OI {
         
         lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
         lightOff.whenPressed(new CameraLightOff());
-           
+        
 
         //SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous", new Autonomous());

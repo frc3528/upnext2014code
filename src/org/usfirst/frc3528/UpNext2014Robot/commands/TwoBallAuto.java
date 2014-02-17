@@ -11,14 +11,21 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author TeamUpNext
  */
-public class FireWithJiggle extends CommandGroup {
+public class TwoBallAuto extends CommandGroup {
     
-    public FireWithJiggle() {
+    public TwoBallAuto() {
         addSequential(new LowerPickerUpper());
-        addSequential(new UnLatch());
-        //addParallel(new Jiggle());
-        addSequential(new Bump());
-        addSequential(new DisengageWinch());
+        addSequential(new Wait(0.7));
+        addSequential(new FireWithoutJiggle());
+        addSequential(new Wait(1.0));
+        addSequential(new Cock());
+        addSequential(new StartPickerUpper());
 
+
+        
+        
+        
+        
+        
     }
 }

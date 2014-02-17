@@ -47,8 +47,8 @@ public class Robot extends IterativeRobot {
     
         //sets defaults
         System.out.println("--- Setting defaults ---");
-        //pickerUpper.defaultPickerUpper();
-        //catapult.defaultCatapult();
+        pickerUpper.defaultPickerUpper();
+        catapult.defaultCatapult();
         
     }
     
