@@ -98,6 +98,7 @@ public class Robot extends IterativeRobot {
      */
     public void testInit() {
         LiveWindow.setEnabled(false);
+        RobotMap.compressor.start();
         //LiveWindow.run();
     }
     
@@ -105,9 +106,4 @@ public class Robot extends IterativeRobot {
         double testNumber = SmartDashboard.getNumber("TestNumber");
         System.out.println("TestNumber" + testNumber);
     }
-
-   public void testInit(){
-       RobotMap.compressor.start();
-       
-    }   
 }

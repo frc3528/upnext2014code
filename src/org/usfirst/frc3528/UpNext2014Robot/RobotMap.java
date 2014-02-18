@@ -107,7 +107,7 @@ public class RobotMap {
     
     // Camera Stuff
     public static final String CAMERA_ADDRESS = "10.35.28.11";
-    public static final int CAMERA_BRIGHTNESS = 25;
+    public static final int CAMERA_BRIGHTNESS = 15;
     public static final int CAMERA_COMPRESSION = 0;
     public static final int CAMERA_COLOR_LEVEL = 100;
     public static final int TARGETING_LIGHT_RELAY_CHANNEL = 5;
