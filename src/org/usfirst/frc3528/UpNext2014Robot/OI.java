@@ -67,10 +67,10 @@ public class OI {
         testingStick = new Joystick(3);
         
         latch = new JoystickButton(testingStick, RobotMap.CTRL_A_BUTTON);
-        latch.whenPressed(new DriveByFeet(13, 0.5));
+        latch.whenPressed(new Latch());
         
         unLatch = new JoystickButton(testingStick, RobotMap.CTRL_B_BUTTON);
-        unLatch.whenPressed(new UnLatch()); //b pull
+        unLatch.whenPressed(new UnLatch());
         
         disengageWinch = new JoystickButton(testingStick, RobotMap.CTRL_Y_BUTTON);
         disengageWinch.whenPressed(new DisengageWinch());
