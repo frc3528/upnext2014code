@@ -14,18 +14,21 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TwoBallAuto extends CommandGroup {
     
     public TwoBallAuto() {
+        
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.7));
         addSequential(new FireWithoutJiggle());
-        addSequential(new Wait(1.0));
+        addSequential(new Wait(.75));
         addSequential(new Cock());
-        addSequential(new StartPickerUpper());
-
-
         
+        addSequential(new ReversePickerUpper());
+        addSequential(new RaisePickerUpper());
+        addParallel(new StopPickerUpper());
         
-        
-        
-        
+        addSequential(new DriveByFeet(12, 0.75));
+        addSequential(new LowerPickerUpper());
+        addSequential(new Wait(0.7));
+        addSequential(new FireWithoutJiggle());
+        //addSequential(new setCoastMode());
     }
 }

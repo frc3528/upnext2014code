@@ -51,7 +51,7 @@ public class DriveByFeet extends Command {
         initialBackRight = Robot.mecanumDrive.getPositionBackRight();
         initialBackLeft = Robot.mecanumDrive.getPositionBackLeft();
     
-        setTimeout(4.0);
+        setTimeout(100.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

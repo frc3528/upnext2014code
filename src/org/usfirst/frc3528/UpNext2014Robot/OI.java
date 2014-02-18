@@ -67,7 +67,7 @@ public class OI {
         testingStick = new Joystick(3);
         
         latch = new JoystickButton(testingStick, RobotMap.CTRL_A_BUTTON);
-        latch.whenPressed(new TwoBallAuto());
+        latch.whenPressed(new DriveByFeet(13, 0.5));
         
         unLatch = new JoystickButton(testingStick, RobotMap.CTRL_B_BUTTON);
         unLatch.whenPressed(new UnLatch()); //b pull

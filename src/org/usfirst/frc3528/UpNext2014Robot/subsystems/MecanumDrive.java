@@ -184,4 +184,21 @@ public class MecanumDrive extends Subsystem {
         }
     }
 
+    public void brakeMode(CANJaguar jag){
+        try{
+        //jag.setSafetyEnabled(false);
+        jag.configNeutralMode(CANJaguar.NeutralMode.kBrake);
+        } catch (Exception e) {
+          System.out.println("Error enabling brake mode");
+        }
+    }
+
+    public void coastMode(CANJaguar jag){
+       try{
+        //jag.setSafetyEnabled(true);
+        jag.configNeutralMode(CANJaguar.NeutralMode.kCoast);
+        } catch (Exception e) {
+          System.out.println("Error enabling coast mode");
+        } 
+    }
 }

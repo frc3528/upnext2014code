@@ -183,7 +183,7 @@ public class RobotMap {
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
                 frontRightMotor, backRightMotor);
 
-        mecanumDriveRobotDrive.setSafetyEnabled(true);
+        mecanumDriveRobotDrive.setSafetyEnabled(false);
 
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
