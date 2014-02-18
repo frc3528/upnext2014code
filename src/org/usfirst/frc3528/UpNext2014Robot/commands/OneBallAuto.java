@@ -11,15 +11,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author TeamUpNext
  */
-public class Cock extends CommandGroup {
+public class OneBallAuto extends CommandGroup {
     
-    public Cock() {
-        //addSequential(new EngageWinch());
+    public OneBallAuto() {
         addSequential(new LowerPickerUpper());
-        addSequential(new EngageWinch());
-        addSequential(new RunWinch());
-        addSequential(new Latch());
-        //addSequential(new DisengageWinch());
-
+        
+        
+        
+        
+        
     }
 }

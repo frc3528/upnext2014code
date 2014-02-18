@@ -44,17 +44,24 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Experimental auto", new Autonomous());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
+    
+        //sets defaults
+        System.out.println("--- Setting defaults ---");
+        pickerUpper.defaultPickerUpper();
+        catapult.defaultCatapult();
+        
     }
     
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
-        autonomousCommand = (Command) autoChooser.getSelected();
+        autonomousCommand = new TwoBallAuto(); //(Command) autoChooser.getSelected();
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
         new setPercentMode().start();
+        new setBrakeMode().start();
         autonomousCommand.start();
-        }
+    }
     
     
     /**
@@ -71,9 +78,10 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        //RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(true);
         new zeroEncoders().start();
         new setPercentMode().start();
-    
+        new setCoastMode().start();
     }
    
     
@@ -97,4 +105,9 @@ public class Robot extends IterativeRobot {
         double testNumber = SmartDashboard.getNumber("TestNumber");
         System.out.println("TestNumber" + testNumber);
     }
+
+   public void testInit(){
+       RobotMap.compressor.start();
+       
+    }   
 }

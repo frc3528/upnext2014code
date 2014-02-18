@@ -23,7 +23,7 @@ public class JiggleForward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         setTimeout(RobotMap.JIGGLE_DELAY);
-        Robot.catapult.setPower(RobotMap.JIGGLE_POWER);
+        Robot.catapult.drive(RobotMap.JIGGLE_POWER);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,7 +37,7 @@ public class JiggleForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.catapult.setPower(0);
+        Robot.catapult.drive(0);
     }
 
     // Called when another command which requires one or more of the same

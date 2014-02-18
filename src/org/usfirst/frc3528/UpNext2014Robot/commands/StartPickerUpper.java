@@ -12,17 +12,16 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class ReversePickerUpper extends Command {
+public class StartPickerUpper extends Command {
     
-    public ReversePickerUpper() {
+    public StartPickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.pickerUpper);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(1.0);
-        Robot.pickerUpper.reverse();
+        Robot.pickerUpper.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,7 +30,7 @@ public class ReversePickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -43,3 +42,4 @@ public class ReversePickerUpper extends Command {
     protected void interrupted() {
     }
 }
+

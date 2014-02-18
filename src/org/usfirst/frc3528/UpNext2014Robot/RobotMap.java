@@ -184,7 +184,7 @@ public class RobotMap {
         mecanumDriveRobotDrive = new RobotDrive(frontLeftMotor, backLeftMotor,
                 frontRightMotor, backRightMotor);
 
-        mecanumDriveRobotDrive.setSafetyEnabled(true);
+        mecanumDriveRobotDrive.setSafetyEnabled(false);
 
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         mecanumDriveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
@@ -213,8 +213,8 @@ public class RobotMap {
         disengageWinch = new Solenoid(WINCH_PULL_SOLENOID_CHANNEL); //Solenoid 1B
         latch = new Solenoid(LATCH_PUSH_SOLENOID_CHANNEL); //Solenoid 2A  
         unlatch = new Solenoid(LATCH_PULL_SOLENOID_CHANNEL); // Solenoid 2B
-        armDown = new Solenoid(ARM_PUSH_SOLENOID_CHANNEL); // Solenoid 3&4A
-        armUp = new Solenoid(ARM_PULL_SOLENOID_CHANNEL); // Solenoid 3&4B
+        armDown = new Solenoid(ARM_PUSH_SOLENOID_CHANNEL); // Solenoid 3A
+        armUp = new Solenoid(ARM_PULL_SOLENOID_CHANNEL); // Solenoid 3B
         
         
         

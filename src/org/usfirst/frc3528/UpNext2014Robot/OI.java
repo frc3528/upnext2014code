@@ -17,7 +17,8 @@ public class OI {
     
     public Joystick driveStick;
     public Joystick controlStick;
-    public JoystickButton fire;
+    public Joystick testingStick;
+    public JoystickButton fireWithoutJiggle;
     public JoystickButton cock;
     public JoystickButton disengageWinch;
     public JoystickButton engageWinch;
@@ -28,7 +29,10 @@ public class OI {
     public JoystickButton increaseSensitivity;
     public JoystickButton decreaseSensitivity;
     public JoystickButton driveWinch;
-    public JoystickButton testButton;
+    public JoystickButton fireWithJiggle;
+    public JoystickButton lightOn;
+    public JoystickButton lightOff;
+    
     
     public OI() {       
         
@@ -44,38 +48,45 @@ public class OI {
         
         controlStick = new Joystick(2);
 
-        //fire = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
-        //fire.whenPressed(new FireWithoutJiggle());
+        fireWithoutJiggle = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
+        fireWithoutJiggle.whenPressed(new FireWithoutJiggle());
 
-        //cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        //cock.whenPressed(new Cock());
+        cock = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
+        cock.whenPressed(new Cock());
         
-        disengageWinch = new JoystickButton(controlStick, RobotMap.CTRL_Y_BUTTON);
-        disengageWinch.whenPressed(new DisengageWinch());
-        
-        engageWinch = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
-        engageWinch.whenPressed(new EngageWinch());
-        
+        fireWithJiggle = new JoystickButton(controlStick, RobotMap.CTRL_X_BUTTON);
+        fireWithJiggle.whenPressed(new FireWithJiggle());
+
         spitOutBall = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
         spitOutBall.whileHeld(new StartPickerUpperWithButton());
         
         pickUpBall = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
         pickUpBall.whileHeld(new ReversePickerUpperWithButton());
         
+       
+        testingStick = new Joystick(3);
         
-        //testing v
-        latch = new JoystickButton(controlStick, RobotMap.CTRL_B_BUTTON);
-        latch.whenPressed(new Latch());
+        latch = new JoystickButton(testingStick, RobotMap.CTRL_A_BUTTON);
+        latch.whenPressed(new DriveByFeet(13, 0.5));
         
-        unLatch = new JoystickButton(controlStick, RobotMap.CTRL_A_BUTTON);
-        unLatch.whenPressed(new UnLatch());
+        unLatch = new JoystickButton(testingStick, RobotMap.CTRL_B_BUTTON);
+        unLatch.whenPressed(new UnLatch()); //b pull
         
-        driveWinch = new JoystickButton(controlStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
+        disengageWinch = new JoystickButton(testingStick, RobotMap.CTRL_Y_BUTTON);
+        disengageWinch.whenPressed(new DisengageWinch());
+        
+        engageWinch = new JoystickButton(testingStick, RobotMap.CTRL_X_BUTTON);
+        engageWinch.whenPressed(new EngageWinch());
+        
+        driveWinch = new JoystickButton(testingStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         driveWinch.whenPressed(new DriveWinchWithJoystick());
-        //testing ^
         
-
-           
+        lightOn = new JoystickButton(testingStick, RobotMap.CTRL_R_BUMPER);
+        lightOn.whenPressed(new CameraLightOn());
+        
+        lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
+        lightOff.whenPressed(new CameraLightOff());
+        
 
         //SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous", new Autonomous());

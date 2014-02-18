@@ -24,9 +24,11 @@ public class DriveForwardEncoder extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.mecanumDrive);
+        //Robot.mecanumDrive.encoderInchesPerRev(RobotMap.frontRightMotor, distance);
         m_distance = distance;
         m_power = power;
-
+        
+        
     }
 
     // Called just before this Command runs the first time
@@ -40,6 +42,7 @@ public class DriveForwardEncoder extends Command {
         initialBackRight = Robot.mecanumDrive.getPositionBackRight();
         initialBackLeft = Robot.mecanumDrive.getPositionBackLeft();
         //driveTrain.setFrontRightPower(-.25);
+        
         setTimeout(TIMEOUT);
         //.SetPositionMode();
         //driveTrain.setPositionFrontRight(DISTANCE);
@@ -49,6 +52,7 @@ public class DriveForwardEncoder extends Command {
 
     // Called repeatedly (aprox. every 20ms)when this Command is scheduled to run
     protected void execute() {
+        
         //System.out.println("---> top get angle");
         angle = Robot.mecanumDrive.getAngle();
         //System.out.println("---> bottom get angle");

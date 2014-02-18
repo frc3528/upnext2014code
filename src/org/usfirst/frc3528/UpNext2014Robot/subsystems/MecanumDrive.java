@@ -119,7 +119,12 @@ public class MecanumDrive extends Subsystem {
         driveByInches(jag, distance);
 
     }
-
+    
+    public void encoderInchesPerRev(CANJaguar jag, double distance){
+        double inches = (distance * 12);
+        double inchesPerRev = (inches / RobotMap.INCHES_PER_REV);
+    }
+    
     public double getPositionFrontRight() {
         try {
             return -frontRightMotor.getPosition();
@@ -161,10 +166,13 @@ public class MecanumDrive extends Subsystem {
     }
     
        public double getAngle() {
-        return gyro1.getAngle();
+           return gyro1.getAngle();
     }
     
-       public void increaseSensitivity() {
+       
+       
+       
+    public void increaseSensitivity() {
         if(RobotMap.SENSITIVITY < .9) {
             RobotMap.SENSITIVITY += .1;
         }
@@ -174,5 +182,23 @@ public class MecanumDrive extends Subsystem {
         if(RobotMap.SENSITIVITY > .2) {
             RobotMap.SENSITIVITY -= .1;
         }
+    }
+
+    public void brakeMode(CANJaguar jag){
+        try{
+        //jag.setSafetyEnabled(false);
+        jag.configNeutralMode(CANJaguar.NeutralMode.kBrake);
+        } catch (Exception e) {
+          System.out.println("Error enabling brake mode");
+        }
+    }
+
+    public void coastMode(CANJaguar jag){
+       try{
+        //jag.setSafetyEnabled(true);
+        jag.configNeutralMode(CANJaguar.NeutralMode.kCoast);
+        } catch (Exception e) {
+          System.out.println("Error enabling coast mode");
+        } 
     }
 }
