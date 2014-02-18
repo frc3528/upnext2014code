@@ -88,7 +88,13 @@ public class Robot extends IterativeRobot {
     /**
      * This function called periodically during test mode
      */
+    public void testInit() {
+        LiveWindow.setEnabled(false);
+        //LiveWindow.run();
+    }
+    
     public void testPeriodic() {
-        LiveWindow.run();
+        double testNumber = SmartDashboard.getNumber("TestNumber");
+        System.out.println("TestNumber" + testNumber);
     }
 }

@@ -31,7 +31,7 @@ public class OI {
     public JoystickButton testButton;
     
     public OI() {       
-    
+        
         // create joysticks
         driveStick = new Joystick(1);
     
