@@ -1,0 +1,28 @@
+PNEUMATICS
+==========
+
+SCHANNEL    SBLOCK      FUNCTION
+================================
+Odd         A           Engage
+Even        B           Disengage
+
+
+
+FUNCTION    SBLOCK  SCHANNEL    JOYSTICK
+========================================
+Clutch
+------
+engage      1A      S1          X
+disengate   2A      S2          Y
+
+
+Latch
+-----
+latch       2A      S3          A
+unlatch     2B      S4          B
+
+
+Arm
+---
+down        3A      S5          left trigger
+up          3B      S6          right trigger
