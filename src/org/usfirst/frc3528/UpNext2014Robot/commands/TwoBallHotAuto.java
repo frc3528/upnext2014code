@@ -1,38 +1,41 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.usfirst.frc3528.UpNext2014Robot.commands;
+
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.CommandGroup;
+
 /**
  *
+ * @author Holden
  */
-public class  Autonomous extends CommandGroup {
-    public Autonomous() {
+public class TwoBallHotAuto extends Command {
+    
+    public TwoBallHotAuto() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        addSequential(new DriveByFeet(12 , 0.75));
-        addSequential(new CameraLightOn());
-        
-        
-        
-        //addSequential(new CameraLightOff());
-        //addSequential(new DriveByFeet(10));
-        //addSequential(new DriveForwardEncoder(6.7 , 0.5));
-
     }
+
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-       }
+        System.out.println("Two ball hot autonomous is running");
+    }
+
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-         }
+    }
+
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
+
     // Called once after isFinished returns true
     protected void end() {
     }
+
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
