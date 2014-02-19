@@ -16,6 +16,7 @@ public class StartPickerUpper extends Command {
     
     public StartPickerUpper() {
         // Use requires() here to declare subsystem dependencies
+        setTimeout(1.0);
         requires(Robot.pickerUpper);
     }
 
@@ -30,11 +31,12 @@ public class StartPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.pickerUpper.stop();
     }
 
     // Called when another command which requires one or more of the same
