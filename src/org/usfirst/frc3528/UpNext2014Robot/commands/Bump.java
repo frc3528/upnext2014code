@@ -25,7 +25,7 @@ public class Bump extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        setTimeout(.025);
+        setTimeout(0.015);
         Robot.catapult.drive(1.0);
     }
 

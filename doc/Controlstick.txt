@@ -1,34 +1,33 @@
+controlstick (2)
 
-controlstick
 
+A button = normal fire 
 
-A button = 
+B button = cock
 
-B button = 
-
-X button = 
+X button = backup fire
 
 Y button = 
 
-L bumper = 
+L bumper = pick up ball
 
-R bumper = 
+R bumper = spit out ball
 
 Back button = 
 
 Start button = 
 
-Left thumbstick click = 
+Left thumb stick click = 
 
-Right thumbstick click = 
+Right thumb stick click = 
 
 left stick x = 
 
 left stick y = 
 
-Left trigger = - on the Z axis
+Left trigger = lower arm 
  
-Right trigger = + on the Z axis 
+Right trigger = raise arm 
 
 Right stick x = 
 

@@ -15,8 +15,8 @@ public class FireWithJiggle extends CommandGroup {
     
     public FireWithJiggle() {
         addSequential(new LowerPickerUpper());
+        addSequential(new EngageWinch());
         addSequential(new UnLatch());
-        //addParallel(new Jiggle());
         addSequential(new Bump());
         addSequential(new DisengageWinch());
 

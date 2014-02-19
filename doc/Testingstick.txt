@@ -1,0 +1,35 @@
+testingstick (3)
+
+A button = latch
+
+B button = unlatch
+
+X button = engage winch
+
+Y button = disengage winch
+
+L bumper = light off
+
+R bumper = light on
+
+Back button = 
+
+Start button = 
+
+Left thumb stick click = 
+
+Right thumb stick click = drive winch
+
+left stick x = 
+
+left stick y = 
+
+Left trigger = 
+ 
+Right trigger = 
+
+Right stick x = 
+
+Right stick y = drive winch
+
+D pad left/right = 

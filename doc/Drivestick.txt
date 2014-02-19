@@ -1,7 +1,5 @@
+drivetick (1)
 
-============================================================================================
-
-drivestick
 
 A button = 
 
@@ -15,13 +13,13 @@ L bumper =
 
 R bumper = 
 
-Back button = 
+Back button = raise sensitivity 
 
-Start button = 
+Start button = lower sensitivity
 
-Left thumbstick click = 
+Left thumb stick click = 
 
-Right thumbstick click = 
+Right thumb stick click = 
 
 left stick x = Drive
 
