@@ -13,26 +13,27 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  *
  * @author TeamUpNext
  */
-public class TwoBallAutoBothHot extends CommandGroup {
+public class AutonomousTwoBall extends CommandGroup {
     
-    public TwoBallAutoBothHot() {
+    public AutonomousTwoBall() {
         
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.6));
-        
-        addSequential(new FireWithoutJiggle());
-        
+        addSequential(new Fire());
+        if (Robot.catapult.winchLimit() == true) {
+           addSequential(new FireBackUp()); 
+        }
         addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Cock());
         addSequential(new ReversePickerUpper());
         addSequential(new RaisePickerUpper());
-        addParallel(new StopPickerUpper());
+        //addParallel(new StopPickerUpper());
         addSequential(new DriveByFeet(12, 0.75));
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.6));
-        addSequential(new FireWithoutJiggle());
-        
-
-        
+        addSequential(new Fire());
+        if (Robot.catapult.winchLimit() == true) {
+           addSequential(new FireBackUp()); 
+         }
     }
 }

@@ -11,14 +11,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author TeamUpNext
  */
-public class FireWithJiggle extends CommandGroup {
+public class AutonomousDriveForward extends CommandGroup {
     
-    public FireWithJiggle() {
-        addSequential(new LowerPickerUpper());
-        addSequential(new EngageWinch());
-        addSequential(new UnLatch());
-        addSequential(new Bump());
-        addSequential(new DisengageWinch());
-
+    public AutonomousDriveForward() {
+        
+        addSequential(new DriveByFeet(12, 0.75));
     }
 }

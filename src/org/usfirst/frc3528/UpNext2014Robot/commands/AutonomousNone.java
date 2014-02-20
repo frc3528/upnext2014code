@@ -11,16 +11,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Holden
  */
-public class DriveForwardAuto extends Command {
+public class AutonomousNone extends Command {
     
-    public DriveForwardAuto() {
+    public AutonomousNone() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("Drive Forward Autonomous is running");
+        System.out.println("No Autonomous command is running");
     }
 
     // Called repeatedly when this Command is scheduled to run
