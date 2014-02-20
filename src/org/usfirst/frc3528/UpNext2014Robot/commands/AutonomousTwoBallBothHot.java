@@ -17,13 +17,13 @@ public class AutonomousTwoBallBothHot extends CommandGroup {
     
     public AutonomousTwoBallBothHot() {
         
-        
+        /*
         if (  == true) {
          addSequential(new DriveSideways(2, 0.5));
         } else {
          addSequential(new DriveSideways(-2, 0.5));    
         }
-        
+        */
         
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.6));
