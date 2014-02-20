@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -22,11 +23,11 @@ public class TwoBallAuto extends CommandGroup {
         if (Robot.catapult.winchLimit() == true) {
            addSequential(new FireWithJiggle()); 
         }
-        addSequential(new Wait(0.7));
+        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Cock());
         addSequential(new ReversePickerUpper());
         addSequential(new RaisePickerUpper());
-        addParallel(new StopPickerUpper());
+        //addParallel(new StopPickerUpper());
         addSequential(new DriveByFeet(12, 0.75));
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.6));

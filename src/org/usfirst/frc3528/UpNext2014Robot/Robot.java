@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
-        autonomousCommand = new TwoBallAuto(); //(Command) autoChooser.getSelected();
+        autonomousCommand = (Command) autoChooser.getSelected();
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
         new setPercentMode().start();
@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        //RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(true);
+        RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(true);
         new zeroEncoders().start();
         new setPercentMode().start();
         new setCoastMode().start();
