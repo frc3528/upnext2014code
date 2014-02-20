@@ -14,7 +14,7 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  *
  * @author TeamUPNext
  */
-public class DriveByFeet extends Command {
+public class DriveSideways extends Command {
     
     double distance;
     private double encoderCounts = 0;
@@ -27,7 +27,7 @@ public class DriveByFeet extends Command {
     private double angle = 0;
     
     
-    public DriveByFeet(double distance, double power) {
+    public DriveSideways(double distance, double power) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.mecanumDrive);
         this.distance = distance;
@@ -36,13 +36,6 @@ public class DriveByFeet extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        /*
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontLeftMotor, distance);
-        Robot.mecanumDrive.driveByFeet(RobotMap.frontRightMotor, -distance);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backLeftMotor, distance);
-        Robot.mecanumDrive.driveByFeet(RobotMap.backRightMotor, -distance);
-        */
-     
         inches = (distance * 12);
         encoderCounts = (inches / RobotMap.INCHES_PER_REV);
     
@@ -57,7 +50,7 @@ public class DriveByFeet extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         angle = Robot.mecanumDrive.getAngle();
-        Robot.mecanumDrive.driveWithJoystick(0, -power, 0, Math.abs(angle) > 5 ? angle/360 : 0 );
+        Robot.mecanumDrive.driveWithJoystick(-power, 0, 0, Math.abs(angle) > 5 ? angle/360 : 0 );
         
         try{
             System.out.println("FR = " + RobotMap.frontRightMotor.getPosition());
@@ -69,7 +62,7 @@ public class DriveByFeet extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= encoderCounts) || isTimedOut());
+        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= encoderCounts) || ((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= -encoderCounts) || isTimedOut());
     }
 
     // Called once after isFinished returns true
