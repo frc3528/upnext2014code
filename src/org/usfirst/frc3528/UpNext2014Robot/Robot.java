@@ -40,8 +40,12 @@ public class Robot extends IterativeRobot {
         autonomousCommand = new DriveByInches();
 
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("Default program", new Autonomous());
-        autoChooser.addObject("Experimental auto", new Autonomous());
+        autoChooser.addDefault("1 Ball Autonomous", new Autonomous());
+        autoChooser.addObject("2 Ball Autonomous", new TwoBallAuto());
+        autoChooser.addObject("2 Ball Hot Autonomous", new TwoBallHotAuto());
+        autoChooser.addObject("3 Ball Autonomous", new ThreeBallAuto());
+        autoChooser.addObject("Drive Forward Autonomous", new DriveForwardAuto());
+        autoChooser.addObject("No Autonomous", new NoAuto());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
     
@@ -55,7 +59,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
-        autonomousCommand = new TwoBallAuto(); //(Command) autoChooser.getSelected();
+        autonomousCommand = (Command) autoChooser.getSelected();
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
         new setPercentMode().start();
