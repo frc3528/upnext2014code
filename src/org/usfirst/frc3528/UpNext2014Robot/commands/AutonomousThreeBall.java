@@ -13,25 +13,25 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  *
  * @author TeamUpNext
  */
-public class ThreeBallAuto extends CommandGroup {
+public class AutonomousThreeBall extends CommandGroup {
     
-    public ThreeBallAuto() {
+    public AutonomousThreeBall() {
         
         
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(0.6));
-        addSequential(new FireWithoutJiggle());
+        addSequential(new Fire());
         addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Cock());
         addParallel(new ReversePickerUpper());
         addSequential(new DriveByFeet(-2, -0.5));
         addSequential(new DriveByFeet(12, 0.75));
         addSequential(new StartPickerUpper());
-        addSequential(new FireWithoutJiggle());
+        addSequential(new Fire());
         addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Cock());
         addSequential(new ReversePickerUpper());
-        addSequential(new FireWithoutJiggle());
+        addSequential(new Fire());
         
         }
 }
