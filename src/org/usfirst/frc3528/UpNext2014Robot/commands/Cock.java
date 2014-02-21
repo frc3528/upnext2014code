@@ -14,12 +14,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Cock extends CommandGroup {
     
     public Cock() {
-        //addSequential(new EngageWinch());
         addSequential(new LowerPickerUpper());
         addSequential(new EngageWinch());
         addSequential(new RunWinch());
         addSequential(new Latch());
-        //addSequential(new DisengageWinch());
+        
 
     }
 }

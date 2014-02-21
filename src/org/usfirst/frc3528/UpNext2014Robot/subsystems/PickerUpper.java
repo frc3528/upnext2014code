@@ -11,6 +11,7 @@ public class PickerUpper extends Subsystem {
     Relay spike1 = RobotMap.pickerUpperSpike1;
     Solenoid armUp = RobotMap.armUp;
     Solenoid armDown = RobotMap.armDown;
+    DigitalInput armLimit = RobotMap.armLimit;
     //DigitalInput upperLimit = RobotMap.pickerUpperUpperLimit;
     //DigitalInput lowerLimit = RobotMap.pickerUpperLowerLimit;
     
@@ -68,6 +69,10 @@ public class PickerUpper extends Subsystem {
             this.stop();
         }
             
+    }
+    
+    public boolean armDown(){
+        return !armLimit.get();
     }
     
     public void defaultPickerUpper(){

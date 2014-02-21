@@ -37,7 +37,6 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 	
         // instantiate the command used for the autonomous period
-        autonomousCommand = new DriveByInches();
 
         autoChooser = new SendableChooser();
         autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBallHot());

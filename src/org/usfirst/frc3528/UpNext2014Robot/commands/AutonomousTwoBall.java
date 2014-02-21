@@ -18,7 +18,6 @@ public class AutonomousTwoBall extends CommandGroup {
     public AutonomousTwoBall() {
         
         addSequential(new LowerPickerUpper());
-        addSequential(new Wait(0.6));
         addSequential(new Fire());
         if (Robot.catapult.winchLimit() == true) {
            addSequential(new FireBackUp()); 
@@ -27,10 +26,8 @@ public class AutonomousTwoBall extends CommandGroup {
         addSequential(new Cock());
         addSequential(new ReversePickerUpper());
         addSequential(new RaisePickerUpper());
-        //addParallel(new StopPickerUpper());
         addSequential(new DriveByFeet(12, 0.75));
         addSequential(new LowerPickerUpper());
-        addSequential(new Wait(0.6));
         addSequential(new Fire());
         if (Robot.catapult.winchLimit() == true) {
            addSequential(new FireBackUp()); 
