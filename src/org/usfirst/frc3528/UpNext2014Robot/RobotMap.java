@@ -38,7 +38,7 @@ public class RobotMap {
     public static Solenoid unlatch;
     public static Solenoid armDown;
     public static Solenoid armUp;
-    
+    public static DigitalInput armLimit;
     
     public static Compressor compressor;
   
@@ -152,6 +152,11 @@ public class RobotMap {
     public static final int WINCH_PWM_CHANNEL = 1;
     public static final int WINCH_LOW_LIMIT_CHANNEL = 2;
     
+    
+    // PickerUpper
+    public static final int ARM_LIMIT_CHANNEL = 4;
+
+    
 
     
     
@@ -218,7 +223,7 @@ public class RobotMap {
         unlatch = new Solenoid(LATCH_PULL_SOLENOID_CHANNEL); // Solenoid 2B
         armDown = new Solenoid(ARM_PUSH_SOLENOID_CHANNEL); // Solenoid 3A
         armUp = new Solenoid(ARM_PULL_SOLENOID_CHANNEL); // Solenoid 3B
-        
+        armLimit = new DigitalInput(ARM_LIMIT_CHANNEL);
         
         
         

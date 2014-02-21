@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -16,7 +17,7 @@ public class LowerPickerUpper extends Command {
     
     public LowerPickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        //requires(Robot.catapult);
     }
 
     // Called just before this Command runs the first time
@@ -25,13 +26,12 @@ public class LowerPickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        setTimeout(.075);
         Robot.pickerUpper.lower();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return Robot.pickerUpper.armDown();
     }
 
     // Called once after isFinished returns true
