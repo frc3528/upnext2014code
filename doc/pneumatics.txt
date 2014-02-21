@@ -13,7 +13,7 @@ FUNCTION    SBLOCK  SCHANNEL    JOYSTICK
 Clutch
 ------
 engage      1A      S1          X
-disengage   2A      S2          Y
+disengage   1B      S2          Y
 
 
 Latch
