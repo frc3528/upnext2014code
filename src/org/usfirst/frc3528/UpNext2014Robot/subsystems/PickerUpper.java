@@ -72,7 +72,7 @@ public class PickerUpper extends Subsystem {
     }
     
     public boolean armDown(){
-        return !armLimit.get();
+        return armLimit.get();
     }
     
     public void defaultPickerUpper(){

@@ -6,6 +6,7 @@
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc3528.UpNext2014Robot.Robot;
 
 /**
  *

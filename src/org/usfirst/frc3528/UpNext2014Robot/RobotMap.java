@@ -150,11 +150,11 @@ public class RobotMap {
     
     // Catapult
     public static final int WINCH_PWM_CHANNEL = 1;
-    public static final int WINCH_LOW_LIMIT_CHANNEL = 2;
+    public static final int WINCH_LOW_LIMIT_CHANNEL = 5;
     
     
     // PickerUpper
-    public static final int ARM_LIMIT_CHANNEL = 4;
+    public static final int ARM_LIMIT_CHANNEL = 10;
 
     
 

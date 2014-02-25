@@ -26,12 +26,13 @@ public class LowerPickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        setTimeout(.075);
         Robot.pickerUpper.lower();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.pickerUpper.armDown();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
