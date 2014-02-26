@@ -105,19 +105,27 @@ public class Robot extends IterativeRobot {
         //RobotMap.compressor.start();
         //LiveWindow.run();
         
-        System.out.println("--- Test Mode: Setting defaults ---");
-        pickerUpper.lower();
-        catapult.engageWinch();
-        catapult.disablelatch();
+        if(!Robot.catapult.winchLimit() ) {
         
-        // simply wait until the pressure switch is true (at pressure)
-        while ( !RobotMap.compressor.getPressureSwitchValue() ) {
+            System.out.println("--- Test Mode: Setting defaults (catapult up) ---");
+            pickerUpper.lower();
+            catapult.engageWinch();
+            catapult.unlatch();      
+        
+            // simply wait until the pressure switch is true (at pressure)
+            while ( !RobotMap.compressor.getPressureSwitchValue() ) {
             // just waiting for pressure to come up
+            }
+        
+            System.out.println("------> lowering winch ");
+            new TestModeDefault().start();        
+        
+        } else {
+            System.out.println("--- Test Mode: Setting defaults (catapult down) ---");
+            pickerUpper.raise();
+            catapult.engageWinch();
+            catapult.latch();
         }
-        
-        System.out.println("------> lowering winch ");
-        new TestDefault().start();        
-        
     }
     
     

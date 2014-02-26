@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author jousley
  */
-public class TestDefault extends CommandGroup {
+public class TestModeDefault extends CommandGroup {
     
-    public TestDefault() {
+    public TestModeDefault() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
