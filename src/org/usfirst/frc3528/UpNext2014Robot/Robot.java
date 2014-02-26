@@ -48,11 +48,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
     
-        //sets defaults
-        System.out.println("--- Setting defaults ---");
+        //sets defaults (removed for safety - added in Test Mode)
+        /*
+        System.out.println("--- robotInit: Setting defaults ---");
         pickerUpper.defaultPickerUpper();
         catapult.defaultCatapult();
-        
+        */
     }
     
     public void autonomousInit() {
@@ -101,12 +102,32 @@ public class Robot extends IterativeRobot {
      */
     public void testInit() {
         LiveWindow.setEnabled(false);
-        RobotMap.compressor.start();
+        //RobotMap.compressor.start();
         //LiveWindow.run();
+        
+        System.out.println("--- Test Mode: Setting defaults ---");
+        pickerUpper.lower();
+        catapult.engageWinch();
+        catapult.disablelatch();
+        
+        // simply wait until the pressure switch is true (at pressure)
+        while ( !RobotMap.compressor.getPressureSwitchValue() ) {
+            // just waiting for pressure to come up
+        }
+        
+        System.out.println("------> lowering winch ");
+        new TestDefault().start();        
+        
     }
     
+    
     public void testPeriodic() {
-        double testNumber = SmartDashboard.getNumber("TestNumber");
-        System.out.println("TestNumber" + testNumber);
+        //double testNumber = SmartDashboard.getNumber("TestNumber");
+        //System.out.println("TestNumber" + testNumber);
+        //System.out.println("pswitch: " + RobotMap.compressor.getPressureSwitchValue());
+        
+        Scheduler.getInstance().run();
+        
+        
     }
 }
