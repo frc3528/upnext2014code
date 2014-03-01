@@ -14,14 +14,15 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  */
 public class ReversePickerUpper extends Command {
     
-    public ReversePickerUpper() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    double time;
+    
+    public ReversePickerUpper(double time) {
+        this.time = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(1.0);
+        setTimeout(time);
         Robot.pickerUpper.reverse();
     }
 

@@ -35,14 +35,14 @@ public class MecanumDrive extends Subsystem {
         robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0);
         //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
         
-        /* 
+        
          try{
-            System.out.println("FR = " + frontLeftMotor.getPosition());
+            System.out.println("Fl = " + frontLeftMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-         */        
+                 
          
         //System.out.println("Gyro angle: " + gyro1.getAngle());
          SmartDashboard.putNumber("Gyro", gyro1.getAngle());

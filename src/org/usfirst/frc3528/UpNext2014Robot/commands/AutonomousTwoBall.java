@@ -18,14 +18,16 @@ public class AutonomousTwoBall extends CommandGroup {
     public AutonomousTwoBall() {
         
         addSequential(new LowerPickerUpper());
+        //addSequential(new ReversePickerUpper(0.1));
+        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Fire());
         addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Cock());
-        addSequential(new ReversePickerUpper());
+        addSequential(new ReversePickerUpper(1.0));
         addSequential(new RaisePickerUpper());
-        addSequential(new DriveByFeet(12, 0.75));
+        //addSequential(new DriveByFeet(12, 0.75));
+        addSequential(new DriveByFeet(11, 0.90));
         addSequential(new LowerPickerUpper());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         addSequential(new Fire());
     }
 }

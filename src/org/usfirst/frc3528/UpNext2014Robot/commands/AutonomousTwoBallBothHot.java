@@ -26,10 +26,12 @@ public class AutonomousTwoBallBothHot extends CommandGroup {
         */
         
         addSequential(new LowerPickerUpper());
+        addSequential(new Wait(0.3));
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(0.3));
         addSequential(new Cock());
-        addSequential(new ReversePickerUpper());
+        addSequential(new ReversePickerUpper(1.5));
+        addSequential(new Wait(0.3));
         addSequential(new Fire());
         addSequential(new DriveByFeet(12, 0.75));
 

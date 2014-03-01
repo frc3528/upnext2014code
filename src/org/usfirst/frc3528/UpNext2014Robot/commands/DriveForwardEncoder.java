@@ -77,7 +77,7 @@ public class DriveForwardEncoder extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= m_distance) || isTimedOut());
+        return (((Robot.mecanumDrive.getPositionFrontLeft() - initialFrontLeft) >= m_distance) || isTimedOut());
     }
 
     // Called once after isFinished returns true
