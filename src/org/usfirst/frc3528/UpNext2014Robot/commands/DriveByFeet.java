@@ -51,13 +51,13 @@ public class DriveByFeet extends Command {
         initialBackRight = Robot.mecanumDrive.getPositionBackRight();
         initialBackLeft = Robot.mecanumDrive.getPositionBackLeft();
     
-        setTimeout(10.0);
+        setTimeout(6.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         angle = Robot.mecanumDrive.getAngle();
-        Robot.mecanumDrive.driveWithJoystick(0, -power, 0, Math.abs(angle) > 5 ? angle/360 : 0 );
+        Robot.mecanumDrive.driveWithJoystick(0, -power, 0, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
         
         try{
             System.out.println("FR = " + RobotMap.frontRightMotor.getPosition());
@@ -69,7 +69,7 @@ public class DriveByFeet extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (((Robot.mecanumDrive.getPositionFrontLeft() - initialFrontLeft) >= encoderCounts) || isTimedOut());
+        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= encoderCounts) || ((Robot.mecanumDrive.getPositionFrontLeft() - initialFrontLeft) >= encoderCounts) || isTimedOut());
     }
 
     // Called once after isFinished returns true

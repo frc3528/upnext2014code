@@ -97,6 +97,11 @@ public class Robot extends IterativeRobot {
     }
     
     
+    public void disabledInit() {
+        new setCoastMode().start();
+
+    }
+    
     /**
      * This function called periodically during test mode
      */
