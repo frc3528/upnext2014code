@@ -6,6 +6,7 @@
 package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -15,6 +16,6 @@ public class AutonomousDriveForward extends CommandGroup {
     
     public AutonomousDriveForward() {
         
-        addSequential(new DriveByFeet(12, 0.75));
+        addSequential(new DriveByFeet(12, RobotMap.DRIVE_POWER));
     }
 }

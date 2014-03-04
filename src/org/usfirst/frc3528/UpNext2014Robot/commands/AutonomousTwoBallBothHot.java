@@ -33,7 +33,7 @@ public class AutonomousTwoBallBothHot extends CommandGroup {
         addSequential(new ReversePickerUpper(1.5));
         addSequential(new Wait(0.3));
         addSequential(new Fire());
-        addSequential(new DriveByFeet(12, 0.75));
+        addSequential(new DriveByFeet(12, RobotMap.DRIVE_POWER));
 
         
         

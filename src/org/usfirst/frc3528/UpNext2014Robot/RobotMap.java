@@ -128,7 +128,8 @@ public class RobotMap {
     
     //Auto constants
     public static final double WAIT_BETWEEN_FIRE = 0.3;
-
+    public static final double DRIVE_POWER = 0.75;
+    
     //public static final double PI = 3.141592653;
     public static final double WHEEL_DIAMETER = 6;
     public static final double INCHES_PER_REV = (PI * WHEEL_DIAMETER);//18.849555918 
