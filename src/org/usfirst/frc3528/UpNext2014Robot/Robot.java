@@ -39,7 +39,8 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBallHot());
+        autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBall());
+        autoChooser.addDefault("1 Ball Autonomous Hot", new AutonomousOneBallHot());
         autoChooser.addObject("2 Ball Autonomous", new AutonomousTwoBall());
         autoChooser.addObject("2 Ball Hot Autonomous", new AutonomousTwoBallBothHot());
         autoChooser.addObject("3 Ball Autonomous", new AutonomousThreeBall());

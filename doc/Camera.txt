@@ -1,0 +1,43 @@
+CAMERA SETTINGS
+===============
+
+
+Color Level
+===========
+    100
+
+Brightness
+==========
+    15
+
+Sharpness
+=========
+    50
+
+Contrast
+========
+   50
+
+White Balance
+=============
+Fixed fluorescent 1
+
+Exposure Value
+==============
+      20
+
+Exposure Control
+================
+   Automatic
+
+Enable Backlight Compensation
+=============================
+            Yes
+
+Exposure Zones
+==============
+     Auto
+
+Exposure Priority
+=================
+     Default
