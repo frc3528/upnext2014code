@@ -242,11 +242,11 @@ public class RobotMap {
         
         
         // DEBUG
-        System.out.println("dt: " + mecanumDriveRobotDrive.getExpiration());
-        System.out.println("fl " + frontLeftMotor.getExpiration());
-        System.out.println("bl: " + backLeftMotor.getExpiration());
-        System.out.println("fr: " + frontRightMotor.getExpiration());
-        System.out.println("br: " + backRightMotor.getExpiration());
+        //System.out.println("dt: " + mecanumDriveRobotDrive.getExpiration());
+        //System.out.println("fl " + frontLeftMotor.getExpiration());
+        //System.out.println("bl: " + backLeftMotor.getExpiration());
+        //System.out.println("fr: " + frontRightMotor.getExpiration());
+        //System.out.println("br: " + backRightMotor.getExpiration());
 
 
     }

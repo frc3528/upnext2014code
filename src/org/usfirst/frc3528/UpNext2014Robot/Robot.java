@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         RobotMap.init();
-
+        System.out.println("====> UpNext2014Robot <====");
         mecanumDrive = new MecanumDrive();
         catapult = new Catapult();
         pickerUpper = new PickerUpper();
@@ -55,6 +55,8 @@ public class Robot extends IterativeRobot {
         pickerUpper.defaultPickerUpper();
         catapult.defaultCatapult();
         */
+    
+    
     }
     
     public void autonomousInit() {

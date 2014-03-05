@@ -30,7 +30,7 @@ public class RunWinch extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.catapult.winchLimit() || Robot.pickerUpper.armDown();
+        return Robot.catapult.winchLimit() || Robot.pickerUpper.armDown(); 
     }
 
     // Called once after isFinished returns true
