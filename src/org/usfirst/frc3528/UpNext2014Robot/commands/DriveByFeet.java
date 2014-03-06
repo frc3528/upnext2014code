@@ -25,13 +25,15 @@ public class DriveByFeet extends Command {
     private double initialBackRight = 0;
     private double initialBackLeft = 0;
     private double angle = 0;
+    private double timeout = 0;
     
     
-    public DriveByFeet(double distance, double power) {
+    public DriveByFeet(double distance, double timeout, double power) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.mecanumDrive);
         this.distance = distance;
         this.power = power;
+        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
@@ -51,7 +53,7 @@ public class DriveByFeet extends Command {
         initialBackRight = Robot.mecanumDrive.getPositionBackRight();
         initialBackLeft = Robot.mecanumDrive.getPositionBackLeft();
     
-        setTimeout(6.0);
+        setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -60,7 +62,7 @@ public class DriveByFeet extends Command {
         Robot.mecanumDrive.driveWithJoystick(0, -power, 0, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
         
         try{
-            System.out.println("FR = " + RobotMap.frontLeftMotor.getPosition());
+            System.out.println("FL = " + RobotMap.frontLeftMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();

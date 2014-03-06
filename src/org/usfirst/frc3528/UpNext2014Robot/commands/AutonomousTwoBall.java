@@ -25,7 +25,7 @@ public class AutonomousTwoBall extends CommandGroup {
         addSequential(new Cock());
         addSequential(new ReversePickerUpper(1.0));
         addSequential(new RaisePickerUpper());
-        addSequential(new DriveByFeet(12, RobotMap.DRIVE_POWER));
+        addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
         //addSequential(new DriveByFeet(11, 0.90));
         addSequential(new LowerPickerUpper());
         addSequential(new Fire());
