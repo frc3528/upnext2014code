@@ -96,6 +96,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        //System.out.println("sonar =" + (RobotMap.sonarSensor.getVoltage() * 100));
         Scheduler.getInstance().run();
     }
     
@@ -121,7 +122,7 @@ public class Robot extends IterativeRobot {
             catapult.unlatch();      
         
             // simply wait until the pressure switch is true (at pressure)
-            while ( !RobotMap.compressor.getPressureSwitchValue() ) {
+            while ( !RobotMap.compressor.getPressureSwitchValue()) {
             // just waiting for pressure to come up
             }
         

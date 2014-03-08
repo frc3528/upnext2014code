@@ -48,6 +48,7 @@ public class RobotMap {
     
     public static Relay targetRingLight;
 
+    //public static AnalogChannel sonarSensor;
     
     
     
@@ -129,7 +130,7 @@ public class RobotMap {
     //Auto constants
     public static final double WAIT_BETWEEN_FIRE = 0.3;
     public static final double DRIVE_POWER = 0.75;
-    public static final double DRIVE_TIMEOUT = 2.3;
+    public static final double DRIVE_TIMEOUT = 2.6;
     public static final double DRIVE_DISTANCE = 12;
     
     //public static final double PI = 3.141592653;
@@ -232,6 +233,7 @@ public class RobotMap {
         
         pickerUpperSpike1 = new Relay(3);
         
+        //sonarSensor = new AnalogChannel(5);
         
         // XXX Make sure these are unique inputs...I believe they are
         /*
