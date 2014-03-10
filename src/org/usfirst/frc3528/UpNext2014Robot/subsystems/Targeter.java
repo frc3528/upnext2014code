@@ -86,7 +86,7 @@ public class Targeter extends Subsystem {
 
 
             //BinaryImage thresholdImage = image.thresholdHSV(100, 140, 100, 255, 40, 110); // For Blue LED
-            BinaryImage thresholdImage = image.thresholdHSV(50, 100, 210, 255, 100, 210); // For Green LED
+            BinaryImage thresholdImage = image.thresholdHSV(30, 120, 180, 255, 10, 120); // For Green LED
 
             // filter out small particles
             BinaryImage filteredImage = thresholdImage.particleFilter(cc);
