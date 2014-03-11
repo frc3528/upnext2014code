@@ -81,7 +81,7 @@ public class Catapult extends Subsystem {
         unlatch.set(false);
     }
 
-    public void defaultCatapult(){
+    public void defaultCatapult() {
         disengageWinch.set(true);
         engageWinch.set(false);
         
@@ -89,6 +89,14 @@ public class Catapult extends Subsystem {
         latch.set(false);
     
     }
+    
+    /*
+    public boolean fire() {
+        
+        if  {
+        
+    }
+    */
     
     public void initDefaultCommand() {
         //setDefaultCommand(new RaisePickerUpper());

@@ -48,7 +48,7 @@ public class RobotMap {
     
     public static Relay targetRingLight;
 
-    //public static AnalogChannel sonarSensor;
+    public static AnalogChannel sonarSensor;
     
     
     
@@ -233,7 +233,7 @@ public class RobotMap {
         
         pickerUpperSpike1 = new Relay(3);
         
-        //sonarSensor = new AnalogChannel(5);
+        sonarSensor = new AnalogChannel(5);
         
         // XXX Make sure these are unique inputs...I believe they are
         /*

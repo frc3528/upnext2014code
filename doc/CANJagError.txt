@@ -1,0 +1,11 @@
+[cRIO] >>>>ERROR: status == -1073807298 (0xBFFF003E) in Read() in C:/WindRiver/workspace/BlackJagBridgePlugin/SerialPort.cpp at line 216
+[cRIO] DriveWithJoystick.execute(DriveWithJoystick.java:35)
+[cRIO]     at edu.wpi.first.wpilibj.command.Command.run(Command.java:217)
+[cRIO]     at edu.wpi.first.wpilibj.command.Scheduler.run(Scheduler.java:214)
+[cRIO]     at org.usfirst.frc3528.UpNext2014Robot.Robot.teleopPeriodic(Robot.java:96)
+[cRIO]     at edu.wpi.first.wpilibj.IterativeRobot.startCompetition(IterativeRobot.java:165)
+[cRIO]     at edu.wpi.first.wpilibj.RobotBase.startApp(RobotBase.java:235)
+[cRIO]     in virtual method #10 of javax.microedition.midlet.MIDlet(bci=17)
+[cRIO]     at javax.microedition.midlet.MIDletTunnelImpl.callStartApp(64)
+[cRIO]     at com.sun.squawk.imp.MIDletMainWrapper   in static method #3 of com.sun.squawk.VM(bci=6)
+
