@@ -12,7 +12,7 @@ public class RobotMap {
     
     // ********** OBJECTS **********
     
-    public static AxisCamera targetingCamera;
+    //public static AxisCamera targetingCamera;
     
     public static CANJaguar frontLeftMotor;
     public static CANJaguar backLeftMotor;
@@ -48,7 +48,7 @@ public class RobotMap {
     
     public static Relay targetRingLight;
 
-    public static AnalogChannel sonarSensor;
+    //public static AnalogChannel sonarSensor;
     
     
     
@@ -159,6 +159,11 @@ public class RobotMap {
     
     // PickerUpper
     public static final int ARM_LIMIT_CHANNEL = 10;
+    
+    
+    //Sonar
+    public static final double VOLTS_TO_CM = .0049;
+    public static final double CM_TO_IN = 2.54;
 
     
 
@@ -170,7 +175,7 @@ public class RobotMap {
     public static void init() {    
         
         // Targeting
-        targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
+        //targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
         targetRingLight = new Relay(TARGETING_LIGHT_RELAY_CHANNEL);
         
         
@@ -233,7 +238,7 @@ public class RobotMap {
         
         pickerUpperSpike1 = new Relay(3);
         
-        sonarSensor = new AnalogChannel(5);
+        //sonarSensor = new AnalogChannel(5);
         
         // XXX Make sure these are unique inputs...I believe they are
         /*

@@ -18,7 +18,11 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.driveTrainGyro;
-
+    //AnalogChannel sonar = RobotMap.sonarSensor;
+    
+    public double cm;
+    public double inches;
+    
     public MecanumDrive() {
         gyro1.reset();
     }
@@ -32,33 +36,37 @@ public class MecanumDrive extends Subsystem {
     
    //main driving method 
    public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
-       System.out.println("rotation : " + rotation); 
+       //System.out.println("rotation : " + rotation); 
        robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
-        //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
-        //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
+       //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
+       //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
         
-         /*
+       
          try{
             System.out.println("Fl = " + frontLeftMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
              }
-          */      
-         
-        //System.out.println("Gyro angle: " + gyro1.getAngle());
+             
+       //cm = sonar.getAverageVoltage() / RobotMap.VOLTS_TO_CM;
+       //inches = cm / RobotMap.CM_TO_IN;  
+       
+       //System.out.println("Gyro angle: " + gyro1.getAngle());
+       //System.out.println("Sonar distance = " + inches);
         
-        //SmartDashboard.putNumber("Gyro", gyro1.getAngle());
-        SmartDashboard.putString("Gyro Position", "Gyro Position");
-        SmartDashboard.putNumber("Drivestick X", x);
-        SmartDashboard.putString("Drivestick X value", "Drivestick X value");
-        SmartDashboard.putNumber("Drivestick Y", -y);
-        SmartDashboard.putString("Drivestick Y value", "Drivestick Y value");
-        SmartDashboard.putNumber("Drivestick Rotation", -rotation);
-        SmartDashboard.putString("Robot Rotation", "Robot Rotation");
-        SmartDashboard.putNumber("Drive Sensitivity", RobotMap.SENSITIVITY);
-        SmartDashboard.putString("Drivestick Sensitivity", "Drivestick Sensitivity");
-        SmartDashboard.putString("Live Camera Feed", "Live Camera Feed");
+       //SmartDashboard.putNumber("Sonar", inches);
+       SmartDashboard.putNumber("Gyro", gyro1.getAngle());
+       SmartDashboard.putString("Gyro Position", "Gyro Position");
+       SmartDashboard.putNumber("Drivestick X", x);
+       SmartDashboard.putString("Drivestick X value", "Drivestick X value");
+       SmartDashboard.putNumber("Drivestick Y", -y);
+       SmartDashboard.putString("Drivestick Y value", "Drivestick Y value");
+       SmartDashboard.putNumber("Drivestick Rotation", -rotation);
+       SmartDashboard.putString("Robot Rotation", "Robot Rotation");
+       SmartDashboard.putNumber("Drive Sensitivity", RobotMap.SENSITIVITY);
+       SmartDashboard.putString("Drivestick Sensitivity", "Drivestick Sensitivity");
+       SmartDashboard.putString("Live Camera Feed", "Live Camera Feed");
     }
 
     
