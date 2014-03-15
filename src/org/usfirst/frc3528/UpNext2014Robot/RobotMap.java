@@ -12,7 +12,7 @@ public class RobotMap {
     
     // ********** OBJECTS **********
     
-    public static AxisCamera targetingCamera;
+    //public static AxisCamera targetingCamera;
     
     public static CANJaguar frontLeftMotor;
     public static CANJaguar backLeftMotor;
@@ -128,10 +128,11 @@ public class RobotMap {
     
     
     //Auto constants
-    public static final double WAIT_BETWEEN_FIRE = 0.3;
+    public static final double WAIT_BETWEEN_FIRE = 0.4;
     public static final double DRIVE_POWER = 0.75;
-    public static final double DRIVE_TIMEOUT = 2.6;
+    public static final double DRIVE_TIMEOUT = 2.8;
     public static final double DRIVE_DISTANCE = 12;
+    public static final double ONE_BALL_WAIT = 0.6;
     
     //public static final double PI = 3.141592653;
     public static final double WHEEL_DIAMETER = 6;
@@ -170,7 +171,7 @@ public class RobotMap {
     public static void init() {    
         
         // Targeting
-        targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
+        //targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
         targetRingLight = new Relay(TARGETING_LIGHT_RELAY_CHANNEL);
         
         
