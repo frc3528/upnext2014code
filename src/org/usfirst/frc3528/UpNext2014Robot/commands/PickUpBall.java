@@ -12,11 +12,11 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class ReversePickerUpper extends Command {
+public class PickUpBall extends Command {
     
     double time;
     
-    public ReversePickerUpper(double time) {
+    public PickUpBall(double time) {
         this.time = time;
     }
 

@@ -11,6 +11,7 @@ public class  AutonomousOneBall extends CommandGroup {
         //addSequential(new CameraLightOn());
         //addSequential (new LowerPickerUpper());
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
+        //addParallel(new PickUpBall(0.1));
         addSequential (new LowerPickerUpper());
         addSequential(new Wait(RobotMap.ONE_BALL_WAIT));
         addSequential(new Fire());

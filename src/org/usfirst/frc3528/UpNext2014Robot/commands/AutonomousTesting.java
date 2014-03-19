@@ -16,7 +16,7 @@ public class AutonomousTesting extends CommandGroup {
     
     public AutonomousTesting() {
         addSequential(new LowerPickerUpper());
-        addParallel(new ReversePickerUpper(2.25));
+        addParallel(new PickUpBall(2.25));
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
         addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
         //addSequential(new Fire());
