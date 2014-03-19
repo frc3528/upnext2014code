@@ -40,10 +40,7 @@ public class Robot extends IterativeRobot {
 
         autoChooser = new SendableChooser();
         autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBall());
-        autoChooser.addDefault("1 Ball Autonomous Hot", new AutonomousOneBallHot());
-        autoChooser.addObject("2 Ball Autonomous", new AutonomousTwoBall());
-        autoChooser.addObject("2 Ball Hot Autonomous", new AutonomousTwoBallBothHot());
-        autoChooser.addObject("3 Ball Autonomous", new AutonomousThreeBall());
+        autoChooser.addObject("2 Ball Autonomous", new AutonomousTwoBallBothClose());
         autoChooser.addObject("Drive Forward Autonomous", new AutonomousDriveForward());
         autoChooser.addObject("No Autonomous", new AutonomousNone());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);

@@ -12,11 +12,14 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class StartPickerUpper extends Command {
+public class SpitOutBall extends Command {
     
-    public StartPickerUpper() {
+    double timeout;
+    
+    public SpitOutBall(double timeout) {
         // Use requires() here to declare subsystem dependencies
-        setTimeout(1.0);
+        this.timeout = timeout;
+        setTimeout(timeout);
         requires(Robot.pickerUpper);
     }
 

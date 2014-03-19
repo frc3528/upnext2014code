@@ -13,9 +13,9 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  *
  * @author TeamUpNext
  */
-public class AutonomousTwoBallBothHot extends CommandGroup {
+public class AutonomousTwoBallBothFar extends CommandGroup {
     
-    public AutonomousTwoBallBothHot() {
+    public AutonomousTwoBallBothFar() {
         
         /*
         if (  == true) {
