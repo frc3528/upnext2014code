@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,12 +18,12 @@ public class AutonomousTesting extends CommandGroup {
         addSequential(new LowerPickerUpper());
         addParallel(new PickUpBall(2.25));
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
-        //addSequential(new Fire());
-        //addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
+        addSequential(new Fire());
+        //addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         //addSequential(new Cock());
         //addSequential(new ReversePickerUpper(1.0));
-        //addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        //addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         //addSequential(new Fire());
         
     }

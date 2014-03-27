@@ -12,7 +12,7 @@ public class  AutonomousOneBallHot extends CommandGroup {
         //addSequential (new LowerPickerUpper());
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
         addSequential (new LowerPickerUpper());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
 
     }

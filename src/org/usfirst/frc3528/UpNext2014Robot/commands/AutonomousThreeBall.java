@@ -20,14 +20,14 @@ public class AutonomousThreeBall extends CommandGroup {
         
         addSequential(new LowerPickerUpper());
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
         addParallel(new PickUpBall(1.0));
         addSequential(new DriveByFeet(-2, RobotMap.DRIVE_TIMEOUT, -0.5));
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
         addSequential(new SpitOutBall(0.1));
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
         addSequential(new PickUpBall(1.0));
         addSequential(new Fire());

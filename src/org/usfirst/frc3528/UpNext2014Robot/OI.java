@@ -32,7 +32,8 @@ public class OI {
     public JoystickButton fireWithJiggle;
     public JoystickButton lightOn;
     public JoystickButton lightOff;
-    
+    public JoystickButton testing;
+
     
     public OI() {       
         
@@ -81,13 +82,15 @@ public class OI {
         driveWinch = new JoystickButton(testingStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         driveWinch.whenPressed(new DriveWinchWithJoystick());
         
-        lightOn = new JoystickButton(testingStick, RobotMap.CTRL_R_BUMPER);
-        lightOn.whenPressed(new CameraLightOn());
+        //lightOn = new JoystickButton(testingStick, RobotMap.CTRL_R_BUMPER);
+        //lightOn.whenPressed(new CameraLightOn());
         
-        lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
-        lightOff.whenPressed(new CameraLightOff());
+        //lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
+        //lightOff.whenPressed(new CameraLightOff());
         
-
+        testing = new JoystickButton(testingStick, RobotMap.CTRL_START_BUTTON);
+        testing.whenPressed(new AutonomousTesting());
+        
         //SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous", new Autonomous());
         //SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());

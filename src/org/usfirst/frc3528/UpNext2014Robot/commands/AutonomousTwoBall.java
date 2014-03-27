@@ -18,9 +18,9 @@ public class AutonomousTwoBall extends CommandGroup {
     public AutonomousTwoBall() {
         
         addSequential(new LowerPickerUpper());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
         addSequential(new PickUpBall(1.0));        
         addSequential(new RaisePickerUpper());

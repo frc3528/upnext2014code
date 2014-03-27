@@ -19,12 +19,12 @@ public class AutonomousTwoBallBothClose extends CommandGroup {
         addSequential(new PickUpBall(0.2));
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
         addSequential(new SpitOutBall(0.15));
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
-        addSequential(new PickUpBall(0.5));
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new PickUpBall(1.0));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
         
     }

@@ -26,17 +26,15 @@ public class AutonomousTwoBallBothFar extends CommandGroup {
         */
         
         addSequential(new LowerPickerUpper());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
         addSequential(new PickUpBall(1.5));
-        addSequential(new Wait(RobotMap.WAIT_BETWEEN_FIRE));
+        addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
 
-        
-        
         //addSequential(new RaisePickerUpper());
         //addParallel(new StopPickerUpper());
         //addSequential(new DriveByFeet(12, 0.75));
