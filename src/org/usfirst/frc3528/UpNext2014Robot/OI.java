@@ -88,8 +88,8 @@ public class OI {
         //lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
         //lightOff.whenPressed(new CameraLightOff());
         
-        testing = new JoystickButton(testingStick, RobotMap.CTRL_START_BUTTON);
-        testing.whenPressed(new AutonomousTesting());
+        //testing = new JoystickButton(testingStick, RobotMap.CTRL_START_BUTTON);
+        //testing.whenPressed(new AutonomousTesting());
         
         //SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous", new Autonomous());

@@ -16,14 +16,14 @@ public class AutonomousTwoBallBothClose extends CommandGroup {
     
     public AutonomousTwoBallBothClose() {
         addSequential(new LowerPickerUpper());
-        addSequential(new PickUpBall(0.2));
+        addSequential(new PickUpBall(1.0));
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
-        addSequential(new SpitOutBall(0.15));
+        addSequential(new SpitOutBall(1.0));
         addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
         addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Cock());
-        addSequential(new PickUpBall(1.0));
+        addSequential(new PickUpBall(1.2));
         addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());
         

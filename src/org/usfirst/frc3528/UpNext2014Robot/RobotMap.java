@@ -43,8 +43,8 @@ public class RobotMap {
     public static Compressor compressor;
   
     
-    public static Relay pickerUpperSpike1;
-    
+    //public static Relay pickerUpperSpike1;
+    public static Talon pickerUpperTalon;
     
     public static Relay targetRingLight;
 
@@ -130,8 +130,8 @@ public class RobotMap {
     //Auto constants
     public static final double TWO_BALL_WAIT = 0.5;
     public static final double DRIVE_POWER = 0.75;
-    public static final double DRIVE_TIMEOUT = 2.8;
-    public static final double DRIVE_DISTANCE = 12;
+    public static final double DRIVE_TIMEOUT = 3.0;
+    public static final double DRIVE_DISTANCE = 11;
     public static final double ONE_BALL_WAIT = 0.6;
 
     
@@ -161,6 +161,7 @@ public class RobotMap {
     
     // PickerUpper
     public static final int ARM_LIMIT_CHANNEL = 10;
+    public static final int PWM_PICK_UP_TALON = 5;
 
     
 
@@ -233,7 +234,8 @@ public class RobotMap {
         
         
         
-        pickerUpperSpike1 = new Relay(3);
+        pickerUpperTalon = new Talon(PWM_PICK_UP_TALON);
+        //pickerUpperSpike1 = new Relay (3);
         
         sonarSensor = new AnalogChannel(5);
         
