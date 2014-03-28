@@ -41,12 +41,12 @@ public class PickerUpper extends Subsystem {
     }
     
     //startpickerupper command
-    public void start(){
+    public void spitOutBall(){
         //spike1.set(Relay.Value.kForward);
         pickUpTalon.set(1.0);
     }
     
-    public void reverse(){
+    public void pickUpBall(){
         //spike1.set(Relay.Value.kReverse);
         pickUpTalon.set(-1.0);
     }
@@ -59,7 +59,7 @@ public class PickerUpper extends Subsystem {
     
     public void buttonForward(boolean button){
         if(button){
-            this.start();
+            this.spitOutBall();
         } else{
             this.stop();
         }
@@ -68,7 +68,7 @@ public class PickerUpper extends Subsystem {
     
     public void buttonReverse(boolean button){
         if(button){
-            this.reverse();
+            this.pickUpBall();
         } else{
             this.stop();
         }

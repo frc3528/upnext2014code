@@ -59,10 +59,10 @@ public class OI {
         fireWithJiggle.whenPressed(new FireBackUp());
 
         spitOutBall = new JoystickButton(controlStick, RobotMap.CTRL_R_BUMPER);
-        spitOutBall.whileHeld(new StartPickerUpperWithButton());
+        spitOutBall.whileHeld(new SpitOutBallWithButton());
         
         pickUpBall = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
-        pickUpBall.whileHeld(new ReversePickerUpperWithButton());
+        pickUpBall.whileHeld(new PickUpBallWithButton());
         
        
         testingStick = new Joystick(3);

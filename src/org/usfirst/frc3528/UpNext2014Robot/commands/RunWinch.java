@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -30,7 +31,7 @@ public class RunWinch extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.catapult.winchLimit() || Robot.pickerUpper.armDown();
+        return Robot.catapult.winchLimit() || !RobotMap.SAFE; //|| Robot.pickerUpper.armDown();
     }
 
     // Called once after isFinished returns true

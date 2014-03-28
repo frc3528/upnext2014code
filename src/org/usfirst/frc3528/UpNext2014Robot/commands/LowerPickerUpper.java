@@ -15,6 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  */
 public class LowerPickerUpper extends Command {
     
+    
     public LowerPickerUpper() {
         // Use requires() here to declare subsystem dependencies
         //requires(Robot.catapult);
@@ -26,7 +27,12 @@ public class LowerPickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //setTimeout(.075);
         Robot.pickerUpper.lower();
+        if(Robot.pickerUpper.armDown() == false){
+            RobotMap.SAFE = true;
+            
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +42,7 @@ public class LowerPickerUpper extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.pickerUpper.disableArm();
+        //Robot.pickerUpper.disableArm();
     }
 
     // Called when another command which requires one or more of the same

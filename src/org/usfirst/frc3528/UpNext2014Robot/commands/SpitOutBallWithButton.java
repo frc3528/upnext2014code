@@ -12,22 +12,22 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  *
  * @author TeamUpNext
  */
-public class StartPickerUpperWithButton extends Command {
+public class SpitOutBallWithButton extends Command {
     
-    public StartPickerUpperWithButton() {
+    public SpitOutBallWithButton() {
         // Use requires() here to declare subsystem dependencies
         //requires(Robot.pickerUpper);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //Robot.pickerUpper.start();
+        //Robot.pickerUpper.spitOutBall();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         //Robot.pickerUpper.buttonForward(Robot.oi.pickerUpperWheelsForward.get());
-        Robot.pickerUpper.start();
+        Robot.pickerUpper.spitOutBall();
     }
 
     // Make this return true when this Command no longer needs to run execute()

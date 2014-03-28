@@ -23,7 +23,7 @@ public class Robot extends IterativeRobot {
     //public static Targeter targeter;
  
     /**
-     * This function is run when the robot is first started up and should be
+     * This function is run when the robot is first spitOutBalled up and sho
      * used for any initialization code.
      */
     public void robotInit() {
@@ -110,7 +110,7 @@ public class Robot extends IterativeRobot {
      */
     public void testInit() {
         LiveWindow.setEnabled(false);
-        //RobotMap.compressor.start();
+        //RobotMap.compressor.spitOutBall();
         //LiveWindow.run();
         
         if(!Robot.catapult.winchLimit() ) {

@@ -25,7 +25,7 @@ public class SpitOutBall extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.pickerUpper.start();
+        Robot.pickerUpper.spitOutBall();
     }
 
     // Called repeatedly when this Command is scheduled to run

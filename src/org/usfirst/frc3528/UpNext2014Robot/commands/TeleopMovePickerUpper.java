@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -14,7 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  */
 public class TeleopMovePickerUpper extends Command {
  
-    //boolean safe = false;
+    //boolean safe;
     
     public TeleopMovePickerUpper() {
         // Use requires() here to declare subsystem dependencies
@@ -24,6 +25,7 @@ public class TeleopMovePickerUpper extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    //boolean safe = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,12 +33,18 @@ public class TeleopMovePickerUpper extends Command {
          double arm = Robot.oi.controlStick.getRawAxis(3);
             if(arm > 0.5){
                 Robot.pickerUpper.lower();
-                
+                Robot.pickerUpper.pickUpBall();
+                if(Robot.pickerUpper.armDown() == false){
+                    RobotMap.SAFE = true; 
+                }
+                    
         }
             if(arm < -0.5){
                 Robot.pickerUpper.raise();
+                RobotMap.SAFE = false;
         }
             if(arm == 0){
+                Robot.pickerUpper.stop();
                 Robot.pickerUpper.disableArm();
         }
     

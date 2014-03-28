@@ -160,6 +160,7 @@ public class RobotMap {
     
     
     // PickerUpper
+    public static boolean SAFE = false;
     public static final int ARM_LIMIT_CHANNEL = 10;
     public static final int PWM_PICK_UP_TALON = 5;
 

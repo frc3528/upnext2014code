@@ -7,6 +7,7 @@ package org.usfirst.frc3528.UpNext2014Robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3528.UpNext2014Robot.Robot;
+import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
 
 /**
  *
@@ -21,6 +22,7 @@ public class RaisePickerUpper extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        RobotMap.SAFE = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
