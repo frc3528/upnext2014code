@@ -26,6 +26,18 @@ public class PickerUpper extends Subsystem {
     
     }
     
+    public void lowerTest() {
+        armDown.set(true);
+        armUp.set(false);
+        RobotMap.SAFE = true;
+    }
+    
+    public void raiseTest() {
+        armUp.set(true);
+        armDown.set(false);
+        RobotMap.SAFE = false;
+    }
+    
     //raisepickerupper command
     public void raise(){
         armUp.set(true);

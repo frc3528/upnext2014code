@@ -14,15 +14,16 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
  */
 public class PickUpBall extends Command {
     
-    double time;
+    double timeout;
     
-    public PickUpBall(double time) {
-        this.time = time;
+    public PickUpBall(double timeout) {
+        this.timeout = timeout;
+        setTimeout(timeout);
+        requires(Robot.pickerUpper);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        setTimeout(time);
         Robot.pickerUpper.pickUpBall();
     }
 

@@ -82,11 +82,11 @@ public class OI {
         driveWinch = new JoystickButton(testingStick, RobotMap.CTRL_RIGHT_STICK_CLICK);
         driveWinch.whenPressed(new DriveWinchWithJoystick());
         
-        //lightOn = new JoystickButton(testingStick, RobotMap.CTRL_R_BUMPER);
-        //lightOn.whenPressed(new CameraLightOn());
+        lightOn = new JoystickButton(testingStick, RobotMap.CTRL_R_BUMPER);
+        lightOn.whenPressed(new PickUpBall(2.0));
         
-        //lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
-        //lightOff.whenPressed(new CameraLightOff());
+        lightOff = new JoystickButton(testingStick, RobotMap.CTRL_L_BUMPER);
+        lightOff.whenPressed(new SpitOutBall(2.0));
         
         //testing = new JoystickButton(testingStick, RobotMap.CTRL_START_BUTTON);
         //testing.whenPressed(new AutonomousTesting());

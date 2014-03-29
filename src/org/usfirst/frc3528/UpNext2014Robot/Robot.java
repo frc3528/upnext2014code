@@ -40,11 +40,9 @@ public class Robot extends IterativeRobot {
 
         autoChooser = new SendableChooser();
         autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBall());
-        autoChooser.addObject("2 Ball Autonomous", new AutonomousTwoBall());
-        autoChooser.addObject("2 Ball Autonomous Testing", new AutonomousTwoBallBothClose());
+        autoChooser.addObject("2 Ball Autonmous", new AutonomousTwoBallClose());
         autoChooser.addObject("Drive Forward Autonomous", new AutonomousDriveForward());
         autoChooser.addObject("No Autonomous", new AutonomousNone());
-        autoChooser.addObject("Do a Jig", new AutonomousTesting());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
     
@@ -96,6 +94,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         //System.out.println("sonar =" + (RobotMap.sonarSensor.getVoltage() * 100));
+        //System.out.println("SAFE = " + RobotMap.SAFE);
         Scheduler.getInstance().run();
     }
     
@@ -116,7 +115,7 @@ public class Robot extends IterativeRobot {
         if(!Robot.catapult.winchLimit() ) {
         
             System.out.println("--- Test Mode: Setting defaults (catapult up) ---");
-            pickerUpper.lower();
+            pickerUpper.lowerTest();
             catapult.engageWinch();
             catapult.unlatch();      
         
@@ -130,7 +129,7 @@ public class Robot extends IterativeRobot {
         
         } else {
             System.out.println("--- Test Mode: Setting defaults (catapult down) ---");
-            pickerUpper.raise();
+            pickerUpper.raiseTest();
             catapult.engageWinch();
             catapult.latch();
         }

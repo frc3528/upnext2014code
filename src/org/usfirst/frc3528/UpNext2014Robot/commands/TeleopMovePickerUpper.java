@@ -15,7 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.RobotMap;
  */
 public class TeleopMovePickerUpper extends Command {
  
-    //boolean safe;
+    boolean armOut = false;
     
     public TeleopMovePickerUpper() {
         // Use requires() here to declare subsystem dependencies
@@ -33,14 +33,19 @@ public class TeleopMovePickerUpper extends Command {
          double arm = Robot.oi.controlStick.getRawAxis(3);
             if(arm > 0.5){
                 Robot.pickerUpper.lower();
-                Robot.pickerUpper.pickUpBall();
+                armOut = true;
+        }
+            
+            if(armOut){
                 if(Robot.pickerUpper.armDown() == false){
                     RobotMap.SAFE = true; 
-                }
-                    
+            } 
         }
+                    
+        
             if(arm < -0.5){
                 Robot.pickerUpper.raise();
+                armOut = false;
                 RobotMap.SAFE = false;
         }
             if(arm == 0){

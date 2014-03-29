@@ -37,7 +37,7 @@ public class LowerPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.pickerUpper.armDown();
+        return RobotMap.SAFE; //!Robot.pickerUpper.armDown();
     }
 
     // Called once after isFinished returns true
