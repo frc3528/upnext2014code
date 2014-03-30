@@ -15,7 +15,7 @@ import org.usfirst.frc3528.UpNext2014Robot.Robot;
 public class Fire extends CommandGroup {
     
     public Fire() {
-        //addParallel(new LowerPickerUpper());
+        addParallel(new LowerPickerUpper());
         addSequential(new DisengageWinch());
         addSequential(new UnLatch());
 
