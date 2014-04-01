@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class PickerUpper extends Subsystem {
 
-    Relay spike1 = RobotMap.pickerUpperSpike1;
+    //Relay spike1 = RobotMap.pickerUpperSpike1;
+    Talon pickUp = RobotMap.pickUp;
     Solenoid armUp = RobotMap.armUp;
     Solenoid armDown = RobotMap.armDown;
     DigitalInput armLimit = RobotMap.armLimit;
@@ -41,16 +42,19 @@ public class PickerUpper extends Subsystem {
     
     //startpickerupper command
     public void start(){
-        spike1.set(Relay.Value.kForward);
+        pickUp.set(1.0);
+        //spike1.set(Relay.Value.kForward);
     }
     
     public void reverse(){
-        spike1.set(Relay.Value.kReverse);
+        pickUp.set(-1.0);
+        //spike1.set(Relay.Value.kReverse);
     }
     
     //stoppickerupper command
     public void stop(){
-        spike1.set(Relay.Value.kOff);
+        pickUp.set(0.0);
+        //spike1.set(Relay.Value.kOff);
     }
     
     public void buttonForward(boolean button){
@@ -78,7 +82,7 @@ public class PickerUpper extends Subsystem {
     public void defaultPickerUpper(){
         armUp.set(true);
         armDown.set(false);
-        spike1.set(Relay.Value.kOff);
+        //spike1.set(Relay.Value.kOff);
     }
     
     public void initDefaultCommand() {

@@ -43,8 +43,8 @@ public class RobotMap {
     public static Compressor compressor;
   
     
-    public static Relay pickerUpperSpike1;
-    
+    //public static Relay pickerUpperSpike1;
+    public static Talon pickUp;
     
     public static Relay targetRingLight;
 
@@ -233,7 +233,8 @@ public class RobotMap {
         
         
         
-        pickerUpperSpike1 = new Relay(3);
+        //pickerUpperSpike1 = new Relay(3);
+        pickUp = new Talon(5);
         
         sonarSensor = new AnalogChannel(5);
         
