@@ -27,7 +27,7 @@ public class LowerPickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //setTimeout(.075);
+        setTimeout(.075);
         Robot.pickerUpper.lower();
         if(Robot.pickerUpper.armDown() == false){
             RobotMap.SAFE = true;
@@ -37,7 +37,7 @@ public class LowerPickerUpper extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.SAFE; //!Robot.pickerUpper.armDown();
+        return RobotMap.SAFE && isTimedOut(); //!Robot.pickerUpper.armDown();
     }
 
     // Called once after isFinished returns true
