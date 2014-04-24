@@ -60,7 +60,7 @@ public class DriveByFeet extends Command {
     protected void execute() {
         angle = Robot.mecanumDrive.getAngle();
         //Robot.mecanumDrive.driveWithJoystick(0, -power, 0, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
-        Robot.mecanumDrive.driveWithJoystick(power, 0);
+        Robot.mecanumDrive.driveWithJoystick(-power, 0);
         
         try{
             System.out.println("FL = " + RobotMap.frontLeftMotor.getPosition());
