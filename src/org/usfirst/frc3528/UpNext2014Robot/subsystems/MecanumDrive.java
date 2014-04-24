@@ -36,7 +36,7 @@ public class MecanumDrive extends Subsystem {
        //robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
        //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
 
-      robotDrive.arcadeDrive(Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY));
+      robotDrive.arcadeDrive(Utils.rampSpeed(-1 * y, RobotMap.SENSITIVITY), Utils.rampSpeed(rotation, RobotMap.SENSITIVITY));
          
          /*
          try{
