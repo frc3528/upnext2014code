@@ -132,7 +132,7 @@ public class RobotMap {
     public static final double DRIVE_POWER = 0.75;
     public static final double DRIVE_TIMEOUT = 3.0;
     public static final double DRIVE_DISTANCE = 11;
-    public static final double ONE_BALL_WAIT = 0.6;
+    public static final double ONE_BALL_WAIT = 1.0;
 
     
     //public static final double PI = 3.141592653;
