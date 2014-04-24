@@ -56,7 +56,7 @@ public class DriveForwardEncoder extends Command {
         //System.out.println("---> top get angle");
         angle = Robot.mecanumDrive.getAngle();
         //System.out.println("---> bottom get angle");
-        Robot.mecanumDrive.driveWithJoystick(0, -m_power, 0, Math.abs(angle) > 5 ? angle/360 : 0 );//inverted to deal with inverted y-axis
+        //Robot.mecanumDrive.driveWithJoystick(0, -m_power, 0, Math.abs(angle) > 5 ? angle/360 : 0 );//inverted to deal with inverted y-axis
         //Logger.logMessage(LogLevel.INFO, LogLocation.DSTATION, "" + m_gyro.pidGet() );
         /*if(setFlag == false)
         {
@@ -84,7 +84,7 @@ public class DriveForwardEncoder extends Command {
     protected void end() {
         //driveTrain.SetPercentMode();
         //driveTrain.setFrontRightPower(0);
-        Robot.mecanumDrive.driveWithJoystick(0, 0, 0, 0);
+        //Robot.mecanumDrive.driveWithJoystick(0, 0, 0, 0);
         /*System.out.println("End");
         Utils.printToDriverStation("Final Front Right: " + (initialFrontRight - driveTrain.getPositionFrontRight()));
         Utils.printToDriverStation("Final Front Left: " + (initialFrontLeft - driveTrain.getPositionFrontLeft()));

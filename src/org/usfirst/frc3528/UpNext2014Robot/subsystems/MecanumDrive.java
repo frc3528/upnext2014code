@@ -26,17 +26,18 @@ public class MecanumDrive extends Subsystem {
     
    public void driveWithJoystick(Joystick joystick) {
 
-        driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
+        driveWithJoystick(joystick.getY(), joystick.getZ());
         
     }
     
    //main driving method 
-   public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
-       //System.out.println("rotation : " + rotation); 
-       robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
-        //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
-        //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
+   public void driveWithJoystick(/*double x,*/ double y, double rotation /*double gyroAngle*/) {
        
+       //robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
+       //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
+
+      robotDrive.arcadeDrive(Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY));
+         
          /*
          try{
             System.out.println("Fl = " + frontLeftMotor.getPosition());
@@ -50,7 +51,7 @@ public class MecanumDrive extends Subsystem {
         
         //SmartDashboard.putNumber("Gyro", gyro1.getAngle());
         SmartDashboard.putString("Gyro Position", "Gyro Position");
-        SmartDashboard.putNumber("Drivestick X", x);
+        //SmartDashboard.putNumber("Drivestick X", x);
         SmartDashboard.putString("Drivestick X value", "Drivestick X value");
         SmartDashboard.putNumber("Drivestick Y", -y);
         SmartDashboard.putString("Drivestick Y value", "Drivestick Y value");
