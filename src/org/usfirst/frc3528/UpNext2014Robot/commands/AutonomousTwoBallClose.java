@@ -25,6 +25,7 @@ public class AutonomousTwoBallClose extends CommandGroup {
         addSequential(new PickUpBall(1.4));
         addSequential(new RaisePickerUpper());
         addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
+        addParallel(new PickUpBall(0.1));
         addSequential(new LowerPickerUpper());
         addSequential(new Wait(RobotMap.TWO_BALL_WAIT));
         addSequential(new Fire());

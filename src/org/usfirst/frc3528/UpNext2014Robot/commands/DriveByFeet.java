@@ -62,7 +62,7 @@ public class DriveByFeet extends Command {
         Robot.mecanumDrive.driveWithJoystick(0, -power, 0, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
         
         try{
-            System.out.println("FL = " + RobotMap.frontLeftMotor.getPosition());
+            System.out.println("FL = " + RobotMap.frontRightMotor.getPosition());
          }catch (CANTimeoutException ex) {
             System.out.println("--- Error Printing Encoder ---");
                 ex.printStackTrace();
@@ -71,7 +71,7 @@ public class DriveByFeet extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (((Robot.mecanumDrive.getPositionFrontLeft() - initialFrontLeft) >= encoderCounts) || isTimedOut());
+        return (((Robot.mecanumDrive.getPositionFrontRight() - initialFrontRight) >= encoderCounts) || isTimedOut());
     }
 
     // Called once after isFinished returns true

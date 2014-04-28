@@ -42,7 +42,6 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("1 Ball Autonomous", new AutonomousOneBall());
         autoChooser.addObject("2 Ball Autonmous", new AutonomousTwoBallClose());
         autoChooser.addObject("Drive Forward Autonomous", new AutonomousDriveForward());
-                autoChooser.addObject("Autonomous No Fire", new AutonomousOneBallNoFire());
         autoChooser.addObject("No Autonomous", new AutonomousNone());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         //double number = SmartDashboard.getNumber("Drive Distance");
