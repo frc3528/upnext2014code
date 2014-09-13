@@ -59,7 +59,9 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
-        autonomousCommand = (Command) autoChooser.getSelected();
+        //autonomousCommand = (Command) autoChooser.getSelected();
+        autonomousCommand = new AutonomousDriveForward();
+
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
         new setPercentMode().start();

@@ -18,7 +18,12 @@ public class MecanumDrive extends Subsystem {
     CANJaguar backRightMotor = RobotMap.backRightMotor;
     RobotDrive robotDrive = RobotMap.mecanumDriveRobotDrive;
     Gyro gyro1 = RobotMap.driveTrainGyro;
-
+    AnalogChannel sonar = RobotMap.sonarSensor;
+    public double cm;
+    public double feet;
+    public double inches;
+    
+    
     public MecanumDrive() {
         gyro1.reset();
     }
@@ -35,7 +40,7 @@ public class MecanumDrive extends Subsystem {
        //System.out.println("rotation : " + rotation); 
        //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
        robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
-        //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
+       //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
        
          /*
          try{
@@ -206,4 +211,12 @@ public class MecanumDrive extends Subsystem {
           System.out.println("Error enabling coast mode");
         } 
     }
+    
+    public double getSonarPosition(){
+        cm = sonar.getAverageVoltage() / .0049;
+        inches = cm / 2.54;
+        feet = inches / 12;
+        return feet;
+    }
 }
+    
