@@ -59,8 +59,8 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         //if (autonomousCommand != null) 
-        //autonomousCommand = (Command) autoChooser.getSelected();
-        autonomousCommand = new AutonomousDriveForward();
+        autonomousCommand = (Command) autoChooser.getSelected();
+        //autonomousCommand = new AutonomousDriveForward();
 
         RobotMap.mecanumDriveRobotDrive.setSafetyEnabled(false);
         new zeroEncoders().start();
@@ -95,7 +95,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        //System.out.println("sonar =" + (RobotMap.sonarSensor.getVoltage() * 100));
+        System.out.println("sonar =" + (Robot.mecanumDrive.getSonarPosition()));
         //System.out.println("SAFE = " + RobotMap.SAFE);
         Scheduler.getInstance().run();
     }
