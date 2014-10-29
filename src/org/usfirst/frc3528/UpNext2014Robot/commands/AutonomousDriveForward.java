@@ -17,5 +17,6 @@ public class AutonomousDriveForward extends CommandGroup {
     public AutonomousDriveForward() {
         
         addSequential(new DriveByFeet(RobotMap.DRIVE_DISTANCE, RobotMap.DRIVE_TIMEOUT, RobotMap.DRIVE_POWER));
+        //addSequential(new DriveByFeetSonar(7.0, 100.0, .5));
     }
 }

@@ -177,6 +177,7 @@ public class RobotMap {
         //targetingCamera = AxisCamera.getInstance(CAMERA_ADDRESS);
         targetRingLight = new Relay(TARGETING_LIGHT_RELAY_CHANNEL);
         
+        sonarSensor = new AnalogChannel(5);
         
         try { 
             System.out.println("+++ Constructing CAN Bus +++");
@@ -238,7 +239,6 @@ public class RobotMap {
         pickerUpperTalon = new Talon(PWM_PICK_UP_TALON);
         //pickerUpperSpike1 = new Relay (3);
         
-        sonarSensor = new AnalogChannel(5);
         
         // XXX Make sure these are unique inputs...I believe they are
         /*
