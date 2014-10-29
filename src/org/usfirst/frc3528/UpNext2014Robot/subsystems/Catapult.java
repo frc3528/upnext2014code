@@ -35,7 +35,8 @@ public class Catapult extends Subsystem {
     
     //drivewinch command
     public boolean winchLimit() {
-        return winchLimit.get();
+        //return winchLimit.get(); //physical
+        return !winchLimit.get(); //hall effect 
 
     }
 

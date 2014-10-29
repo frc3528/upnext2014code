@@ -26,16 +26,17 @@ public class MecanumDrive extends Subsystem {
     
    public void driveWithJoystick(Joystick joystick) {
 
-        driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
+        //driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getZ(), 0);
+        driveWithJoystick(joystick.getX(), joystick.getY(), joystick.getThrottle(), 0); //Mad Catz Controller: only use with flightstick setup
         
+
     }
     
    //main driving method 
-   public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) {
-       //System.out.println("rotation : " + rotation); 
-       //robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
-       robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
-        //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
+   public void driveWithJoystick(double x, double y, double rotation, double gyroAngle) { 
+       robotDrive.mecanumDrive_Cartesian(Utils.rampSpeed(x, RobotMap.SENSITIVITY), Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(1 * rotation, RobotMap.SENSITIVITY), 0); //Flightstick code
+       //robotDrive.mecanumDrive_Cartesian(0, Utils.rampSpeed(y, RobotMap.SENSITIVITY), Utils.rampSpeed(-1 * rotation, RobotMap.SENSITIVITY), 0); //Xbox controller code
+       //robotDrive.mecanumDrive_Cartesian(x, y, rotation * -1, 0);
        
          /*
          try{
