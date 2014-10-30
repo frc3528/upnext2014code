@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         //System.out.println("sonar =" + (RobotMap.sonarSensor.getVoltage() * 100));
-        System.out.println("SAFE = " + RobotMap.SAFE);
+        //System.out.println("SAFE = " + RobotMap.SAFE);
         Scheduler.getInstance().run();
     }
     
