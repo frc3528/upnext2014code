@@ -59,7 +59,7 @@ public class DriveByFeet extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         angle = Robot.mecanumDrive.getAngle();
-        Robot.mecanumDrive.driveWithJoystick(0, -power, 0, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
+        Robot.mecanumDrive.driveWithJoystick(0, -power, 0.1, 0); //Math.abs(angle) > 5 ? angle/360 : 0 );
         
         try{
             System.out.println("FL = " + RobotMap.frontRightMotor.getPosition());
