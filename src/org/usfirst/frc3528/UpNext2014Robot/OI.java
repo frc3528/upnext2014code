@@ -33,7 +33,9 @@ public class OI {
     public JoystickButton lightOn;
     public JoystickButton lightOff;
     public JoystickButton testing;
-
+    public JoystickButton lowerArm;
+    public JoystickButton raiseArm;
+    
     
     public OI() {       
         
@@ -64,7 +66,13 @@ public class OI {
         pickUpBall = new JoystickButton(controlStick, RobotMap.CTRL_L_BUMPER);
         pickUpBall.whileHeld(new PickUpBallWithButton());
         
-       
+        raiseArm = new JoystickButton(controlStick, RobotMap.DRIVE_START_BUTTON);
+        raiseArm.whenPressed(new RaisePickerUpper());
+        
+        lowerArm = new JoystickButton(controlStick, RobotMap.DRIVE_BACK_BUTTON);
+        lowerArm.whenPressed(new LowerPickerUpper());
+        
+        
         testingStick = new Joystick(3);
         
         latch = new JoystickButton(testingStick, RobotMap.CTRL_A_BUTTON);

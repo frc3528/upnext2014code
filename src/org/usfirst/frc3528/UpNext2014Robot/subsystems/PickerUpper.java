@@ -99,7 +99,7 @@ public class PickerUpper extends Subsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new TeleopMovePickerUpper());
+        //setDefaultCommand(new TeleopMovePickerUpper());
     }
     
 }

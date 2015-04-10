@@ -19,7 +19,7 @@ public class TeleopMovePickerUpper extends Command {
     
     public TeleopMovePickerUpper() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.pickerUpper);
+        //requires(Robot.pickerUpper);
         
     }
 
@@ -30,8 +30,13 @@ public class TeleopMovePickerUpper extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-         double arm = Robot.oi.controlStick.getRawAxis(3);
-            if(arm > 0.5){
+         double armin = Robot.oi.controlStick.getRawAxis(3);
+         double armout =  Robot.oi.controlStick.getRawAxis(2);
+         
+         System.out.println("lefttrigger" + Robot.oi.controlStick.getRawAxis(2) + "------ righttrigger" + Robot.oi.controlStick.getRawAxis(3));
+         
+         
+            if(armout > 0.75){
                 Robot.pickerUpper.lower();
                 armOut = true;
         }
@@ -43,17 +48,17 @@ public class TeleopMovePickerUpper extends Command {
         }
                     
         
-            if(arm < -0.5){
+            if(armin > 0.75){
                 Robot.pickerUpper.raise();
                 armOut = false;
                 RobotMap.SAFE = false;
         }
-            if(arm == 0){
+            if(armin == 0 || armout == 0){
                 Robot.pickerUpper.stop();
                 Robot.pickerUpper.disableArm();
         }
     
-            
+         
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
